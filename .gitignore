@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Env files (real secrets — never commit)
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Backend runtime
+Backend/uploads/
+backend_dev.log
+
+# Large reference/demo assets — not part of the deployed app.
+# (Source photos/video already live in frontend/src/assets; this is the
+# original, unused copies plus a large screen-recording that exceeds
+# GitHub's 100MB file limit.)
+SmartSociety-Demo.mp4
+Img and Vid/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8fafc;
+}
+
+html.dark,
+html.dark body {
+  background: #0b1220;
+}
+
+html {
+  transition: background-color 0.2s ease;
+}
+
+/* Only html gets overflow-x:hidden (containing horizontal bleed from
+   decorative elements) — the CSS overflow-propagation spec moves this to
+   the viewport as long as body's own overflow is left untouched. Setting
+   it on both html and body instead makes body establish its own separate
+   scrolling box, which silently breaks `position: sticky` on descendants. */
+html {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Public Sans", Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  transition: color 0.2s ease;
+}
+
+html.dark body {
+  color: #e2e8f0;
+}
+
+a {
+  color: #0f766e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0b5c56;
+  text-decoration: underline;
+}
+
+html.dark a {
+  color: #5eead4;
+}
+
+html.dark a:hover {
+  color: #99f6e4;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: "Public Sans", Helvetica, Arial, sans-serif;
+}
+
+/* Consistent 3px focus ring per design system — never removed, only re-colored */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #7dd3fc;
+  border-color: #0ea5e9;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #EEF1F6; }
+  * { box-sizing: border-box; }
+  a { color: #1265C8; text-decoration: none; font-weight: 600; }
+  a:hover { color: #0B4FA0; text-decoration: underline; }
+  input, select, button, textarea { font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+
+<div style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1B2434; background: #EEF1F6; padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 48px; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; flex-direction: column; gap: 12px; max-width: 1280px;">
+    <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SMARTSOCIETY · SOCIETY ADMIN · COMPLAINT ROUTING</span>
+    <h1 style="margin: 0; font: 800 36px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Complaint Routing</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5B6779; max-width: 78ch;">A three-column routing board — moving a ticket is the core action, so the board leads and the table view is secondary. SLA breaches use the red accent; the staff workload rail keeps assignment even.</p>
+  </header>
+
+  <!-- ================== 1280 BOARD ================== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · DESKTOP-FIRST BOARD</span>
+      <span style="font-size: 14px; color: #5B6779;">5-stat row, pill tabs + category/priority filters, Kanban columns beside the staff workload rail.</span>
+    </div>
+
+    <div style="width: 1280px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 24px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 17px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · HELPDESK</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 320px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+          <span style="font-size: 14px; color: #8A94A3;">Search tickets, flats, staff…</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="position: relative; width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4.5 7.5a4.5 4.5 0 0 1 9 0v3l1.5 2.5H3l1.5-2.5v-3Z" stroke="#5B6779" stroke-width="1.4" /><circle cx="9" cy="15" r="1.4" fill="#5B6779" /></svg>
+            <span style="position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #FFFFFF;"></span>
+          </div>
+          <div style="width: 1px; height: 28px; background: #E2E6EC;"></div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 5px 8px 5px 5px; border-radius: 10px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">SK</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; line-height: 1;">S. Krishnan</span>
+              <span style="font-size: 11px; line-height: 1; color: #5B6779;">Society Admin</span>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 248px; flex-shrink: 0; background: #0A3D7A; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Administration</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#B9D3F2" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13" cy="6.5" r="1.8" stroke="#B9D3F2" stroke-width="1.3" /></svg>
+            Resident Management
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+              Billing Engine
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #B26A00; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">28</span>
+          </div>
+          <div style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; background: rgba(255,255,255,0.14); color: #FFFFFF; font-size: 14px; font-weight: 600;">
+            <span style="position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: #6ECFC9;"></span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#FFFFFF" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#FFFFFF" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#FFFFFF" stroke-width="1.5" /><path d="M6.5 8l5-3M6.5 10l5 3" stroke="#FFFFFF" stroke-width="1.3" /></svg>
+              Complaint Routing
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #C0392F; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">3</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Security Logs
+          </div>
+          <div style="margin-top: 18px; padding: 14px; border-radius: 10px; background: rgba(217,45,32,0.18); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #FFFFFF;">3 SLA breaches</span>
+            <span style="font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.78);">Oldest is 14h past its deadline.</span>
+            <button style="height: 36px; border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; background: transparent; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;" style-hover="background: rgba(255,255,255,0.12);">Show breached</button>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 22px 28px 26px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 800 30px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Complaint Routing</span>
+              <span style="font-size: 14px; color: #5B6779;">17 open tickets · 6 staff on roster · median resolution 19h</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 8px;">
+                <span style="height: 32px; padding: 0 12px; border-radius: 6px; background: #FFFFFF; color: #0B4FA0; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 7px; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">
+                  <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="4" height="13" rx="1" stroke="#0B4FA0" stroke-width="1.5" /><rect x="7.5" y="2.5" width="4" height="9" rx="1" stroke="#0B4FA0" stroke-width="1.5" /><rect x="12.5" y="2.5" width="3" height="6" rx="1" stroke="#0B4FA0" stroke-width="1.5" /></svg>
+                  Board
+                </span>
+                <span style="height: 32px; padding: 0 12px; border-radius: 6px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px; cursor: pointer;">
+                  <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><line x1="3" y1="5" x2="15" y2="5" stroke="#5B6779" stroke-width="1.6" /><line x1="3" y1="9" x2="15" y2="9" stroke="#5B6779" stroke-width="1.6" /><line x1="3" y1="13" x2="15" y2="13" stroke="#5B6779" stroke-width="1.6" /></svg>
+                  Table
+                </span>
+              </div>
+              <button style="height: 40px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Routing rules</button>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Open tickets</span>
+              <span style="font: 800 26px/1 Manrope, sans-serif; letter-spacing: -0.02em;">17</span>
+              <span style="font-size: 11px; color: #5B6779;">of 142 this month</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid #C0392F; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Unassigned</span>
+              <span style="font: 800 26px/1 Manrope, sans-serif; letter-spacing: -0.02em; color: #C0392F;">4</span>
+              <span style="font-size: 11px; color: #C0392F; font-weight: 600;">oldest waiting 9h</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">In-Progress</span>
+              <span style="font: 800 26px/1 Manrope, sans-serif; letter-spacing: -0.02em; color: #0B4FA0;">10</span>
+              <span style="font-size: 11px; color: #5B6779;">across 5 staff</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Resolved · Aug</span>
+              <span style="font: 800 26px/1 Manrope, sans-serif; letter-spacing: -0.02em; color: #0F8B54;">125</span>
+              <span style="font-size: 11px; color: #0F8B54; font-weight: 600;">92% within SLA</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid #C0392F; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">SLA breaches</span>
+              <span style="font: 800 26px/1 Manrope, sans-serif; letter-spacing: -0.02em; color: #C0392F;">3</span>
+              <span style="font-size: 11px; color: #C0392F; font-weight: 600;">escalation due today</span>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 7px; cursor: pointer;">All <span style="opacity: 0.75;">17</span></span>
+              <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E6EC; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px; cursor: pointer;" style-hover="border-color: #C3CAD4;">Unassigned <span style="color: #C0392F; font-weight: 700;">4</span></span>
+              <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E6EC; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px; cursor: pointer;" style-hover="border-color: #C3CAD4;">In-Progress <span style="color: #8A94A3;">10</span></span>
+              <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E6EC; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 7px; cursor: pointer;" style-hover="border-color: #C3CAD4;">Resolved <span style="color: #8A94A3;">125</span></span>
+              <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FCEAE8; border: 1px solid #F0C4C0; color: #C0392F; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 7px; cursor: pointer;">SLA Breached <span>3</span></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 150px; height: 38px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; cursor: pointer;">
+                <span style="font-size: 13px; color: #2E3A4D;">All categories</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 140px; height: 38px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; cursor: pointer;">
+                <span style="font-size: 13px; color: #2E3A4D;">All priorities</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: 18px; align-items: start;">
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;">
+              <div style="background: #EFF2F7; border: 1px solid #E2E6EC; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 4px;">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #C0392F;"></span>
+                    <span style="font: 700 13px/1 Manrope, sans-serif;">Unassigned</span>
+                  </span>
+                  <span style="min-width: 22px; height: 22px; padding: 0 7px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font: 700 11px/22px 'Public Sans', sans-serif; text-align: center;">4</span>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #F0C4C0; border-left: 3px solid #C0392F; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4474</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 10px; font-weight: 700;">Urgent</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Lift C stuck between floors 8–9</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Elevator</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Kavya Rao · C-1102</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 7px; padding: 7px 9px; border-radius: 8px; background: #FCEAE8;">
+                    <svg width="13" height="13" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="#C0392F" stroke-width="1.5" /><path d="M9 5.5V9l2.5 1.5" stroke="#C0392F" stroke-width="1.5" /></svg>
+                    <span style="font-size: 11px; font-weight: 700; color: #8E2119;">SLA breached · 14h over</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="flex: 1; height: 34px; border-radius: 7px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;" style-hover="background: #0B4FA0;">
+                      Assign
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+                    </span>
+                    <span style="width: 34px; height: 34px; border: 1px solid #E2E6EC; border-radius: 7px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4472</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 10px; font-weight: 700;">Medium</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Balcony light flickering after 9 PM</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Electrical</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Aarav Mehta · B-204</span>
+                  </div>
+                  <span style="font-size: 11px; color: #5B6779;">SLA target in 22h · raised today 08:14</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="flex: 1; height: 34px; border-radius: 7px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;" style-hover="background: #0B4FA0;">
+                      Assign
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+                    </span>
+                    <span style="width: 34px; height: 34px; border: 1px solid #E2E6EC; border-radius: 7px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #1265C8; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4471</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 10px; font-weight: 700;">High</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Corridor tap leaking, floor 4</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Plumbing</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Common area · A-04</span>
+                  </div>
+                  <div style="border: 1px solid #E2E6EC; border-radius: 8px; padding: 6px; display: flex; flex-direction: column; gap: 2px;">
+                    <span style="font: 600 9px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #8A94A3; padding: 4px 6px;">Assign to</span>
+                    <span style="display: flex; align-items: center; gap: 8px; padding: 7px 6px; border-radius: 6px; background: #F2F7FD; cursor: pointer;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">SP</span>
+                      <span style="flex: 1; min-width: 0; font-size: 12px; font-weight: 600;">Suresh P.</span>
+                      <span style="font-size: 10px; color: #0F8B54; font-weight: 700;">2 open</span>
+                    </span>
+                    <span style="display: flex; align-items: center; gap: 8px; padding: 7px 6px; border-radius: 6px; cursor: pointer;" style-hover="background: #F7F9FC;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">VK</span>
+                      <span style="flex: 1; min-width: 0; font-size: 12px;">Vinod K.</span>
+                      <span style="font-size: 10px; color: #B26A00; font-weight: 700;">5 open</span>
+                    </span>
+                    <span style="display: flex; align-items: center; gap: 8px; padding: 7px 6px; border-radius: 6px; cursor: pointer;" style-hover="background: #F7F9FC;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">AJ</span>
+                      <span style="flex: 1; min-width: 0; font-size: 12px;">Anil J. · vendor</span>
+                      <span style="font-size: 10px; color: #0F8B54; font-weight: 700;">1 open</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4470</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 10px; font-weight: 700;">Low</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Pest control follow-up for kitchen</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Pest Control</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Rohit D. · B-1104</span>
+                  </div>
+                  <span style="font-size: 11px; color: #5B6779;">SLA target in 3d · vendor slot needed</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="flex: 1; height: 34px; border-radius: 7px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;">
+                      Assign
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+                    </span>
+                    <span style="width: 34px; height: 34px; border: 1px solid #E2E6EC; border-radius: 7px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background: #EFF2F7; border: 1px solid #E2E6EC; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 4px;">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #1265C8;"></span>
+                    <span style="font: 700 13px/1 Manrope, sans-serif;">In-Progress</span>
+                  </span>
+                  <span style="min-width: 22px; height: 22px; padding: 0 7px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font: 700 11px/22px 'Public Sans', sans-serif; text-align: center;">10</span>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4468</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 10px; font-weight: 700;">High</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Kitchen leak under the sink</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Plumbing</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Aarav Mehta · B-204</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">SP</span>
+                      <span style="font-size: 11px; font-weight: 600;">Suresh P.</span>
+                    </span>
+                    <span style="font-size: 11px; font-weight: 700; color: #B26A00;">SLA 6h left</span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #F0C4C0; border-left: 3px solid #C0392F; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4465</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 10px; font-weight: 700;">Urgent</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Seepage on bedroom ceiling</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Structural</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Neha Bhatt · A-0703</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 7px; padding: 7px 9px; border-radius: 8px; background: #FCEAE8;">
+                    <svg width="13" height="13" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="#C0392F" stroke-width="1.5" /><path d="M9 5.5V9l2.5 1.5" stroke="#C0392F" stroke-width="1.5" /></svg>
+                    <span style="font-size: 11px; font-weight: 700; color: #8E2119;">SLA breached · 5h over</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">VK</span>
+                      <span style="font-size: 11px; font-weight: 600;">Vinod K.</span>
+                    </span>
+                    <a href="#reassign" style="font-size: 11px;">Reassign</a>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4463</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 10px; font-weight: 700;">Medium</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Basement ramp light out</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Electrical</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Common area · Tower C</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">VK</span>
+                      <span style="font-size: 11px; font-weight: 600;">Vinod K.</span>
+                    </span>
+                    <span style="font-size: 11px; color: #5B6779;">SLA 1d 4h left</span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4459</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 10px; font-weight: 700;">Low</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Gym treadmill belt slipping</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Other</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Amenity · clubhouse</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">AJ</span>
+                      <span style="font-size: 11px; font-weight: 600;">Anil J.</span>
+                    </span>
+                    <span style="font-size: 11px; color: #5B6779;">SLA 4d left</span>
+                  </div>
+                </div>
+                <span style="font-size: 11px; color: #8A94A3; text-align: center; padding: 2px 0;">+ 6 more in progress</span>
+              </div>
+
+              <div style="background: #EFF2F7; border: 1px solid #E2E6EC; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 4px;">
+                  <span style="display: flex; align-items: center; gap: 8px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #0F8B54;"></span>
+                    <span style="font: 700 13px/1 Manrope, sans-serif;">Resolved</span>
+                  </span>
+                  <span style="min-width: 22px; height: 22px; padding: 0 7px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font: 700 11px/22px 'Public Sans', sans-serif; text-align: center;">125</span>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4460</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 10px; font-weight: 700;">Within SLA</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Corridor light replaced, A-04</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Electrical</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Imran S. · C-1102</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">VK</span>
+                      <span style="font-size: 11px; font-weight: 600;">Vinod K.</span>
+                    </span>
+                    <span style="font-size: 11px; color: #0F8B54; font-weight: 600;">Closed in 11h</span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4451</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 10px; font-weight: 700;">Late close</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Lift B door sensor replaced</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Elevator</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Tower B · common</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">OT</span>
+                      <span style="font-size: 11px; font-weight: 600;">OTIS vendor</span>
+                    </span>
+                    <span style="font-size: 11px; color: #B26A00; font-weight: 600;">Closed in 3d 4h</span>
+                  </div>
+                </div>
+
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 9px; cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4402</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 10px; font-weight: 700;">Within SLA</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.4;">Quarterly pest treatment done</span>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Pest Control</span>
+                    <span style="font-size: 11px; color: #8A94A3;">Aarav M. · B-204</span>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 3px; border-top: 1px solid #F1F3F7;">
+                    <span style="display: flex; align-items: center; gap: 7px;">
+                      <span style="width: 24px; height: 24px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 9px/1 Manrope, sans-serif;">AJ</span>
+                      <span style="font-size: 11px; font-weight: 600;">Anil J.</span>
+                    </span>
+                    <span style="font-size: 11px; color: #0F8B54; font-weight: 600;">Rated 5 ★</span>
+                  </div>
+                </div>
+                <span style="font-size: 11px; color: #8A94A3; text-align: center; padding: 2px 0;">Showing 3 of 125 · <a href="#all">view all</a></span>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                  <span style="font: 600 15px/1.3 Manrope, sans-serif;">Staff workload</span>
+                  <span style="font-size: 12px; color: #8A94A3;">Open tickets per person</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 9px;">
+                      <span style="width: 26px; height: 26px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">SP</span>
+                      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px;">
+                        <span style="font-size: 13px; font-weight: 600;">Suresh Patil</span>
+                        <span style="font-size: 10px; color: #8A94A3;">Plumbing</span>
+                      </span>
+                      <span style="font: 700 13px/1 Manrope, sans-serif; color: #0F8B54;">2</span>
+                    </div>
+                    <div style="height: 5px; border-radius: 3px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 25%; height: 100%; background: #0F8B54;"></span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 9px;">
+                      <span style="width: 26px; height: 26px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">VK</span>
+                      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px;">
+                        <span style="font-size: 13px; font-weight: 600;">Vinod Kamble</span>
+                        <span style="font-size: 10px; color: #8A94A3;">Electrical</span>
+                      </span>
+                      <span style="font: 700 13px/1 Manrope, sans-serif; color: #B26A00;">5</span>
+                    </div>
+                    <div style="height: 5px; border-radius: 3px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 63%; height: 100%; background: #B26A00;"></span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 9px;">
+                      <span style="width: 26px; height: 26px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">AJ</span>
+                      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px;">
+                        <span style="font-size: 13px; font-weight: 600;">Anil Jadhav</span>
+                        <span style="font-size: 10px; color: #8A94A3;">General · vendor</span>
+                      </span>
+                      <span style="font: 700 13px/1 Manrope, sans-serif; color: #0F8B54;">1</span>
+                    </div>
+                    <div style="height: 5px; border-radius: 3px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 13%; height: 100%; background: #0F8B54;"></span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 9px;">
+                      <span style="width: 26px; height: 26px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">MG</span>
+                      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px;">
+                        <span style="font-size: 13px; font-weight: 600;">Manoj Gupta</span>
+                        <span style="font-size: 10px; color: #8A94A3;">Carpentry</span>
+                      </span>
+                      <span style="font: 700 13px/1 Manrope, sans-serif; color: #C0392F;">8</span>
+                    </div>
+                    <div style="height: 5px; border-radius: 3px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 100%; height: 100%; background: #C0392F;"></span></div>
+                    <span style="font-size: 10px; color: #C0392F; font-weight: 600;">At capacity — avoid new assignments</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; align-items: center; gap: 9px;">
+                      <span style="width: 26px; height: 26px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">OT</span>
+                      <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px;">
+                        <span style="font-size: 13px; font-weight: 600;">OTIS</span>
+                        <span style="font-size: 10px; color: #8A94A3;">Elevator AMC</span>
+                      </span>
+                      <span style="font: 700 13px/1 Manrope, sans-serif; color: #5B6779;">0</span>
+                    </div>
+                    <div style="height: 5px; border-radius: 3px; background: #F1F3F7; overflow: hidden;"></div>
+                  </div>
+                </div>
+                <button style="height: 38px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Manage staff</button>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                <span style="font: 600 15px/1.3 Manrope, sans-serif;">SLA policy</span>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;"><span style="font-size: 12px; color: #5B6779;">Urgent</span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; font-weight: 600;">4 hours</span></div>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;"><span style="font-size: 12px; color: #5B6779;">High</span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; font-weight: 600;">24 hours</span></div>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;"><span style="font-size: 12px; color: #5B6779;">Medium</span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; font-weight: 600;">48 hours</span></div>
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;"><span style="font-size: 12px; color: #5B6779;">Low</span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; font-weight: 600;">5 days</span></div>
+                <span style="font-size: 11px; line-height: 1.5; color: #8A94A3; padding-top: 4px; border-top: 1px solid #F1F3F7;">Breaches page the committee automatically at +2h.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 14px 28px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; gap: 24px; align-items: center;">
+          <span style="font-size: 13px; color: #8A94A3;">© 2026 Green Valley RWA</span>
+          <a href="#directory" style="font-size: 13px;">Emergency Contact Directory</a>
+          <a href="#guidelines" style="font-size: 13px;">Society Guidelines</a>
+        </div>
+        <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px;" style-hover="background: #A31A12;">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF;"></span>Emergency Siren
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== TICKET DETAIL PANEL ================== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">DESKTOP · TICKET DETAIL PANEL</span>
+      <span style="font-size: 14px; color: #5B6779;">480px slide-in: description, photos, assignment control, stepper with timestamps, internal notes thread (staff-only).</span>
+    </div>
+    <div style="width: 1280px; padding: 32px; border-radius: 16px; background: rgba(14,20,32,0.45); display: flex; justify-content: flex-end;">
+      <div style="width: 480px; background: #FFFFFF; border-radius: 14px; overflow: hidden; box-shadow: -18px 0 44px rgba(16,28,48,0.28); display: flex; flex-direction: column;">
+        <div style="padding: 20px 22px; border-bottom: 1px solid #E2E6EC; display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4465</span>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 10px; font-weight: 700;">Urgent</span>
+              <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 10px; font-weight: 700;">Structural</span>
+            </div>
+            <span style="font: 700 20px/1.3 Manrope, sans-serif; letter-spacing: -0.015em;">Seepage on bedroom ceiling</span>
+            <span style="font-size: 12px; color: #5B6779;">Neha Bhatt · A-0703 · raised 11 Aug, 19:40</span>
+          </div>
+          <span style="width: 32px; height: 32px; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 32px; text-align: center; cursor: pointer; flex-shrink: 0;">✕</span>
+        </div>
+        <div style="padding: 18px 22px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 10px; background: #FCEAE8; border-left: 3px solid #C0392F;">
+            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" style="flex-shrink: 0;"><circle cx="9" cy="9" r="6.5" stroke="#C0392F" stroke-width="1.5" /><path d="M9 5.5V9l2.5 1.5" stroke="#C0392F" stroke-width="1.5" /></svg>
+            <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 13px; font-weight: 700; color: #8E2119;">SLA breached · 5h over</span>
+              <span style="font-size: 11px; color: #8E2119;">Deadline was 12 Aug, 09:40 · committee paged</span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Resident description</span>
+            <span style="font-size: 14px; line-height: 1.6; color: #2E3A4D;">Damp patch on the bedroom ceiling has spread since the rain on Sunday and paint is peeling near the corner. The flat above says their bathroom floor feels wet too.</span>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding-top: 2px;">
+              <div style="height: 82px; border-radius: 8px; border: 1px solid #E2E6EC; background: repeating-linear-gradient(135deg, #FFFFFF 0 7px, #F1F3F7 7px 14px); display: flex; align-items: flex-end; padding: 6px;"><span style="font: 400 8px/1.3 'IBM Plex Mono', monospace; color: #8A94A3;">CEILING-1</span></div>
+              <div style="height: 82px; border-radius: 8px; border: 1px solid #E2E6EC; background: repeating-linear-gradient(135deg, #FFFFFF 0 7px, #F1F3F7 7px 14px); display: flex; align-items: flex-end; padding: 6px;"><span style="font: 400 8px/1.3 'IBM Plex Mono', monospace; color: #8A94A3;">CORNER</span></div>
+              <div style="height: 82px; border-radius: 8px; border: 1px solid #E2E6EC; background: repeating-linear-gradient(135deg, #FFFFFF 0 7px, #F1F3F7 7px 14px); display: flex; align-items: flex-end; padding: 6px;"><span style="font: 400 8px/1.3 'IBM Plex Mono', monospace; color: #8A94A3;">ABOVE-BATH</span></div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Assigned to</span>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 52px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 10px; cursor: pointer;" style-hover="border-color: #1265C8;">
+              <span style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 32px; height: 32px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif;">VK</span>
+                <span style="display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-size: 14px; font-weight: 600;">Vinod Kamble</span>
+                  <span style="font-size: 11px; color: #B26A00; font-weight: 600;">5 open tickets · Electrical</span>
+                </span>
+              </span>
+              <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 12px; color: #8A94A3;">Suggested:</span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 12px; font-weight: 600; cursor: pointer;">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 8px/1 Manrope, sans-serif;">SP</span>
+                Suresh P. · 2 open
+              </span>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Status timeline</span>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; gap: 12px;">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 22px; flex-shrink: 0;">
+                  <span style="width: 22px; height: 22px; border-radius: 50%; background: #0F8B54; display: flex; align-items: center; justify-content: center;">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" /></svg>
+                  </span>
+                  <span style="flex: 1; width: 2px; background: #0F8B54; min-height: 32px;"></span>
+                </div>
+                <div style="padding-bottom: 14px; display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-size: 13px; font-weight: 700;">Pending · logged</span>
+                  <span style="font: 500 10px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">11 AUG 2026 · 19:40</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 22px; flex-shrink: 0;">
+                  <span style="width: 22px; height: 22px; border-radius: 50%; background: #1265C8; box-shadow: 0 0 0 4px #E4EEFA;"></span>
+                  <span style="flex: 1; width: 2px; background: #E2E6EC; min-height: 32px;"></span>
+                </div>
+                <div style="padding-bottom: 14px; display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-size: 13px; font-weight: 700;">In-Progress · assigned to Vinod K.</span>
+                  <span style="font: 500 10px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">12 AUG 2026 · 08:05</span>
+                  <span style="font-size: 12px; color: #5B6779;">Site inspected; waterproofing vendor quote requested.</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 22px; flex-shrink: 0;">
+                  <span style="width: 22px; height: 22px; border-radius: 50%; border: 2px solid #E2E6EC; background: #FFFFFF;"></span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-size: 13px; font-weight: 600; color: #8A94A3;">Resolved</span>
+                  <span style="font-size: 12px; color: #C0392F; font-weight: 600;">Deadline passed 12 Aug, 09:40</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 4px; border-top: 1px solid #F1F3F7;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Internal notes</span>
+              <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 10px; font-weight: 700;">Not visible to resident</span>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <span style="width: 30px; height: 30px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">VK</span>
+              <div style="flex: 1; min-width: 0; padding: 11px; border-radius: 10px; background: #F7F9FC; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; align-items: baseline; gap: 8px;">
+                  <span style="font-size: 12px; font-weight: 700;">Vinod K.</span>
+                  <span style="font-size: 10px; color: #8A94A3;">12 Aug, 10:12</span>
+                </div>
+                <span style="font-size: 13px; line-height: 1.5; color: #2E3A4D;">Source is the bathroom waterproofing in A-0803 above, not this flat. Needs the external vendor — beyond in-house scope.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <span style="width: 30px; height: 30px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">SK</span>
+              <div style="flex: 1; min-width: 0; padding: 11px; border-radius: 10px; background: #E4EEFA; display: flex; flex-direction: column; gap: 4px;">
+                <div style="display: flex; align-items: baseline; gap: 8px;">
+                  <span style="font-size: 12px; font-weight: 700; color: #0A3D7A;">You</span>
+                  <span style="font-size: 10px; color: #0B4FA0;">12 Aug, 11:30</span>
+                </div>
+                <span style="font-size: 13px; line-height: 1.5; color: #0A3D7A;">Raise a linked ticket for A-0803 and get two quotes today. Inform both residents about the delay.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <input placeholder="Add an internal note…" style="flex: 1; min-width: 0; height: 42px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 13px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+              <button style="height: 42px; padding: 0 16px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer; flex-shrink: 0;">Post</button>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: auto; padding: 14px 22px; border-top: 1px solid #E2E6EC; background: #F7F9FC; display: flex; gap: 10px;">
+          <button style="flex: 1; height: 44px; border: 0; border-radius: 8px; background: #0F8B54; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer;" style-hover="background: #0A6640;">Mark resolved</button>
+          <button style="flex: 1; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Reassign</button>
+          <button style="height: 44px; padding: 0 14px; border: 1px solid #F0C4C0; border-radius: 8px; background: #FFFFFF; color: #C0392F; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="background: #FCEAE8;">Escalate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== 768 TABLET ================== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">768 · TABLET FALLBACK</span>
+      <span style="font-size: 14px; color: #5B6779;">Icon rail, 2-up stats, one swipeable Kanban column at a time with a column pager; detail opens full-screen.</span>
+    </div>
+
+    <div style="width: 768px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 18px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 14px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 16px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 7px; border-radius: 999px; background: #F1F3F7;">HELPDESK</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 9px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">SK</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 13px; font-weight: 600; line-height: 1;">S. Krishnan</span>
+            <span style="font-size: 10px; line-height: 1; color: #5B6779;">Society Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 72px; flex-shrink: 0; background: #0A3D7A; padding: 14px 0; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#B9D3F2" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+          <div style="position: relative; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            <span style="position: absolute; top: 7px; right: 7px; width: 8px; height: 8px; border-radius: 50%; background: #B26A00; border: 2px solid #0A3D7A;"></span>
+          </div>
+          <div style="position: relative; width: 44px; height: 44px; border-radius: 8px; background: rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#FFFFFF" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#FFFFFF" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+            <span style="position: absolute; top: 7px; right: 7px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #0A3D7A;"></span>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font: 800 24px/1.15 Manrope, sans-serif; letter-spacing: -0.02em;">Complaint Routing</span>
+            <span style="font-size: 13px; color: #5B6779;">17 open · 4 unassigned · 3 SLA breaches</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Open tickets</span>
+              <span style="font: 800 24px/1 Manrope, sans-serif;">17</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid #C0392F; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Unassigned</span>
+              <span style="font: 800 24px/1 Manrope, sans-serif; color: #C0392F;">4</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">In-Progress</span>
+              <span style="font: 800 24px/1 Manrope, sans-serif; color: #0B4FA0;">10</span>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid #C0392F; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">SLA breaches</span>
+              <span style="font: 800 24px/1 Manrope, sans-serif; color: #C0392F;">3</span>
+            </div>
+            <div style="grid-column: 1 / -1; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Resolved this month</span>
+                <span style="font-size: 12px; color: #0F8B54; font-weight: 600;">92% within SLA · median 19h</span>
+              </div>
+              <span style="font: 800 24px/1 Manrope, sans-serif; color: #0F8B54;">125</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; overflow: hidden;">
+            <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; flex-shrink: 0; cursor: pointer;">All <span style="opacity: 0.75;">17</span></span>
+            <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E6EC; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; flex-shrink: 0; cursor: pointer;">Unassigned <span style="color: #C0392F; font-weight: 700;">4</span></span>
+            <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E6EC; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; flex-shrink: 0; cursor: pointer;">In-Progress</span>
+            <span style="height: 34px; padding: 0 14px; border-radius: 999px; background: #FCEAE8; border: 1px solid #F0C4C0; color: #C0392F; font-size: 13px; font-weight: 700; display: flex; align-items: center; flex-shrink: 0; cursor: pointer;">SLA…</span>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px;">
+            <span style="width: 34px; height: 34px; border: 1px solid #E2E6EC; border-radius: 7px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M9.5 3.5L5 8l4.5 4.5" stroke="#8A94A3" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #C0392F;"></span>
+              <span style="font: 700 15px/1 Manrope, sans-serif;">Unassigned</span>
+              <span style="min-width: 22px; height: 22px; padding: 0 7px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font: 700 11px/22px 'Public Sans', sans-serif; text-align: center;">4</span>
+            </div>
+            <span style="width: 34px; height: 34px; border: 1px solid #C3CAD4; border-radius: 7px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6.5 3.5L11 8l-4.5 4.5" stroke="#2E3A4D" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <span style="width: 22px; height: 4px; border-radius: 2px; background: #1265C8;"></span>
+            <span style="width: 8px; height: 4px; border-radius: 2px; background: #C3CAD4;"></span>
+            <span style="width: 8px; height: 4px; border-radius: 2px; background: #C3CAD4;"></span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="background: #FFFFFF; border: 1px solid #F0C4C0; border-left: 3px solid #C0392F; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4474</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 11px; font-weight: 700;">Urgent</span>
+                  <span style="display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 11px; font-weight: 700;">Elevator</span>
+                </div>
+              </div>
+              <span style="font-size: 15px; font-weight: 600; line-height: 1.4;">Lift C stuck between floors 8–9</span>
+              <span style="font-size: 12px; color: #8A94A3;">Kavya Rao · C-1102 · raised 12 Aug, 22:10</span>
+              <div style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; background: #FCEAE8;">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="#C0392F" stroke-width="1.5" /><path d="M9 5.5V9l2.5 1.5" stroke="#C0392F" stroke-width="1.5" /></svg>
+                <span style="font-size: 12px; font-weight: 700; color: #8E2119;">SLA breached · 14h over</span>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <button style="flex: 1; height: 44px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer;">Assign staff</button>
+                <button style="height: 44px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;">Open</button>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4472</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;">Medium</span>
+                  <span style="display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 11px; font-weight: 700;">Electrical</span>
+                </div>
+              </div>
+              <span style="font-size: 15px; font-weight: 600; line-height: 1.4;">Balcony light flickering after 9 PM</span>
+              <span style="font-size: 12px; color: #8A94A3;">Aarav Mehta · B-204 · SLA target in 22h</span>
+              <div style="display: flex; gap: 10px;">
+                <button style="flex: 1; height: 44px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer;">Assign staff</button>
+                <button style="height: 44px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;">Open</button>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TCK-4471</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;">High</span>
+                  <span style="display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 999px; background: #F1F3F7; color: #2E3A4D; font-size: 11px; font-weight: 700;">Plumbing</span>
+                </div>
+              </div>
+              <span style="font-size: 15px; font-weight: 600; line-height: 1.4;">Corridor tap leaking, floor 4</span>
+              <span style="font-size: 12px; color: #8A94A3;">Common area · A-04 · SLA target in 16h</span>
+              <div style="display: flex; gap: 10px;">
+                <button style="flex: 1; height: 44px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer;">Assign staff</button>
+                <button style="height: 44px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;">Open</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+            <span style="font: 600 15px/1.3 Manrope, sans-serif;">Staff workload</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">SP</span>
+                <span style="flex: 1; min-width: 0; font-size: 13px;">Suresh P.</span>
+                <span style="font: 700 13px/1 Manrope, sans-serif; color: #0F8B54;">2</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">VK</span>
+                <span style="flex: 1; min-width: 0; font-size: 13px;">Vinod K.</span>
+                <span style="font: 700 13px/1 Manrope, sans-serif; color: #B26A00;">5</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">AJ</span>
+                <span style="flex: 1; min-width: 0; font-size: 13px;">Anil J.</span>
+                <span style="font: 700 13px/1 Manrope, sans-serif; color: #0F8B54;">1</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; flex-shrink: 0;">MG</span>
+                <span style="flex: 1; min-width: 0; font-size: 13px;">Manoj G.</span>
+                <span style="font: 700 13px/1 Manrope, sans-serif; color: #C0392F;">8</span>
+              </div>
+            </div>
+            <span style="font-size: 11px; color: #C0392F; font-weight: 600;">Manoj G. is at capacity — route elsewhere.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 12px 20px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="#directory" style="font-size: 13px;">Emergency Contacts</a>
+          <a href="#guidelines" style="font-size: 13px;">Guidelines</a>
+        </div>
+        <button style="height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;">Emergency Siren</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}"></script>
+</body>
+</html>

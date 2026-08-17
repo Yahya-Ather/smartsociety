@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #F7F9FC; }
+  * { box-sizing: border-box; }
+  a { color: #1265C8; text-decoration: none; }
+  a:hover { color: #0B4FA0; text-decoration: underline; }
+  input, select, textarea, button { font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+  @keyframes ss-siren { 0%, 100% { box-shadow: 0 0 0 0 rgba(217,45,32,0.45); } 70% { box-shadow: 0 0 0 12px rgba(217,45,32,0); } }
+</style>
+</helmet>
+
+<div style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1B2434; background: #F7F9FC; padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 72px; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; border-bottom: 1px solid #E2E6EC; padding-bottom: 32px; max-width: 1440px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 17px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+        <span style="font: 700 20px/1 Manrope, sans-serif; letter-spacing: -0.01em;">SmartSociety</span>
+      </div>
+      <h1 style="margin: 0; font: 800 44px/1.05 Manrope, sans-serif; letter-spacing: -0.025em; max-width: 18ch;">Design System &amp; UI Shell</h1>
+      <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #5B6779; max-width: 62ch;">Foundations, core components and the role-aware application shell for the SmartSociety housing society management platform. Resident, Society Admin and Security Guard share one shell; navigation and permissions differ.</p>
+    </div>
+    <div style="display: grid; gap: 10px; font: 500 12px/1.4 'IBM Plex Mono', monospace; color: #5B6779; text-align: right; flex-shrink: 0;">
+      <div>VERSION 1.0</div>
+      <div>3 ROLES · 4 SHELL REGIONS</div>
+      <div>375 / 768 / 1280 BREAKPOINTS</div>
+    </div>
+  </header>
+
+  <!-- ============ 01 COLOR ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px; max-width: 1440px;">
+    <div style="display: flex; align-items: baseline; gap: 16px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">01</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Color</h2>
+      <span style="font-size: 14px; color: #5B6779;">Blue carries the brand and interaction; teal marks gate &amp; security surfaces; status colors are reserved and never decorative.</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h3 style="margin: 0; font: 700 16px/1 Manrope, sans-serif;">Primary — Society Blue</h3>
+          <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">500 = default</span>
+        </div>
+        <div style="display: grid; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #F2F7FD; border: 1px solid #E2E6EC;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">50</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#F2F7FD</span><span style="font-size: 12px; color: #8A94A3;">page tint</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #E4EEFA;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">100</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#E4EEFA</span><span style="font-size: 12px; color: #8A94A3;">nav active</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #B9D3F2;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">200</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#B9D3F2</span><span style="font-size: 12px; color: #8A94A3;">focus ring</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #4A8ADB;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">400</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#4A8ADB</span><span style="font-size: 12px; color: #8A94A3;">charts</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #1265C8;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">500</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#1265C8</span><span style="font-size: 12px; color: #8A94A3;">buttons, links</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #0B4FA0;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">600</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#0B4FA0</span><span style="font-size: 12px; color: #8A94A3;">hover</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #0A3D7A;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">700</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#0A3D7A</span><span style="font-size: 12px; color: #8A94A3;">sidebar bg</span></div>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h3 style="margin: 0; font: 700 16px/1 Manrope, sans-serif;">Secondary — Gate Teal</h3>
+          <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">security &amp; passes</span>
+        </div>
+        <div style="display: grid; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #DCF3F1;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">100</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#DCF3F1</span><span style="font-size: 12px; color: #8A94A3;">QR pass card</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #6ECFC9;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">300</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#6ECFC9</span><span style="font-size: 12px; color: #8A94A3;">illustrative</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #0E9A94;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">500</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#0E9A94</span><span style="font-size: 12px; color: #8A94A3;">guard accent</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #0A7A76;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">600</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#0A7A76</span><span style="font-size: 12px; color: #8A94A3;">hover</span></div>
+        </div>
+        <div style="border-top: 1px dashed #E2E6EC; padding-top: 14px; font-size: 13px; line-height: 1.5; color: #5B6779;">Teal is a <strong style="color: #1B2434;">module accent</strong>, not a second brand color. Use it only in Visitor Entry, Pass Verification and Gate Log surfaces.</div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h3 style="margin: 0; font: 700 16px/1 Manrope, sans-serif;">Neutral — Slate</h3>
+          <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">cool-toned</span>
+        </div>
+        <div style="display: grid; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #FFFFFF; border: 1px solid #E2E6EC;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">White</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#FFFFFF</span><span style="font-size: 12px; color: #8A94A3;">cards</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #F7F9FC; border: 1px solid #E2E6EC;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">50</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#F7F9FC</span><span style="font-size: 12px; color: #8A94A3;">app canvas</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #F1F3F7;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">100</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#F1F3F7</span><span style="font-size: 12px; color: #8A94A3;">table head</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #E2E6EC;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">200</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#E2E6EC</span><span style="font-size: 12px; color: #8A94A3;">borders</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #8A94A3;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">400</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#8A94A3</span><span style="font-size: 12px; color: #8A94A3;">placeholder</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #5B6779;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">500</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#5B6779</span><span style="font-size: 12px; color: #8A94A3;">secondary text</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #1B2434;"></span><span style="font-size: 13px; font-weight: 600; width: 44px;">800</span><span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">#1B2434</span><span style="font-size: 12px; color: #8A94A3;">body text</span></div>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h3 style="margin: 0; font: 700 16px/1 Manrope, sans-serif;">Status</h3>
+          <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">fg / surface</span>
+        </div>
+        <div style="display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #E6F5EC; border: 1px solid #0F8B54; display: flex; align-items: center; justify-content: center;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #0F8B54;"></span></span><span style="font-size: 13px; font-weight: 600; width: 76px;">Success</span><span style="font: 400 12px/1.5 'IBM Plex Mono', monospace; color: #5B6779;">#0F8B54<br />#E6F5EC</span><span style="font-size: 12px; color: #8A94A3;">Resolved · Paid</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #FDF2DE; border: 1px solid #B26A00; display: flex; align-items: center; justify-content: center;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #B26A00;"></span></span><span style="font-size: 13px; font-weight: 600; width: 76px;">Warning</span><span style="font: 400 12px/1.5 'IBM Plex Mono', monospace; color: #5B6779;">#B26A00<br />#FDF2DE</span><span style="font-size: 12px; color: #8A94A3;">Pending · Due soon</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #FCEAE8; border: 1px solid #C0392F; display: flex; align-items: center; justify-content: center;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #C0392F;"></span></span><span style="font-size: 13px; font-weight: 600; width: 76px;">Danger</span><span style="font: 400 12px/1.5 'IBM Plex Mono', monospace; color: #5B6779;">#C0392F<br />#FCEAE8</span><span style="font-size: 12px; color: #8A94A3;">Overdue · Rejected</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #1265C8;"></span></span><span style="font-size: 13px; font-weight: 600; width: 76px;">Info</span><span style="font: 400 12px/1.5 'IBM Plex Mono', monospace; color: #5B6779;">#1265C8<br />#E4EEFA</span><span style="font-size: 12px; color: #8A94A3;">In-Progress</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><span style="width: 48px; height: 32px; border-radius: 6px; background: #D92D20;"></span><span style="font-size: 13px; font-weight: 600; width: 76px;">Emergency</span><span style="font: 400 12px/1.5 'IBM Plex Mono', monospace; color: #5B6779;">#D92D20<br />#A31A12</span><span style="font-size: 12px; color: #8A94A3;">siren only</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 TYPE + SPACE ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px; max-width: 1440px;">
+    <div style="display: flex; align-items: baseline; gap: 16px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">02</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Typography, space &amp; elevation</h2>
+      <span style="font-size: 14px; color: #5B6779;">Manrope for headings and numerals, Public Sans for UI text, IBM Plex Mono for codes, amounts in tables and flat numbers.</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; align-items: start;">
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 22px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 800 40px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Display / 40</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Manrope 800 · 40/44 · -0.025em<br />page titles, KPI numbers</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 700 32px/1.15 Manrope, sans-serif; letter-spacing: -0.02em;">Heading 1 / 32</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Manrope 700 · 32/38<br />screen headers</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 700 24px/1.2 Manrope, sans-serif; letter-spacing: -0.015em;">Heading 2 / 24</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Manrope 700 · 24/30<br />section titles</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 600 18px/1.3 Manrope, sans-serif;">Heading 3 / 18</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Manrope 600 · 18/24<br />card titles, modal titles</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 400 16px/1.55 'Public Sans', sans-serif;">Body Large / 16 — clear at arm's length on a gate tablet.</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Public Sans 400 · 16/25<br />primary reading text</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 400 14px/1.5 'Public Sans', sans-serif;">Body / 14 — default for forms, tables and lists.</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Public Sans 400 · 14/21<br />UI default</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid #F1F3F7; padding-bottom: 18px;">
+          <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Label / 12 uppercase</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">Public Sans 600 · 12 · 0.04em<br />field labels, table heads</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px;">
+          <span style="font: 500 13px/1.4 'IBM Plex Mono', monospace;">MONO / 13 — B-1204 · PASS 8842-QK</span>
+          <span style="font: 400 11px/1.5 'IBM Plex Mono', monospace; color: #8A94A3; text-align: right; flex-shrink: 0;">IBM Plex Mono 500 · 13<br />flat no., pass codes, ₹ amounts</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+          <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Spacing — 4px base</h3>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 4px; background: #4A8ADB; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">4 · xs</span><span style="font-size: 12px; color: #8A94A3;">icon ↔ label</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 8px; background: #4A8ADB; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">8 · sm</span><span style="font-size: 12px; color: #8A94A3;">inside controls</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 12px; background: #4A8ADB; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">12 · md</span><span style="font-size: 12px; color: #8A94A3;">field stacks</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 16px; background: #1265C8; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">16 · lg</span><span style="font-size: 12px; color: #8A94A3;">card padding (mobile)</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 24px; background: #1265C8; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">24 · xl</span><span style="font-size: 12px; color: #8A94A3;">card padding, grid gap</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 32px; background: #0B4FA0; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">32 · 2xl</span><span style="font-size: 12px; color: #8A94A3;">content gutter</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 48px; background: #0B4FA0; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">48 · 3xl</span><span style="font-size: 12px; color: #8A94A3;">section rhythm</span></div>
+            <div style="display: flex; align-items: center; gap: 12px;"><span style="height: 12px; width: 64px; background: #0A3D7A; border-radius: 2px;"></span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779; width: 52px;">64 · 4xl</span><span style="font-size: 12px; color: #8A94A3;">page top/bottom</span></div>
+          </div>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+          <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Radius &amp; elevation</h3>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;"><span style="width: 64px; height: 44px; background: #F1F3F7; border: 1px solid #E2E6EC; border-radius: 6px;"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">6 · control</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;"><span style="width: 64px; height: 44px; background: #F1F3F7; border: 1px solid #E2E6EC; border-radius: 10px;"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">10 · card</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;"><span style="width: 64px; height: 44px; background: #F1F3F7; border: 1px solid #E2E6EC; border-radius: 14px;"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">14 · panel</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;"><span style="width: 64px; height: 44px; background: #F1F3F7; border: 1px solid #E2E6EC; border-radius: 999px;"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">pill · badge</span></div>
+          </div>
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; padding-top: 6px;">
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;"><span style="width: 84px; height: 48px; background: #FFFFFF; border-radius: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">sm · cards</span></div>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;"><span style="width: 84px; height: 48px; background: #FFFFFF; border-radius: 10px; box-shadow: 0 4px 12px rgba(16,28,48,0.08);"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">md · dropdown</span></div>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;"><span style="width: 84px; height: 48px; background: #FFFFFF; border-radius: 10px; box-shadow: 0 18px 44px rgba(16,28,48,0.18);"></span><span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">lg · modal</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 COMPONENTS ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px; max-width: 1440px;">
+    <div style="display: flex; align-items: baseline; gap: 16px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">03</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Core components</h2>
+      <span style="font-size: 14px; color: #5B6779;">Minimum hit target 44px on mobile and gate tablets; 36px allowed for desktop-only admin toolbars.</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+        <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Buttons</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 140ms ease;" style-hover="background: #0B4FA0;">Pay Maintenance Bill</button>
+          <button style="height: 44px; padding: 0 20px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; color: #1B2434; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 140ms ease;" style-hover="border-color: #1265C8; color: #0B4FA0; background: #F2F7FD;">Download Receipt</button>
+          <button style="height: 44px; padding: 0 14px; border: 0; border-radius: 8px; background: transparent; color: #1265C8; font-size: 15px; font-weight: 600; cursor: pointer;" style-hover="background: #E4EEFA;">View history</button>
+          <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #C0392F; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;" style-hover="background: #A31A12;">Deny Entry</button>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <button style="height: 36px; padding: 0 14px; border: 0; border-radius: 6px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">Small · 36</button>
+          <button style="height: 52px; padding: 0 26px; border: 0; border-radius: 10px; background: #0E9A94; color: #FFFFFF; font-size: 17px; font-weight: 700; cursor: pointer;" style-hover="background: #0A7A76;">Scan Gate Pass · 52</button>
+          <button disabled="" style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #E2E6EC; color: #8A94A3; font-size: 15px; font-weight: 600; cursor: not-allowed;">Disabled</button>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; border-top: 1px dashed #E2E6EC; padding-top: 16px;">
+          <span style="font: 400 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">FOCUS</span>
+          <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 0 0 3px #B9D3F2;">Keyboard focus ring</button>
+          <span style="font-size: 13px; color: #5B6779;">3px #B9D3F2 outside ring, never removed.</span>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <h3 style="margin: 0; grid-column: 1 / -1; font: 600 18px/1.3 Manrope, sans-serif;">Inputs</h3>
+        <label style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Visitor name</span>
+          <input value="Ramesh Kumar" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; color: #1B2434; background: #FFFFFF; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+          <span style="font-size: 12px; color: #8A94A3;">As printed on the ID shown at the gate.</span>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat number</span>
+          <input placeholder="e.g. B-1204" style="height: 44px; padding: 0 12px; border: 1px solid #C0392F; border-radius: 8px; font-size: 15px; font-family: 'IBM Plex Mono', monospace; background: #FFFFFF; outline: none;" />
+          <span style="font-size: 12px; color: #C0392F; font-weight: 600;">Flat number not found in this block.</span>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Complaint category</span>
+          <select style="height: 44px; padding: 0 10px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; background: #FFFFFF; color: #1B2434;">
+            <option>Plumbing</option>
+            <option>Electrical</option>
+            <option>Elevator fault</option>
+          </select>
+          <span style="font-size: 12px; color: #8A94A3;">Routing depends on category.</span>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Locked field</span>
+          <input value="Owner" disabled="" style="height: 44px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; font-size: 15px; background: #F1F3F7; color: #8A94A3;" />
+          <span style="font-size: 12px; color: #8A94A3;">Set by admin during onboarding.</span>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1;">
+          <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Description</span>
+          <textarea rows="3" placeholder="Describe the issue. Photos can be attached after submitting." style="padding: 10px 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; resize: vertical; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;"></textarea>
+        </label>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+        <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Status badges</h3>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 88px;">COMPLAINT</span>
+            <span style="{{ badgePending }}"><span style="{{ dotPending }}"></span>Pending</span>
+            <span style="{{ badgeProgress }}"><span style="{{ dotProgress }}"></span>In-Progress</span>
+            <span style="{{ badgeResolved }}"><span style="{{ dotResolved }}"></span>Resolved</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 88px;">BILLING</span>
+            <span style="{{ badgeResolved }}"><span style="{{ dotResolved }}"></span>Paid</span>
+            <span style="{{ badgePending }}"><span style="{{ dotPending }}"></span>Due 12 Sep</span>
+            <span style="{{ badgeOverdue }}"><span style="{{ dotOverdue }}"></span>Overdue</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 88px;">GATE</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0A7A76;"></span>Pass Valid</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392F;"></span>Expired</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #8A94A3;"></span>Checked Out</span>
+          </div>
+          <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5B6779; border-top: 1px dashed #E2E6EC; padding-top: 14px;">Badges are stateful labels only — never used as buttons. The dot carries the same meaning as the color for color-blind users, and the text label is always present.</p>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+        <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Cards</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 18px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Outstanding dues</span>
+            <span style="font: 800 32px/1.05 Manrope, sans-serif; letter-spacing: -0.02em;">₹4,250</span>
+            <span style="{{ badgeOverdue }}"><span style="{{ dotOverdue }}"></span>Overdue 6 days</span>
+          </div>
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 18px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Open complaints</span>
+            <span style="font: 800 32px/1.05 Manrope, sans-serif; letter-spacing: -0.02em;">3</span>
+            <span style="font-size: 13px; color: #5B6779;">1 breaching SLA today</span>
+          </div>
+          <div style="grid-column: 1 / -1; background: #FFFFFF; border: 1px solid #E2E6EC; border-left: 3px solid #0E9A94; border-radius: 10px; padding: 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font: 600 16px/1.3 Manrope, sans-serif;">Clubhouse · Sat 18:00–20:00</span>
+              <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">BOOKING #AM-2291 · B-1204</span>
+            </div>
+            <button style="height: 36px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 6px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Manage</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(620px, 1fr)); gap: 24px; align-items: start;">
+      <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; overflow: hidden;">
+        <div style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #E2E6EC;">
+          <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Data table — Maintenance bills</h3>
+          <div style="display: flex; gap: 8px;">
+            <button style="height: 36px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 6px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">Filter</button>
+            <button style="height: 36px; padding: 0 12px; border: 0; border-radius: 6px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">Export</button>
+          </div>
+        </div>
+        <div style="overflow-x: auto;">
+        <table style="width: 100%; min-width: 620px; border-collapse: collapse; font-size: 14px;">
+          <thead>
+            <tr style="background: #F1F3F7;">
+              <th style="text-align: left; padding: 11px 24px; font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Bill ID</th>
+              <th style="text-align: left; padding: 11px 16px; font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat</th>
+              <th style="text-align: left; padding: 11px 16px; font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Period</th>
+              <th style="text-align: right; padding: 11px 16px; font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Amount</th>
+              <th style="text-align: left; padding: 11px 16px; font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Status</th>
+              <th style="text-align: right; padding: 11px 24px; font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+              <td style="padding: 14px 24px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24081</td>
+              <td style="padding: 14px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">B-1204</td>
+              <td style="padding: 14px 16px; color: #5B6779;">Aug 2026</td>
+              <td style="padding: 14px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,250</td>
+              <td style="padding: 14px 16px;"><span style="{{ badgeOverdue }}"><span style="{{ dotOverdue }}"></span>Overdue</span></td>
+              <td style="padding: 14px 24px; text-align: right;"><a href="#pay">Pay now</a></td>
+            </tr>
+            <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+              <td style="padding: 14px 24px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24072</td>
+              <td style="padding: 14px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">B-1204</td>
+              <td style="padding: 14px 16px; color: #5B6779;">Jul 2026</td>
+              <td style="padding: 14px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</td>
+              <td style="padding: 14px 16px;"><span style="{{ badgeResolved }}"><span style="{{ dotResolved }}"></span>Paid</span></td>
+              <td style="padding: 14px 24px; text-align: right;"><a href="#receipt">Receipt</a></td>
+            </tr>
+            <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+              <td style="padding: 14px 24px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24063</td>
+              <td style="padding: 14px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">B-1204</td>
+              <td style="padding: 14px 16px; color: #5B6779;">Jun 2026</td>
+              <td style="padding: 14px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</td>
+              <td style="padding: 14px 16px;"><span style="{{ badgeResolved }}"><span style="{{ dotResolved }}"></span>Paid</span></td>
+              <td style="padding: 14px 24px; text-align: right;"><a href="#receipt">Receipt</a></td>
+            </tr>
+            <tr style="border-top: 1px solid #E2E6EC; background: #F7F9FC;">
+              <td colspan="3" style="padding: 12px 24px; font-size: 13px; color: #5B6779;">Showing 3 of 14 bills</td>
+              <td colspan="3" style="padding: 12px 24px; text-align: right; font-size: 13px; color: #5B6779;">Rows are 48px tall; amounts right-aligned in mono.</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div style="background: #EEF1F6; border: 1px solid #E2E6EC; border-radius: 14px; padding: 32px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 420px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 18px 44px rgba(16,28,48,0.18); overflow: hidden;">
+          <div style="padding: 22px 24px 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <h3 style="margin: 0; font: 600 18px/1.3 Manrope, sans-serif;">Broadcast emergency notice</h3>
+              <span style="font-size: 13px; color: #5B6779;">Sent to all 412 residents instantly.</span>
+            </div>
+            <button style="width: 32px; height: 32px; border: 0; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 1; cursor: pointer; flex-shrink: 0;" style-hover="background: #E2E6EC;">✕</button>
+          </div>
+          <div style="padding: 18px 24px 22px; display: flex; flex-direction: column; gap: 14px;">
+            <label style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Subject</span>
+              <input value="Water supply shutdown — Tower B" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px;" />
+            </label>
+            <div style="display: flex; align-items: flex-start; gap: 10px; padding: 12px; border-radius: 8px; background: #FDF2DE;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #B26A00; margin-top: 6px; flex-shrink: 0;"></span>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A4A00;">Emergency notices bypass resident notification preferences and are logged in the audit trail.</span>
+            </div>
+          </div>
+          <div style="padding: 16px 24px; border-top: 1px solid #E2E6EC; background: #F7F9FC; display: flex; justify-content: flex-end; gap: 10px;">
+            <button style="height: 44px; padding: 0 18px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Cancel</button>
+            <button style="height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;" style-hover="background: #0B4FA0;">Broadcast</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 NAVBAR ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px; max-width: 1440px;">
+    <div style="display: flex; align-items: baseline; gap: 16px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">04</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Navbar</h2>
+      <span style="font-size: 14px; color: #5B6779;">64px tall, sticky, white on a 1px slate border. Role label sits under the name so a user always knows which permission set they hold.</span>
+    </div>
+
+    <div style="border: 1px solid #E2E6EC; border-radius: 14px; overflow: hidden; background: #FFFFFF;">
+      <div style="height: 64px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid #E2E6EC;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 17px/1 Manrope, sans-serif; letter-spacing: -0.01em;">SmartSociety</span>
+          <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · TOWER B</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 380px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+          <span style="font-size: 14px; color: #8A94A3;">Search flats, visitors, bills…</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <button style="position: relative; width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4.5 7.5a4.5 4.5 0 0 1 9 0v3l1.5 2.5H3l1.5-2.5v-3Z" stroke="#5B6779" stroke-width="1.4" /><circle cx="9" cy="15" r="1.4" fill="#5B6779" /></svg>
+            <span style="position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #FFFFFF;"></span>
+          </button>
+          <div style="width: 1px; height: 28px; background: #E2E6EC;"></div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 5px 8px 5px 5px; border-radius: 10px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">{{ navInitials }}</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; line-height: 1;">{{ navName }}</span>
+              <span style="font-size: 11px; line-height: 1; color: #5B6779;">{{ navRole }}</span>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 24px; background: #F7F9FC; display: flex; gap: 32px; align-items: flex-start; justify-content: flex-end;">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.6; color: #5B6779;">
+          <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">USER MENU — OPEN STATE</span>
+          <span>Role badge tinting: <strong style="color: #0B4FA0;">Resident</strong> blue, <strong style="color: #0A7A76;">Guard</strong> teal, <strong style="color: #1B2434;">Admin</strong> slate. Logout is separated by a divider and is the only destructive item.</span>
+        </div>
+        <div style="width: 248px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; box-shadow: 0 4px 12px rgba(16,28,48,0.08); overflow: hidden;">
+          <div style="padding: 14px 16px; border-bottom: 1px solid #F1F3F7; display: flex; flex-direction: column; gap: 3px;">
+            <span style="font-size: 14px; font-weight: 700;">{{ navName }}</span>
+            <span style="font: 500 11px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">{{ navMeta }}</span>
+          </div>
+          <div style="padding: 6px;">
+            <div style="padding: 10px 12px; border-radius: 6px; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">My profile &amp; family</div>
+            <div style="padding: 10px 12px; border-radius: 6px; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">Vehicles &amp; emergency contacts</div>
+            <div style="padding: 10px 12px; border-radius: 6px; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">Notification settings</div>
+          </div>
+          <div style="padding: 6px; border-top: 1px solid #F1F3F7;">
+            <div style="padding: 10px 12px; border-radius: 6px; font-size: 14px; font-weight: 600; color: #C0392F; cursor: pointer;" style-hover="background: #FCEAE8;">Log out</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 SIDEBAR ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px; max-width: 1440px;">
+    <div style="display: flex; align-items: baseline; gap: 16px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">05</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Sidebar — role variants</h2>
+      <span style="font-size: 14px; color: #5B6779;">248px expanded, 72px icon-only. Items render from the signed-in role; nothing outside the role is shown, even disabled.</span>
+    </div>
+
+    <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">RESIDENT · 6 ITEMS</span>
+        <div style="width: 248px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #8A94A3;">My home</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; background: #E4EEFA; color: #0B4FA0; font-size: 14px; font-weight: 600; cursor: pointer; position: relative;">
+            <span style="position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: #1265C8;"></span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="2" stroke="#5B6779" stroke-width="1.5" /><rect x="5.5" y="7" width="4" height="4" rx="0.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+            Visitor Pass
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.5-3 1.5-3-1.5L4 15.5v-13Z" stroke="#5B6779" stroke-width="1.5" /><line x1="6.5" y1="6.5" x2="11.5" y2="6.5" stroke="#5B6779" stroke-width="1.3" /><line x1="6.5" y1="9.5" x2="10" y2="9.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+              Maintenance Bills
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">1</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 4.5A2 2 0 0 1 4.5 2.5h9a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7l-4.5 3.5v-10.5Z" stroke="#5B6779" stroke-width="1.5" /></svg>
+              Complaints
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">3</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="2.5" y1="7" x2="15.5" y2="7" stroke="#5B6779" stroke-width="1.5" /><rect x="5" y="9.5" width="3" height="3" rx="0.5" fill="#5B6779" /></svg>
+            Amenity Booking
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="5.5" y1="6.5" x2="12.5" y2="6.5" stroke="#5B6779" stroke-width="1.3" /><line x1="5.5" y1="9.5" x2="12.5" y2="9.5" stroke="#5B6779" stroke-width="1.3" /><line x1="5.5" y1="12" x2="9.5" y2="12" stroke="#5B6779" stroke-width="1.3" /></svg>
+            Notices
+          </div>
+          <div style="margin-top: 12px; padding: 14px; border-radius: 10px; background: #DCF3F1; display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #0A5C59;">Expecting a guest?</span>
+            <button style="height: 40px; border: 0; border-radius: 8px; background: #0E9A94; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="background: #0A7A76;">Create gate pass</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SOCIETY ADMIN · 5 ITEMS · DARK</span>
+        <div style="width: 248px; background: #0A3D7A; border-radius: 14px; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Administration</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; background: rgba(255,255,255,0.14); color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#B9D3F2" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13" cy="6.5" r="1.8" stroke="#B9D3F2" stroke-width="1.3" /></svg>
+            Resident Management
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /><rect x="11" y="10" width="3" height="2" rx="0.5" fill="#B9D3F2" /></svg>
+              Billing Engine
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #B26A00; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">28</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><path d="M6.5 8l5-3M6.5 10l5 3" stroke="#B9D3F2" stroke-width="1.3" /></svg>
+            Complaint Routing
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Security Logs
+          </div>
+          <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; gap: 10px;">
+            <div style="width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.16); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">SK</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 13px; font-weight: 600; color: #FFFFFF; line-height: 1;">S. Krishnan</span>
+              <span style="font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1;">Society Admin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SECURITY GUARD · 3 ITEMS</span>
+        <div style="width: 248px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #8A94A3;">Gate 2 · main entrance</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 12px; border-radius: 8px; background: #DCF3F1; color: #0A5C59; font-size: 15px; font-weight: 700; cursor: pointer; position: relative;">
+            <span style="position: absolute; left: 0; top: 12px; bottom: 12px; width: 3px; border-radius: 0 3px 3px 0; background: #0E9A94;"></span>
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 12px; border-radius: 8px; color: #1B2434; font-size: 15px; font-weight: 500; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="6" r="2.8" stroke="#5B6779" stroke-width="1.5" /><path d="M3.5 15.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#5B6779" stroke-width="1.5" /></svg>
+            Visitor Entry
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 12px; border-radius: 8px; color: #1B2434; font-size: 15px; font-weight: 500; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="5" height="5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="10.5" y="2.5" width="5" height="5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="2.5" y="10.5" width="5" height="5" rx="1" stroke="#5B6779" stroke-width="1.5" /><line x1="10.5" y1="13" x2="15.5" y2="13" stroke="#5B6779" stroke-width="1.5" /></svg>
+            Pass Verification
+          </div>
+          <div style="margin-top: 12px; padding: 14px; border-radius: 10px; background: #FCEAE8; display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #8E2119;">2 vendors overstaying</span>
+            <span style="font-size: 12px; line-height: 1.4; color: #8E2119;">Delivery van MH-12 GG 4471 — inside 92 min.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">COLLAPSED · 72px</span>
+        <div style="width: 72px; background: #0A3D7A; border-radius: 14px; padding: 16px 0; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#B9D3F2" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+          <div style="position: relative; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            <span style="position: absolute; top: 7px; right: 7px; width: 8px; height: 8px; border-radius: 50%; background: #B26A00; border: 2px solid #0A3D7A;"></span>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 FOOTER ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px; max-width: 1440px;">
+    <div style="display: flex; align-items: baseline; gap: 16px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">06</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Footer</h2>
+      <span style="font-size: 14px; color: #5B6779;">Present on every screen for all roles. The siren is the only element in the system allowed to use #D92D20 and a pulse animation.</span>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; overflow: hidden;">
+      <div style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 3px solid #F1F3F7;">
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+          <span style="font-size: 13px; color: #8A94A3;">© 2026 Green Valley Residents' Welfare Association</span>
+          <a href="#directory" style="font-size: 13px; font-weight: 600;">Emergency Contact Directory</a>
+          <a href="#guidelines" style="font-size: 13px; font-weight: 600;">Society Guidelines</a>
+        </div>
+        <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; letter-spacing: 0.01em; cursor: pointer; display: flex; align-items: center; gap: 10px; animation: ss-siren 2.2s ease-out infinite;" style-hover="background: #A31A12;">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF;"></span>
+          Emergency Siren
+        </button>
+      </div>
+      <div style="padding: 16px 24px; background: #F7F9FC; border-top: 1px solid #E2E6EC; display: flex; gap: 32px; flex-wrap: wrap; font-size: 13px; line-height: 1.5; color: #5B6779;">
+        <span style="max-width: 46ch;"><strong style="color: #1B2434;">Siren behavior:</strong> tap opens a 3-second hold-to-confirm sheet, then alerts the gate, admin and all residents. Never fires on first tap.</span>
+        <span style="max-width: 42ch;"><strong style="color: #1B2434;">Mobile:</strong> links stack; the siren becomes a full-width 52px button pinned above the bottom tab bar.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 RESPONSIVE ============ -->
+  <section style="display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; max-width: 1440px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">07</span>
+      <h2 style="margin: 0; font: 700 28px/1.1 Manrope, sans-serif; letter-spacing: -0.02em;">Shell composition at three widths</h2>
+      <span style="font-size: 14px; color: #5B6779;">Resident &amp; Guard are mobile-first; Admin is desktop-first. Breakpoints: &lt;768 mobile, 768–1279 tablet, ≥1280 desktop.</span>
+    </div>
+
+    <div style="display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">375 · RESIDENT MOBILE · BOTTOM TABS</span>
+        <div style="width: 375px; height: 720px; background: #F7F9FC; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button style="width: 40px; height: 40px; border: 0; border-radius: 8px; background: #F1F3F7; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+              </button>
+              <div style="width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 12px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+              <span style="font: 700 15px/1 Manrope, sans-serif;">SmartSociety</span>
+            </div>
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">AM</div>
+          </div>
+          <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden;">
+            <span style="font: 700 22px/1.2 Manrope, sans-serif; letter-spacing: -0.02em;">Hello, Aarav</span>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">August maintenance</span>
+              <span style="font: 800 28px/1 Manrope, sans-serif;">₹4,250</span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 12px; font-weight: 700; align-self: flex-start;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392F;"></span>Overdue</span>
+              <button style="height: 44px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Pay now</button>
+            </div>
+            <div style="background: #DCF3F1; border-radius: 10px; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <div style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font: 600 14px/1.3 Manrope, sans-serif; color: #0A5C59;">Visitor pass</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #0A7A76;">2 ACTIVE TODAY</span>
+              </div>
+              <button style="height: 40px; padding: 0 14px; border: 0; border-radius: 8px; background: #0E9A94; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;">New</button>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 16px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 14px; font-weight: 600;">Plumbing · Kitchen leak</span>
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #1265C8;"></span>In-Progress</span>
+            </div>
+            <button style="margin-top: auto; height: 52px; border: 0; border-radius: 10px; background: #D92D20; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF;"></span>Emergency Siren
+            </button>
+          </div>
+          <div style="height: 68px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; padding: 0 4px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #0B4FA0;">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#0B4FA0" stroke-width="1.5" /></svg>
+              <span style="font-size: 10px; font-weight: 700;">Home</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="2" stroke="#5B6779" stroke-width="1.5" /><rect x="5.5" y="7" width="4" height="4" rx="0.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+              <span style="font-size: 10px;">Passes</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.5-3 1.5-3-1.5L4 15.5v-13Z" stroke="#5B6779" stroke-width="1.5" /></svg>
+              <span style="font-size: 10px;">Bills</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 4.5A2 2 0 0 1 4.5 2.5h9a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7l-4.5 3.5v-10.5Z" stroke="#5B6779" stroke-width="1.5" /></svg>
+              <span style="font-size: 10px;">Tickets</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="2.5" y1="7" x2="15.5" y2="7" stroke="#5B6779" stroke-width="1.5" /></svg>
+              <span style="font-size: 10px;">Book</span>
+            </div>
+          </div>
+        </div>
+        <span style="width: 375px; font-size: 12px; line-height: 1.5; color: #5B6779;">Five most-used destinations become tabs; Notices and Guidelines move into the hamburger drawer.</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">768 · GUARD TABLET · ICON RAIL</span>
+        <div style="width: 768px; height: 720px; background: #F7F9FC; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 64px; padding: 0 20px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 14px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+              <span style="font: 700 16px/1 Manrope, sans-serif;">SmartSociety</span>
+              <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #0A7A76; padding: 5px 8px; border-radius: 999px; background: #DCF3F1;">GATE 2 · ON DUTY</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: #DCF3F1; color: #0A7A76; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">RG</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-size: 13px; font-weight: 600; line-height: 1;">R. Gaikwad</span>
+                <span style="font-size: 11px; line-height: 1; color: #5B6779;">Security Guard</span>
+              </div>
+            </div>
+          </div>
+          <div style="flex: 1; display: flex; overflow: hidden;">
+            <div style="width: 76px; background: #FFFFFF; border-right: 1px solid #E2E6EC; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <div style="width: 52px; height: 52px; border-radius: 10px; background: #DCF3F1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#0A5C59" stroke-width="1.5" /></svg>
+                <span style="font-size: 9px; font-weight: 700; color: #0A5C59;">Home</span>
+              </div>
+              <div style="width: 52px; height: 52px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="6" r="2.8" stroke="#5B6779" stroke-width="1.5" /><path d="M3.5 15.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#5B6779" stroke-width="1.5" /></svg>
+                <span style="font-size: 9px; color: #5B6779;">Entry</span>
+              </div>
+              <div style="width: 52px; height: 52px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="5" height="5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="10.5" y="2.5" width="5" height="5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="2.5" y="10.5" width="5" height="5" rx="1" stroke="#5B6779" stroke-width="1.5" /></svg>
+                <span style="font-size: 9px; color: #5B6779;">Verify</span>
+              </div>
+            </div>
+            <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px; overflow: hidden;">
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;">
+                <span style="font: 700 24px/1.2 Manrope, sans-serif; letter-spacing: -0.02em;">Gate activity</span>
+                <button style="height: 52px; padding: 0 22px; border: 0; border-radius: 10px; background: #0E9A94; color: #FFFFFF; font-size: 17px; font-weight: 700; cursor: pointer;">Scan Gate Pass</button>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Inside now</span>
+                  <span style="font: 800 26px/1 Manrope, sans-serif;">37</span>
+                </div>
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Pending approval</span>
+                  <span style="font: 800 26px/1 Manrope, sans-serif; color: #B26A00;">4</span>
+                </div>
+                <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Overstay alerts</span>
+                  <span style="font: 800 26px/1 Manrope, sans-serif; color: #C0392F;">2</span>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: 1.4fr 1fr 0.9fr 1fr; padding: 10px 16px; background: #F1F3F7; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">
+                  <span>Visitor</span><span>Flat</span><span>Pass</span><span>Status</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.4fr 1fr 0.9fr 1fr; padding: 14px 16px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font-weight: 600;">Ramesh Kumar</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">B-1204</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">8842</span>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 12px; font-weight: 700; justify-self: start;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0A7A76;"></span>Valid</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.4fr 1fr 0.9fr 1fr; padding: 14px 16px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font-weight: 600;">Blinkit delivery</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">A-0703</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">—</span>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 12px; font-weight: 700; justify-self: start;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B26A00;"></span>Awaiting</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.4fr 1fr 0.9fr 1fr; padding: 14px 16px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font-weight: 600;">MH-12 GG 4471</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">C-1102</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">7710</span>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 12px; font-weight: 700; justify-self: start;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392F;"></span>Overstay</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 12px 20px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <div style="display: flex; gap: 20px;">
+              <a href="#directory" style="font-size: 13px; font-weight: 600;">Emergency Contacts</a>
+              <a href="#guidelines" style="font-size: 13px; font-weight: 600;">Guidelines</a>
+            </div>
+            <button style="height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;">Emergency Siren</button>
+          </div>
+        </div>
+        <span style="width: 768px; font-size: 12px; line-height: 1.5; color: #5B6779;">Gate-terminal tablet: 52px primary actions, icon rail instead of labels, table stays readable at 4 columns.</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · ADMIN DESKTOP · PERSISTENT SIDEBAR</span>
+      <div style="width: 1280px; height: 760px; background: #F7F9FC; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+        <div style="height: 64px; padding: 0 24px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+            <span style="font: 700 17px/1 Manrope, sans-serif;">SmartSociety</span>
+            <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · 412 FLATS</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 360px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+            <span style="font-size: 14px; color: #8A94A3;">Search flats, residents, bills…</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <button style="height: 40px; padding: 0 14px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;">Broadcast notice</button>
+            <div style="width: 1px; height: 28px; background: #E2E6EC;"></div>
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">SK</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; line-height: 1;">S. Krishnan</span>
+              <span style="font-size: 11px; line-height: 1; color: #5B6779;">Society Admin</span>
+            </div>
+          </div>
+        </div>
+        <div style="flex: 1; display: flex; overflow: hidden;">
+          <div style="width: 248px; background: #0A3D7A; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0;">
+            <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Administration</div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; background: rgba(255,255,255,0.14); color: #FFFFFF; font-size: 14px; font-weight: 600;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+              Dashboard
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#B9D3F2" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+              Resident Management
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px;">
+              <span style="display: flex; align-items: center; gap: 12px;">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+                Billing Engine
+              </span>
+              <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #B26A00; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">28</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><path d="M6.5 8l5-3M6.5 10l5 3" stroke="#B9D3F2" stroke-width="1.3" /></svg>
+              Complaint Routing
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+              Security Logs
+            </div>
+            <div style="margin-top: auto; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 8px; color: rgba(255,255,255,0.7); font-size: 13px; cursor: pointer;">
+              <span style="width: 18px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 1px;"></span>
+              Collapse sidebar
+            </div>
+          </div>
+          <div style="flex: 1; padding: 24px 32px; display: flex; flex-direction: column; gap: 20px; overflow: hidden;">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 800 32px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Society overview</span>
+                <span style="font-size: 14px; color: #5B6779;">August 2026 billing cycle · closes in 6 days</span>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <button style="height: 36px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 6px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">This month</button>
+                <button style="height: 36px; padding: 0 14px; border: 0; border-radius: 6px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">Generate invoices</button>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Collected</span>
+                <span style="font: 800 28px/1 Manrope, sans-serif;">₹14.2L</span>
+                <span style="font-size: 12px; color: #0F8B54; font-weight: 600;">82% of billed</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Overdue flats</span>
+                <span style="font: 800 28px/1 Manrope, sans-serif; color: #C0392F;">28</span>
+                <span style="font-size: 12px; color: #5B6779;">₹1.9L outstanding</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Open tickets</span>
+                <span style="font: 800 28px/1 Manrope, sans-serif;">17</span>
+                <span style="font-size: 12px; color: #B26A00; font-weight: 600;">3 breaching SLA</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Visitors today</span>
+                <span style="font: 800 28px/1 Manrope, sans-serif;">143</span>
+                <span style="font-size: 12px; color: #5B6779;">2 overstay alerts</span>
+              </div>
+            </div>
+            <div style="flex: 1; display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; overflow: hidden;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+                <div style="padding: 16px 20px; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font: 600 16px/1.3 Manrope, sans-serif;">Overdue accounts</span>
+                  <a href="#all" style="font-size: 13px; font-weight: 600;">View all 28</a>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr; padding: 10px 20px; background: #F1F3F7; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">
+                  <span>Flat</span><span>Resident</span><span style="text-align: right;">Amount</span><span style="text-align: right;">Status</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr; padding: 14px 20px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">B-1204</span><span>Aarav Mehta</span><span style="text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,250</span>
+                  <span style="justify-self: end; display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392F;"></span>6 days</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr; padding: 14px 20px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">A-0703</span><span>Neha Bhatt</span><span style="text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹8,400</span>
+                  <span style="justify-self: end; display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392F;"></span>34 days</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr; padding: 14px 20px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">C-1102</span><span>Imran Sheikh</span><span style="text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</span>
+                  <span style="justify-self: end; display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B26A00;"></span>Due today</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr; padding: 14px 20px; border-top: 1px solid #E2E6EC; font-size: 14px; align-items: center;">
+                  <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">D-0201</span><span>Kavya Rao</span><span style="text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</span>
+                  <span style="justify-self: end; display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                <span style="font: 600 16px/1.3 Manrope, sans-serif;">Helpdesk queue</span>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid #F1F3F7;">
+                  <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-size: 14px; font-weight: 600;">Elevator fault · Tower C</span>
+                    <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">TCK-4471 · SLA 2H LEFT</span>
+                  </div>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B26A00;"></span>Pending</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid #F1F3F7;">
+                  <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-size: 14px; font-weight: 600;">Kitchen leak · B-1204</span>
+                    <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">TCK-4468 · PLUMBING</span>
+                  </div>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #1265C8;"></span>In-Progress</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-size: 14px; font-weight: 600;">Corridor light · A-04</span>
+                    <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">TCK-4460 · ELECTRICAL</span>
+                  </div>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Resolved</span>
+                </div>
+                <button style="margin-top: auto; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Assign staff</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 14px 32px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+          <div style="display: flex; gap: 24px; align-items: center;">
+            <span style="font-size: 13px; color: #8A94A3;">© 2026 Green Valley RWA</span>
+            <a href="#directory" style="font-size: 13px; font-weight: 600;">Emergency Contact Directory</a>
+            <a href="#guidelines" style="font-size: 13px; font-weight: 600;">Society Guidelines</a>
+          </div>
+          <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF;"></span>Emergency Siren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 1440px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Resident · mobile-first</span>
+        <span style="font-size: 13px; line-height: 1.55; color: #5B6779;">Bottom tab bar &lt;768. Sidebar appears from 768 as a 248px panel. Cards single-column to 640, two-column above.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Guard · tablet-first</span>
+        <span style="font-size: 13px; line-height: 1.55; color: #5B6779;">Icon rail from 768 up, bottom tabs below. Only three destinations, so labels never truncate. All actions ≥52px for gloved taps.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Admin · desktop-first</span>
+        <span style="font-size: 13px; line-height: 1.55; color: #5B6779;">Sidebar persistent ≥1280, icon-only 768–1279, off-canvas drawer &lt;768. Tables scroll horizontally rather than reflow.</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;navbarRole&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Resident&quot;,&quot;Admin&quot;,&quot;Guard&quot;],&quot;default&quot;:&quot;Resident&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Shell&quot;},&quot;badgeStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;soft&quot;,&quot;solid&quot;],&quot;default&quot;:&quot;soft&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Components&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const solid = (this.props.badgeStyle ?? 'soft') === 'solid';
+    const base = {
+      display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '5px 11px',
+      borderRadius: '999px', fontSize: '12px', fontWeight: 700, whiteSpace: 'nowrap'
+    };
+    const badge = (fg, bg) => solid
+      ? { ...base, background: fg, color: '#FFFFFF' }
+      : { ...base, background: bg, color: fg };
+    const dot = (fg) => ({
+      width: '7px', height: '7px', borderRadius: '50%',
+      background: solid ? '#FFFFFF' : fg, flexShrink: 0
+    });
+    const roles = {
+      Resident: { initials: 'AM', name: 'Aarav Mehta', role: 'Resident · B-1204', meta: 'TOWER B · OWNER · 2 VEHICLES' },
+      Admin: { initials: 'SK', name: 'S. Krishnan', role: 'Society Admin', meta: 'GREEN VALLEY RWA · FULL ACCESS' },
+      Guard: { initials: 'RG', name: 'R. Gaikwad', role: 'Security Guard', meta: 'GATE 2 · SHIFT 14:00–22:00' }
+    };
+    const r = roles[this.props.navbarRole] ?? roles.Resident;
+    return {
+      navInitials: r.initials, navName: r.name, navRole: r.role, navMeta: r.meta,
+      badgePending: badge('#B26A00', '#FDF2DE'), dotPending: dot('#B26A00'),
+      badgeProgress: badge('#0B4FA0', '#E4EEFA'), dotProgress: dot('#1265C8'),
+      badgeResolved: badge('#0F8B54', '#E6F5EC'), dotResolved: dot('#0F8B54'),
+      badgeOverdue: badge('#C0392F', '#FCEAE8'), dotOverdue: dot('#C0392F')
+    };
+  }
+}
+</script>
+</body>
+</html>

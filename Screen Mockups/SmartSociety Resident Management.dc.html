@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #EEF1F6; }
+  * { box-sizing: border-box; }
+  a { color: #1265C8; text-decoration: none; font-weight: 600; }
+  a:hover { color: #0B4FA0; text-decoration: underline; }
+  input, select, button { font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+
+<div style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1B2434; background: #EEF1F6; padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 48px; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; flex-direction: column; gap: 12px; max-width: 1280px;">
+    <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SMARTSOCIETY · SOCIETY ADMIN · RESIDENT MANAGEMENT</span>
+    <h1 style="margin: 0; font: 800 36px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Resident Management</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5B6779; max-width: 78ch;">Desktop-first roster with a full-column table and an occupancy map over the same data. Map tiles carry a letter mark and a label as well as color, so status never depends on hue alone.</p>
+  </header>
+
+  <!-- ============= 1280 · LIST VIEW ============= -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · LIST VIEW</span>
+      <span style="font-size: 14px; color: #5B6779;">Search + three filters inline; 7-column table with a row-actions menu open on the first row.</span>
+    </div>
+
+    <div style="width: 1280px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 24px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 17px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · 412 FLATS · 4 TOWERS</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 320px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+          <span style="font-size: 14px; color: #8A94A3;">Search flats, residents, tickets…</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="position: relative; width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4.5 7.5a4.5 4.5 0 0 1 9 0v3l1.5 2.5H3l1.5-2.5v-3Z" stroke="#5B6779" stroke-width="1.4" /><circle cx="9" cy="15" r="1.4" fill="#5B6779" /></svg>
+            <span style="position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #FFFFFF;"></span>
+          </div>
+          <div style="width: 1px; height: 28px; background: #E2E6EC;"></div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 5px 8px 5px 5px; border-radius: 10px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">SK</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; line-height: 1;">S. Krishnan</span>
+              <span style="font-size: 11px; line-height: 1; color: #5B6779;">Society Admin</span>
+            </div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 248px; flex-shrink: 0; background: #0A3D7A; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Administration</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="position: relative; display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; background: rgba(255,255,255,0.14); color: #FFFFFF; font-size: 14px; font-weight: 600;">
+            <span style="position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: #6ECFC9;"></span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#FFFFFF" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#FFFFFF" stroke-width="1.5" /><circle cx="13" cy="6.5" r="1.8" stroke="#FFFFFF" stroke-width="1.3" /></svg>
+            Resident Management
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /><rect x="11" y="10" width="3" height="2" rx="0.5" fill="#B9D3F2" /></svg>
+              Billing Engine
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #B26A00; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">28</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><path d="M6.5 8l5-3M6.5 10l5 3" stroke="#B9D3F2" stroke-width="1.3" /></svg>
+              Complaint Routing
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #C0392F; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">3</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Security Logs
+          </div>
+          <div style="margin-top: 18px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #FFFFFF;">2 onboardings pending</span>
+            <span style="font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.78);">KYC uploaded, awaiting your verification.</span>
+            <button style="height: 36px; border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; background: transparent; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;" style-hover="background: rgba(255,255,255,0.12);">Review queue</button>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 22px 28px 26px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 800 30px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Resident Management</span>
+              <span style="font-size: 14px; color: #5B6779;">396 active residents · 268 owners · 128 tenants · 16 vacant flats</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <button style="height: 40px; padding: 0 14px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Export roster</button>
+              <button style="height: 40px; padding: 0 18px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px;" style-hover="background: #0B4FA0;">
+                <span style="font-size: 17px; line-height: 1;">+</span> Onboard Resident
+              </button>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px;">
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">
+                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><line x1="3" y1="5" x2="15" y2="5" stroke="#0B4FA0" stroke-width="1.6" /><line x1="3" y1="9" x2="15" y2="9" stroke="#0B4FA0" stroke-width="1.6" /><line x1="3" y1="13" x2="15" y2="13" stroke="#0B4FA0" stroke-width="1.6" /></svg>
+                List View
+              </span>
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="5.5" height="5.5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="2.5" width="5.5" height="5.5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="2.5" y="10" width="5.5" height="5.5" rx="1" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="10" width="5.5" height="5.5" rx="1" stroke="#5B6779" stroke-width="1.5" /></svg>
+                Occupancy Map View
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <div style="display: flex; align-items: center; gap: 8px; width: 280px; height: 40px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+                <span style="font-size: 14px; color: #8A94A3;">Name, flat number or phone</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 128px; height: 40px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; cursor: pointer;">
+                <span style="font-size: 14px; color: #2E3A4D;">All blocks</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 128px; height: 40px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; cursor: pointer;">
+                <span style="font-size: 14px; color: #2E3A4D;">All types</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 118px; height: 40px; padding: 0 12px; border: 1px solid #1265C8; border-radius: 8px; background: #F2F7FD; cursor: pointer;">
+                <span style="font-size: 14px; font-weight: 600; color: #0B4FA0;">Active</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#0B4FA0" stroke-width="1.5" /></svg>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; overflow: visible; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+              <thead>
+                <tr style="background: #F1F3F7;">
+                  <th style="text-align: left; padding: 10px 20px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Resident name <span style="color: #1265C8;">↓</span></th>
+                  <th style="text-align: left; padding: 10px 12px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat</th>
+                  <th style="text-align: left; padding: 10px 12px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Occupancy</th>
+                  <th style="text-align: left; padding: 10px 12px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Phone</th>
+                  <th style="text-align: left; padding: 10px 12px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Move-in ⇅</th>
+                  <th style="text-align: left; padding: 10px 12px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Status</th>
+                  <th style="text-align: right; padding: 10px 20px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-top: 1px solid #E2E6EC; background: #F7F9FC;">
+                  <td style="padding: 12px 20px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif; flex-shrink: 0;">AM</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-weight: 700;">Aarav Mehta</span>
+                        <span style="font-size: 11px; color: #8A94A3;">aarav.mehta@gmail.com</span>
+                      </span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace;">B-204</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 11px; font-weight: 700;">Owner</span></td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">98204 41207</td>
+                  <td style="padding: 12px 12px; color: #5B6779;">12 Mar 2021</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span></td>
+                  <td style="padding: 12px 20px; text-align: right; position: relative;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #1265C8; border-radius: 6px; background: #F2F7FD; cursor: pointer;">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#0B4FA0" /><circle cx="7" cy="7" r="1.2" fill="#0B4FA0" /><circle cx="7" cy="11" r="1.2" fill="#0B4FA0" /></svg>
+                    </span>
+                    <span style="position: absolute; top: 44px; right: 20px; width: 180px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; box-shadow: 0 4px 12px rgba(16,28,48,0.08); padding: 6px; display: flex; flex-direction: column; text-align: left; z-index: 5;">
+                      <span style="padding: 9px 12px; border-radius: 6px; font-size: 13px; color: #1B2434; cursor: pointer;" style-hover="background: #F7F9FC;">View profile</span>
+                      <span style="padding: 9px 12px; border-radius: 6px; font-size: 13px; color: #1B2434; cursor: pointer;" style-hover="background: #F7F9FC;">Edit details</span>
+                      <span style="padding: 9px 12px; border-radius: 6px; font-size: 13px; color: #1B2434; cursor: pointer;" style-hover="background: #F7F9FC;">Reset password</span>
+                      <span style="height: 1px; background: #F1F3F7; margin: 4px 0;"></span>
+                      <span style="padding: 9px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: #C0392F; cursor: pointer;" style-hover="background: #FCEAE8;">Offboard resident</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                  <td style="padding: 12px 20px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 32px; height: 32px; border-radius: 50%; background: #DCF3F1; color: #0A7A76; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif; flex-shrink: 0;">NB</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-weight: 700;">Neha Bhatt</span>
+                        <span style="font-size: 11px; color: #8A94A3;">neha.bhatt@outlook.com</span>
+                      </span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace;">A-0703</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 11px; font-weight: 700;">Tenant</span></td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">99872 30114</td>
+                  <td style="padding: 12px 12px; color: #5B6779;">01 Feb 2025</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span></td>
+                  <td style="padding: 12px 20px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                  <td style="padding: 12px 20px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif; flex-shrink: 0;">IS</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-weight: 700;">Imran Sheikh</span>
+                        <span style="font-size: 11px; color: #8A94A3;">imran.sheikh@gmail.com</span>
+                      </span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace;">C-1102</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 11px; font-weight: 700;">Owner</span></td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">98330 77219</td>
+                  <td style="padding: 12px 12px; color: #5B6779;">18 Aug 2019</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span></td>
+                  <td style="padding: 12px 20px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                  <td style="padding: 12px 20px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 32px; height: 32px; border-radius: 50%; background: #DCF3F1; color: #0A7A76; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif; flex-shrink: 0;">KR</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-weight: 700;">Kavya Rao</span>
+                        <span style="font-size: 11px; color: #8A94A3;">kavya.rao@gmail.com</span>
+                      </span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace;">D-0201</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 11px; font-weight: 700;">Tenant</span></td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">70210 88431</td>
+                  <td style="padding: 12px 12px; color: #5B6779;">05 Jun 2026</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #B26A00;"></span>KYC pending</span></td>
+                  <td style="padding: 12px 20px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                  <td style="padding: 12px 20px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 32px; height: 32px; border-radius: 50%; background: #F1F3F7; color: #8A94A3; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif; flex-shrink: 0;">PN</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-weight: 700; color: #5B6779;">Priya Nair</span>
+                        <span style="font-size: 11px; color: #8A94A3;">left the society · 30 Jun 2026</span>
+                      </span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">A-0902</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700;">Tenant</span></td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">—</td>
+                  <td style="padding: 12px 12px; color: #8A94A3;">14 Jan 2023</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>Offboarded</span></td>
+                  <td style="padding: 12px 20px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                  <td style="padding: 12px 20px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif; flex-shrink: 0;">RD</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-weight: 700;">Rohit Deshpande</span>
+                        <span style="font-size: 11px; color: #8A94A3;">rohit.d@gmail.com</span>
+                      </span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace;">B-1104</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 11px; font-weight: 700;">Owner</span></td>
+                  <td style="padding: 12px 12px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">98195 20034</td>
+                  <td style="padding: 12px 12px; color: #5B6779;">22 Nov 2022</td>
+                  <td style="padding: 12px 12px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span></td>
+                  <td style="padding: 12px 20px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="3" r="1.2" fill="#5B6779" /><circle cx="7" cy="7" r="1.2" fill="#5B6779" /><circle cx="7" cy="11" r="1.2" fill="#5B6779" /></svg>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding: 14px 20px; border-top: 1px solid #E2E6EC; background: #F7F9FC; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+              <span style="font-size: 13px; color: #5B6779;">Showing 1–6 of 396 residents</span>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="height: 32px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; color: #8A94A3; font-size: 13px; display: flex; align-items: center; cursor: not-allowed;">Previous</span>
+                <span style="width: 32px; height: 32px; border-radius: 6px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; cursor: pointer;">1</span>
+                <span style="width: 32px; height: 32px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">2</span>
+                <span style="width: 32px; height: 32px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">3</span>
+                <span style="font-size: 13px; color: #8A94A3; padding: 0 4px;">…</span>
+                <span style="width: 32px; height: 32px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">66</span>
+                <span style="height: 32px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 6px; background: #FFFFFF; font-size: 13px; font-weight: 600; display: flex; align-items: center; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Next</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 1280 · OCCUPANCY MAP ============= -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · OCCUPANCY MAP VIEW</span>
+      <span style="font-size: 14px; color: #5B6779;">Four blocks, floors as rows; each tile carries flat number, an O/T letter mark and color — clickable to the profile panel.</span>
+    </div>
+
+    <div style="width: 1280px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 24px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 17px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · 412 FLATS · 4 TOWERS</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 34px; height: 34px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">SK</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 14px; font-weight: 600; line-height: 1;">S. Krishnan</span>
+            <span style="font-size: 11px; line-height: 1; color: #5B6779;">Society Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 248px; flex-shrink: 0; background: #0A3D7A; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.55);">Administration</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="position: relative; display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; background: rgba(255,255,255,0.14); color: #FFFFFF; font-size: 14px; font-weight: 600;">
+            <span style="position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: #6ECFC9;"></span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#FFFFFF" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#FFFFFF" stroke-width="1.5" /><circle cx="13" cy="6.5" r="1.8" stroke="#FFFFFF" stroke-width="1.3" /></svg>
+            Resident Management
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+              Billing Engine
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #B26A00; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">28</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+              Complaint Routing
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #C0392F; color: #FFFFFF; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">3</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: rgba(255,255,255,0.82); font-size: 14px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08); color: #FFFFFF;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            Security Logs
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 22px 28px 26px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 800 30px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Resident Management</span>
+              <span style="font-size: 14px; color: #5B6779;">Occupancy map · 396 of 412 flats occupied (96%)</span>
+            </div>
+            <button style="height: 40px; padding: 0 18px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px;" style-hover="background: #0B4FA0;">
+              <span style="font-size: 17px; line-height: 1;">+</span> Onboard Resident
+            </button>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px;">
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><line x1="3" y1="5" x2="15" y2="5" stroke="#5B6779" stroke-width="1.6" /><line x1="3" y1="9" x2="15" y2="9" stroke="#5B6779" stroke-width="1.6" /><line x1="3" y1="13" x2="15" y2="13" stroke="#5B6779" stroke-width="1.6" /></svg>
+                List View
+              </span>
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">
+                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="5.5" height="5.5" rx="1" stroke="#0B4FA0" stroke-width="1.5" /><rect x="10" y="2.5" width="5.5" height="5.5" rx="1" stroke="#0B4FA0" stroke-width="1.5" /><rect x="2.5" y="10" width="5.5" height="5.5" rx="1" stroke="#0B4FA0" stroke-width="1.5" /><rect x="10" y="10" width="5.5" height="5.5" rx="1" stroke="#0B4FA0" stroke-width="1.5" /></svg>
+                Occupancy Map View
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding: 10px 14px; background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px;">
+              <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #8A94A3;">Legend</span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #2E3A4D;">
+                <span style="width: 22px; height: 22px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; color: #0B4FA0; font: 700 11px/20px Manrope, sans-serif; text-align: center;">O</span>
+                Occupied · Owner
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #2E3A4D;">
+                <span style="width: 22px; height: 22px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; color: #0A7A76; font: 700 11px/20px Manrope, sans-serif; text-align: center;">T</span>
+                Occupied · Tenant
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #2E3A4D;">
+                <span style="width: 22px; height: 22px; border-radius: 5px; background: #FFFFFF; border: 1px dashed #C3CAD4; color: #8A94A3; font: 700 11px/20px Manrope, sans-serif; text-align: center;">V</span>
+                Vacant
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #2E3A4D;">
+                <span style="width: 22px; height: 22px; border-radius: 5px; background: #FDF2DE; border: 1px solid #B26A00; color: #B26A00; font: 700 11px/20px Manrope, sans-serif; text-align: center;">!</span>
+                Attention · KYC / renovation
+              </span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font: 600 17px/1.3 Manrope, sans-serif;">Tower A</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">98/104 OCCUPIED</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F09</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;" style-hover="box-shadow: 0 0 0 3px #B9D3F2;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0901</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #FFFFFF; border: 1px dashed #C3CAD4; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;" style-hover="border-color: #1265C8;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #8A94A3;">0902</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #8A94A3;">V</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;" style-hover="box-shadow: 0 0 0 3px #DCF3F1;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0903</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0904</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0905</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0906</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0907</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0908</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F08</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0801</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0802</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0803</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #FDF2DE; border: 1px solid #B26A00; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;" style-hover="box-shadow: 0 0 0 3px #FDF2DE;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #B26A00;">0804</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #B26A00;">!</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0805</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0806</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0807</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0808</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F07</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0701</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0702</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; box-shadow: 0 0 0 3px #B9D3F2; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0703</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0704</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #FFFFFF; border: 1px dashed #C3CAD4; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #8A94A3;">0705</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #8A94A3;">V</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0706</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0707</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0708</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F06</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0601</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0602</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0603</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0604</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0605</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0606</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0607</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0608</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                  </div>
+                </div>
+                <span style="font-size: 12px; color: #8A94A3; padding-left: 36px;">Floors 01–05 collapsed · <a href="#expand">show all 13 floors</a></span>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font: 600 17px/1.3 Manrope, sans-serif;">Tower B</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">102/104 OCCUPIED</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F12</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1201</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">1202</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1203</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #FDF2DE; border: 1px solid #B26A00; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #B26A00;">1204</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #B26A00;">!</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1205</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1206</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">1207</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1208</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F11</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1101</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1102</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">1103</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1104</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1105</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">1106</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1107</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">1108</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F02</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0201</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0202</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0203</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; box-shadow: 0 0 0 3px #B9D3F2; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0204</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0205</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0206</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #FFFFFF; border: 1px dashed #C3CAD4; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #8A94A3;">0207</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #8A94A3;">V</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0208</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 26px; flex-shrink: 0;">F01</span>
+                  <div style="flex: 1; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px;">
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0101</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0102</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0103</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0104</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0105</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0106</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">0107</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0B4FA0;">O</span></span>
+                    <span style="height: 34px; border-radius: 6px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer;"><span style="font: 500 9px/1 'IBM Plex Mono', monospace; color: #0A7A76;">0108</span><span style="font: 700 9px/1.2 Manrope, sans-serif; color: #0A7A76;">T</span></span>
+                  </div>
+                </div>
+                <span style="font-size: 12px; color: #8A94A3; padding-left: 36px;">Floors 03–10 collapsed · <a href="#expand">show all 13 floors</a></span>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font: 600 17px/1.3 Manrope, sans-serif;">Tower C</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">99/104 OCCUPIED</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: 10px; background: #F7F9FC;">
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">OWNER OCCUPIED</span>
+                  <span style="font: 700 18px/1 Manrope, sans-serif; color: #0B4FA0;">71</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TENANT OCCUPIED</span>
+                  <span style="font: 700 18px/1 Manrope, sans-serif; color: #0A7A76;">28</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">VACANT</span>
+                  <span style="font: 700 18px/1 Manrope, sans-serif; color: #5B6779;">5</span>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 5px;">
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #FFFFFF; border: 1px dashed #C3CAD4;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #FDF2DE; border: 1px solid #B26A00;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+              </div>
+              <a href="#towerc" style="font-size: 13px;">Open Tower C floor map</a>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font: 600 17px/1.3 Manrope, sans-serif;">Tower D</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">97/100 OCCUPIED</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: 10px; background: #F7F9FC;">
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">OWNER OCCUPIED</span>
+                  <span style="font: 700 18px/1 Manrope, sans-serif; color: #0B4FA0;">63</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">TENANT OCCUPIED</span>
+                  <span style="font: 700 18px/1 Manrope, sans-serif; color: #0A7A76;">34</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+                  <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">VACANT</span>
+                  <span style="font: 700 18px/1 Manrope, sans-serif; color: #5B6779;">3</span>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 5px;">
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #FFFFFF; border: 1px dashed #C3CAD4;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+                <span style="height: 26px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8;"></span>
+              </div>
+              <a href="#towerd" style="font-size: 13px;">Open Tower D floor map</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= ONBOARD DRAWER + PROFILE PANEL ============= -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">DESKTOP · ONBOARD DRAWER &amp; PROFILE PANEL</span>
+      <span style="font-size: 14px; color: #5B6779;">Both are 440px right-side panels over the dimmed table.</span>
+    </div>
+
+    <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start;">
+      <div style="width: 520px; padding: 32px; border-radius: 16px; background: rgba(14,20,32,0.45); display: flex; justify-content: center;">
+        <div style="width: 440px; background: #FFFFFF; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 18px 44px rgba(16,28,48,0.28);">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 700 22px/1.25 Manrope, sans-serif; letter-spacing: -0.015em;">Onboard resident</span>
+              <span style="font-size: 13px; color: #5B6779;">Creates the account and links it to a flat.</span>
+            </div>
+            <span style="width: 32px; height: 32px; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 32px; text-align: center; cursor: pointer; flex-shrink: 0;">✕</span>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Full name</span>
+            <input value="Kavya Rao" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+          </label>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+            <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Email</span>
+              <input value="kavya.rao@gmail.com" style="width: 100%; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 14px; outline: none;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Phone</span>
+              <input value="70210 88431" style="width: 100%; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 14px/1 'IBM Plex Mono', monospace; outline: none;" />
+            </label>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+            <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Block</span>
+              <select style="width: 100%; min-width: 0; height: 44px; padding: 0 10px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; background: #FFFFFF;">
+                <option>Tower D</option>
+                <option>Tower A</option>
+                <option>Tower B</option>
+                <option>Tower C</option>
+              </select>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat number</span>
+              <input value="0201" style="width: 100%; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 15px/1 'IBM Plex Mono', monospace; outline: none;" />
+            </label>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Occupancy type</span>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px;">
+              <span style="height: 38px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; cursor: pointer;">Owner</span>
+              <span style="height: 38px; border-radius: 7px; background: #FFFFFF; color: #0A7A76; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">Tenant</span>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+            <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Move-in date</span>
+              <input value="05 Jun 2026" style="width: 100%; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 14px; outline: none;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Vehicle <span style="text-transform: none; letter-spacing: 0; font-weight: 400; color: #8A94A3;">· optional</span></span>
+              <input placeholder="MH-02 ··· ····" style="width: 100%; min-width: 0; height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 14px/1 'IBM Plex Mono', monospace; outline: none;" />
+            </label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 6px;">
+            <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Emergency contact</span>
+            <input value="Meera Rao · 98211 30078" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 14px; outline: none;" />
+            <span style="font-size: 12px; color: #8A94A3;">Shared with gate security during an emergency only.</span>
+          </label>
+          <div style="display: flex; align-items: flex-start; gap: 10px; padding: 12px; border-radius: 8px; background: #E4EEFA;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #1265C8; margin-top: 6px; flex-shrink: 0;"></span>
+            <span style="font-size: 13px; line-height: 1.5; color: #0A3D7A;">The resident gets an activation link and completes KYC upload themselves; status stays <strong>KYC pending</strong> until you verify.</span>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button style="flex: 1; height: 48px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Create Account</button>
+            <button style="height: 48px; padding: 0 18px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 520px; padding: 32px; border-radius: 16px; background: rgba(14,20,32,0.45); display: flex; justify-content: center;">
+        <div style="width: 440px; background: #FFFFFF; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 44px rgba(16,28,48,0.28); display: flex; flex-direction: column;">
+          <div style="padding: 22px 24px; border-bottom: 1px solid #E2E6EC; display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 52px; height: 52px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 18px/1 Manrope, sans-serif; flex-shrink: 0;">AM</div>
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <span style="font: 700 20px/1.25 Manrope, sans-serif; letter-spacing: -0.015em;">Aarav Mehta</span>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 11px; font-weight: 700;">Owner</span>
+                  <span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span>
+                </div>
+              </div>
+            </div>
+            <span style="width: 32px; height: 32px; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 32px; text-align: center; cursor: pointer; flex-shrink: 0;">✕</span>
+          </div>
+          <div style="padding: 20px 24px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 10px; background: #F7F9FC;">
+              <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="font-size: 13px; color: #5B6779;">Flat</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace; font-weight: 600;">B-204 · Tower B, Floor 2</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="font-size: 13px; color: #5B6779;">Phone</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">98204 41207</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="font-size: 13px; color: #5B6779;">Email</span><span style="font-size: 13px; font-weight: 600;">aarav.mehta@gmail.com</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="font-size: 13px; color: #5B6779;">Move-in</span><span style="font-size: 13px; font-weight: 600;">12 Mar 2021</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="font-size: 13px; color: #5B6779;">Vehicles</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">MH-02 KJ 8841 · MH-02 BC 1190</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="font-size: 13px; color: #5B6779;">Emergency</span><span style="font-size: 13px; font-weight: 600;">Sneha Mehta · 98204 41208</span></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Household · 3 members</span>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 30px; height: 30px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif;">SM</span>
+                <span style="flex: 1; min-width: 0; font-size: 14px;">Sneha Mehta <span style="color: #8A94A3;">· spouse · app access</span></span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 30px; height: 30px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif;">VM</span>
+                <span style="flex: 1; min-width: 0; font-size: 14px;">Vihaan Mehta <span style="color: #8A94A3;">· child · no access</span></span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 30px; height: 30px; border-radius: 50%; background: #F1F3F7; color: #5B6779; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif;">LD</span>
+                <span style="flex: 1; min-width: 0; font-size: 14px;">Lata D. <span style="color: #8A94A3;">· domestic help · gate pass only</span></span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+              <div style="padding: 14px; border: 1px solid #E2E6EC; border-radius: 10px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Payments</span>
+                <span style="font: 800 20px/1 Manrope, sans-serif; color: #C0392F;">₹4,250</span>
+                <span style="font-size: 12px; color: #5B6779;">overdue 6 days · 7 of 8 paid on time</span>
+                <a href="#bills" style="font-size: 12px;">Payment history</a>
+              </div>
+              <div style="padding: 14px; border: 1px solid #E2E6EC; border-radius: 10px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 10px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Complaints</span>
+                <span style="font: 800 20px/1 Manrope, sans-serif;">3</span>
+                <span style="font-size: 12px; color: #5B6779;">open · 9 resolved this year</span>
+                <a href="#tickets" style="font-size: 12px;">Ticket history</a>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 16px 24px; border-top: 1px solid #E2E6EC; background: #F7F9FC; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 10px;">
+              <button style="flex: 1; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Edit details</button>
+              <button style="flex: 1; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Send notice</button>
+            </div>
+            <button style="height: 44px; border: 1px solid #F0C4C0; border-radius: 8px; background: #FFFFFF; color: #C0392F; font-size: 15px; font-weight: 700; cursor: pointer;" style-hover="background: #FCEAE8;">Offboard Resident</button>
+            <span style="font-size: 12px; line-height: 1.5; color: #8A94A3;">Offboarding closes app access, releases the flat to Vacant and keeps the billing history on record.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 768 TABLET ============= -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">768 · TABLET FALLBACK</span>
+      <span style="font-size: 14px; color: #5B6779;">Icon rail, four visible columns with an expand-row for the rest, map tiles shrink to 6-up.</span>
+    </div>
+
+    <div style="width: 768px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 18px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 14px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 16px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 7px; border-radius: 999px; background: #F1F3F7;">412 FLATS</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 9px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: #E2E6EC; color: #2E3A4D; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">SK</div>
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-size: 13px; font-weight: 600; line-height: 1;">S. Krishnan</span>
+            <span style="font-size: 10px; line-height: 1; color: #5B6779;">Society Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 72px; flex-shrink: 0; background: #0A3D7A; padding: 14px 0; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="7" cy="6.5" r="2.5" stroke="#FFFFFF" stroke-width="1.5" /><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4" stroke="#FFFFFF" stroke-width="1.5" /></svg>
+          </div>
+          <div style="position: relative; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="13" height="9" rx="2" stroke="#B9D3F2" stroke-width="1.5" /><line x1="2.5" y1="8" x2="15.5" y2="8" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            <span style="position: absolute; top: 7px; right: 7px; width: 8px; height: 8px; border-radius: 50%; background: #B26A00; border: 2px solid #0A3D7A;"></span>
+          </div>
+          <div style="position: relative; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="4.5" cy="9" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="4.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /><circle cx="13.5" cy="13.5" r="2" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+            <span style="position: absolute; top: 7px; right: 7px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #0A3D7A;"></span>
+          </div>
+          <div style="width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: rgba(255,255,255,0.08);">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#B9D3F2" stroke-width="1.5" /></svg>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font: 800 24px/1.15 Manrope, sans-serif; letter-spacing: -0.02em;">Resident Management</span>
+              <span style="font-size: 13px; color: #5B6779;">396 active · 268 owners · 128 tenants · 16 vacant</span>
+            </div>
+            <button style="height: 44px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;" style-hover="background: #0B4FA0;">
+              <span style="font-size: 18px; line-height: 1;">+</span> Onboard Resident
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px;">
+            <span style="flex: 1; height: 38px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">List View</span>
+            <span style="flex: 1; height: 38px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; cursor: pointer;">Occupancy Map</span>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px; height: 40px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+              <span style="font-size: 14px; color: #8A94A3;">Name, flat or phone</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 118px; height: 40px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; cursor: pointer;">
+              <span style="font-size: 14px; color: #2E3A4D;">Blocks</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 118px; height: 40px; padding: 0 12px; border: 1px solid #1265C8; border-radius: 8px; background: #F2F7FD; cursor: pointer;">
+              <span style="font-size: 14px; font-weight: 600; color: #0B4FA0;">Active</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#0B4FA0" stroke-width="1.5" /></svg>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+              <thead>
+                <tr style="background: #F1F3F7;">
+                  <th style="text-align: left; padding: 10px 16px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Resident</th>
+                  <th style="text-align: left; padding: 10px 10px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat</th>
+                  <th style="text-align: left; padding: 10px 10px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Status</th>
+                  <th style="text-align: right; padding: 10px 16px; font: 600 10px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-top: 1px solid #E2E6EC; background: #F7F9FC;">
+                  <td style="padding: 12px 16px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 30px; height: 30px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif; flex-shrink: 0;">AM</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">Aarav Mehta</span><span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 10px; font-weight: 700; align-self: flex-start;">Owner</span></span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 10px; font: 500 12px/1 'IBM Plex Mono', monospace;">B-204</td>
+                  <td style="padding: 12px 10px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span></td>
+                  <td style="padding: 12px 16px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #1265C8; border-radius: 6px; background: #F2F7FD; cursor: pointer;">
+                      <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 7l3-3 3 3" stroke="#0B4FA0" stroke-width="1.6" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="background: #F7F9FC; border-top: 1px solid #E2E6EC;">
+                  <td colspan="4" style="padding: 0 16px 14px;">
+                    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; padding: 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #E2E6EC;">
+                      <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 11px; color: #8A94A3;">Phone</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">98204 41207</span></div>
+                      <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 11px; color: #8A94A3;">Move-in date</span><span style="font-size: 13px; font-weight: 600;">12 Mar 2021</span></div>
+                      <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 11px; color: #8A94A3;">Email</span><span style="font-size: 13px; font-weight: 600;">aarav.mehta@gmail.com</span></div>
+                      <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 11px; color: #8A94A3;">Dues</span><span style="font-size: 13px; font-weight: 700; color: #C0392F;">₹4,250 overdue</span></div>
+                      <div style="grid-column: 1 / -1; display: flex; gap: 10px; padding-top: 4px;">
+                        <button style="flex: 1; height: 40px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">View profile</button>
+                        <button style="flex: 1; height: 40px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">Edit</button>
+                        <button style="flex: 1; height: 40px; border: 1px solid #F0C4C0; border-radius: 8px; background: #FFFFFF; color: #C0392F; font-size: 13px; font-weight: 600; cursor: pointer;">Offboard</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;">
+                  <td style="padding: 12px 16px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 30px; height: 30px; border-radius: 50%; background: #DCF3F1; color: #0A7A76; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif; flex-shrink: 0;">NB</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">Neha Bhatt</span><span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 10px; font-weight: 700; align-self: flex-start;">Tenant</span></span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 10px; font: 500 12px/1 'IBM Plex Mono', monospace;">A-0703</td>
+                  <td style="padding: 12px 10px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Active</span></td>
+                  <td style="padding: 12px 16px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;">
+                      <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.6" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;">
+                  <td style="padding: 12px 16px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 30px; height: 30px; border-radius: 50%; background: #DCF3F1; color: #0A7A76; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif; flex-shrink: 0;">KR</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700;">Kavya Rao</span><span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 10px; font-weight: 700; align-self: flex-start;">Tenant</span></span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 10px; font: 500 12px/1 'IBM Plex Mono', monospace;">D-0201</td>
+                  <td style="padding: 12px 10px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #B26A00;"></span>KYC pending</span></td>
+                  <td style="padding: 12px 16px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;">
+                      <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.6" /></svg>
+                    </span>
+                  </td>
+                </tr>
+                <tr style="border-top: 1px solid #E2E6EC;">
+                  <td style="padding: 12px 16px;">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                      <span style="width: 30px; height: 30px; border-radius: 50%; background: #F1F3F7; color: #8A94A3; display: flex; align-items: center; justify-content: center; font: 700 11px/1 Manrope, sans-serif; flex-shrink: 0;">PN</span>
+                      <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-weight: 700; color: #5B6779;">Priya Nair</span><span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 10px; font-weight: 700; align-self: flex-start;">Tenant</span></span>
+                    </span>
+                  </td>
+                  <td style="padding: 12px 10px; font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">A-0902</td>
+                  <td style="padding: 12px 10px;"><span style="display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>Offboarded</span></td>
+                  <td style="padding: 12px 16px; text-align: right;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; cursor: pointer;">
+                      <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.6" /></svg>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding: 12px 16px; border-top: 1px solid #E2E6EC; background: #F7F9FC; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font-size: 12px; color: #5B6779;">1–4 of 396</span>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="height: 32px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; color: #8A94A3; font-size: 13px; display: flex; align-items: center;">Prev</span>
+                <span style="width: 32px; height: 32px; border-radius: 6px; background: #1265C8; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</span>
+                <span style="width: 32px; height: 32px; border: 1px solid #E2E6EC; border-radius: 6px; background: #FFFFFF; font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer;">2</span>
+                <span style="height: 32px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 6px; background: #FFFFFF; font-size: 13px; font-weight: 600; display: flex; align-items: center; cursor: pointer;">Next</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font: 600 16px/1.3 Manrope, sans-serif;">Occupancy map · Tower B</span>
+              <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #5B6779;">102/104</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+              <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #2E3A4D;"><span style="width: 20px; height: 20px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; color: #0B4FA0; font: 700 10px/18px Manrope, sans-serif; text-align: center;">O</span>Owner</span>
+              <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #2E3A4D;"><span style="width: 20px; height: 20px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; color: #0A7A76; font: 700 10px/18px Manrope, sans-serif; text-align: center;">T</span>Tenant</span>
+              <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #2E3A4D;"><span style="width: 20px; height: 20px; border-radius: 5px; background: #FFFFFF; border: 1px dashed #C3CAD4; color: #8A94A3; font: 700 10px/18px Manrope, sans-serif; text-align: center;">V</span>Vacant</span>
+              <span style="display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: #2E3A4D;"><span style="width: 20px; height: 20px; border-radius: 5px; background: #FDF2DE; border: 1px solid #B26A00; color: #B26A00; font: 700 10px/18px Manrope, sans-serif; text-align: center;">!</span>Attention</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 24px; flex-shrink: 0;">F12</span>
+                <div style="flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px;">
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0A7A76; cursor: pointer;">T</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #FDF2DE; border: 1px solid #B26A00; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #B26A00; cursor: pointer;">!</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0A7A76; cursor: pointer;">T</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 24px; flex-shrink: 0;">F11</span>
+                <div style="flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px;">
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0A7A76; cursor: pointer;">T</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0A7A76; cursor: pointer;">T</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3; width: 24px; flex-shrink: 0;">F02</span>
+                <div style="flex: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px;">
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0A7A76; cursor: pointer;">T</span>
+                  <span style="height: 30px; border-radius: 5px; background: #E4EEFA; border: 1px solid #1265C8; box-shadow: 0 0 0 3px #B9D3F2; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0B4FA0; cursor: pointer;">O</span>
+                  <span style="height: 30px; border-radius: 5px; background: #DCF3F1; border: 1px solid #0E9A94; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #0A7A76; cursor: pointer;">T</span>
+                  <span style="height: 30px; border-radius: 5px; background: #FFFFFF; border: 1px dashed #C3CAD4; display: flex; align-items: center; justify-content: center; font: 700 10px/1 Manrope, sans-serif; color: #8A94A3; cursor: pointer;">V</span>
+                </div>
+              </div>
+              <span style="font-size: 12px; color: #8A94A3; padding-left: 32px;">Tap a tile to open that flat's profile · <a href="#expand">show all floors</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 12px 20px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="#directory" style="font-size: 13px;">Emergency Contacts</a>
+          <a href="#guidelines" style="font-size: 13px;">Guidelines</a>
+        </div>
+        <button style="height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;">Emergency Siren</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}"></script>
+</body>
+</html>

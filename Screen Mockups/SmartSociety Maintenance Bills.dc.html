@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #EEF1F6; }
+  * { box-sizing: border-box; }
+  a { color: #1265C8; text-decoration: none; font-weight: 600; }
+  a:hover { color: #0B4FA0; text-decoration: underline; }
+  input, select, button { font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+
+<div style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1B2434; background: #EEF1F6; padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 48px; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; flex-direction: column; gap: 12px; max-width: 1280px;">
+    <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SMARTSOCIETY · RESIDENT · MAINTENANCE BILLS</span>
+    <h1 style="margin: 0; font: 800 36px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Maintenance Bills</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5B6779; max-width: 78ch;">Current bill with charge breakdown, simulated payment flow, and billing history. Overdue urgency is carried by a red top accent and the badge — never a red card fill.</p>
+  </header>
+
+  <!-- ============== MOBILE ============== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">375 · MOBILE-FIRST</span>
+      <span style="font-size: 14px; color: #5B6779;">Hero bill, stacked breakdown, history as compact cards, filters behind a sheet.</span>
+    </div>
+
+    <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start;">
+
+      <!-- mobile main -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">BILLS · MAIN</span>
+        <div style="width: 375px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: #F1F3F7; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+              </div>
+              <span style="font: 700 16px/1 Manrope, sans-serif;">Maintenance Bills</span>
+            </div>
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">AM</div>
+          </div>
+
+          <div style="padding: 18px 16px 22px; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">BLOCK B · FLAT 204</span>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid {{ accent }}; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">August 2026 · BILL-24081</span>
+                <span style="{{ badge }}"><span style="{{ dot }}"></span>{{ statusLabel }}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <span style="font: 800 38px/1 Manrope, sans-serif; letter-spacing: -0.03em;">₹4,250</span>
+                <span style="font-size: 13px; color: {{ accent }}; font-weight: 600;">{{ dueNote }}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 10px; background: #F7F9FC;">
+                <div style="display: flex; justify-content: space-between; font-size: 14px; color: #2E3A4D;"><span>Water charges</span><span style="font-family: 'IBM Plex Mono', monospace;">₹520</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 14px; color: #2E3A4D;"><span>Security</span><span style="font-family: 'IBM Plex Mono', monospace;">₹1,150</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 14px; color: #2E3A4D;"><span>Repairs &amp; maintenance</span><span style="font-family: 'IBM Plex Mono', monospace;">₹1,780</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 14px; color: #2E3A4D;"><span>Amenities</span><span style="font-family: 'IBM Plex Mono', monospace;">₹650</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 14px; color: #C0392F; font-weight: 600;"><span>Late penalty · 6 days</span><span style="font-family: 'IBM Plex Mono', monospace;">₹150</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; padding-top: 10px; border-top: 1px solid #E2E6EC;"><span>Total due</span><span style="font-family: 'IBM Plex Mono', monospace;">₹4,250</span></div>
+              </div>
+              <button style="height: 52px; border: 0; border-radius: 10px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Pay Now</button>
+              <button style="height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;" style-hover="border-color: #1265C8; color: #0B4FA0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#2E3A4D" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#2E3A4D" stroke-width="1.5" stroke-linecap="round" /></svg>
+                Download PDF Receipt
+              </button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+                <span style="font: 600 11px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Paid this year</span>
+                <span style="font: 800 22px/1 Manrope, sans-serif;">₹29,700</span>
+                <span style="font-size: 11px; color: #0F8B54; font-weight: 600;">7 of 8 bills cleared</span>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+                <span style="font: 600 11px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Outstanding</span>
+                <span style="font: 800 22px/1 Manrope, sans-serif; color: #C0392F;">₹4,250</span>
+                <span style="font-size: 11px; color: #5B6779;">incl. ₹150 penalty</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px;">
+              <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Billing history</span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer;">
+                Filters · All
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+              </span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 15px; font-weight: 700;">July 2026</span>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Paid</span>
+                  </div>
+                  <span style="font: 500 11px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">₹4,100 · DUE 8 JUL · PAID 8 JUL</span>
+                </div>
+                <div style="width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;" style-hover="border-color: #1265C8; background: #F2F7FD;">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 15px; font-weight: 700;">June 2026</span>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Paid</span>
+                  </div>
+                  <span style="font: 500 11px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">₹4,100 · DUE 8 JUN · PAID 6 JUN</span>
+                </div>
+                <div style="width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;" style-hover="border-color: #1265C8; background: #F2F7FD;">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 15px; font-weight: 700;">May 2026</span>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #B26A00;"></span>Paid late</span>
+                  </div>
+                  <span style="font: 500 11px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">₹4,240 · DUE 8 MAY · PAID 19 MAY</span>
+                </div>
+                <div style="width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;" style-hover="border-color: #1265C8; background: #F2F7FD;">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 10px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 15px; font-weight: 700;">April 2026</span>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>Paid</span>
+                  </div>
+                  <span style="font: 500 11px/1.4 'IBM Plex Mono', monospace; color: #5B6779;">₹4,100 · DUE 8 APR · PAID 5 APR</span>
+                </div>
+                <div style="width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;" style-hover="border-color: #1265C8; background: #F2F7FD;">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#0B4FA0" stroke-width="1.5" stroke-linecap="round" /></svg>
+                </div>
+              </div>
+              <a href="#all" style="font-size: 13px; text-align: center; padding: 6px 0;">Load older bills</a>
+            </div>
+          </div>
+
+          <div style="height: 68px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; padding: 0 4px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /></svg><span style="font-size: 10px;">Home</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="2" stroke="#5B6779" stroke-width="1.5" /><rect x="5.5" y="7" width="4" height="4" rx="0.5" stroke="#5B6779" stroke-width="1.3" /></svg><span style="font-size: 10px;">Passes</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #0B4FA0;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.5-3 1.5-3-1.5L4 15.5v-13Z" stroke="#0B4FA0" stroke-width="1.5" /></svg><span style="font-size: 10px; font-weight: 700;">Bills</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 4.5A2 2 0 0 1 4.5 2.5h9a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7l-4.5 3.5v-10.5Z" stroke="#5B6779" stroke-width="1.5" /></svg><span style="font-size: 10px;">Tickets</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="2.5" y1="7" x2="15.5" y2="7" stroke="#5B6779" stroke-width="1.5" /></svg><span style="font-size: 10px;">Book</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile pay sheet -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">PAY · CONFIRM SHEET</span>
+        <div style="width: 375px; height: 760px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; opacity: 0.5;">
+            <span style="font: 700 16px/1 Manrope, sans-serif;">Maintenance Bills</span>
+          </div>
+          <div style="flex: 1; background: rgba(14,20,32,0.45);"></div>
+          <div style="background: #FFFFFF; border-radius: 18px 18px 0 0; padding: 8px 20px 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 -8px 30px rgba(16,28,48,0.18);">
+            <div style="width: 44px; height: 4px; border-radius: 2px; background: #C3CAD4; align-self: center;"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font: 700 20px/1.25 Manrope, sans-serif; letter-spacing: -0.015em;">Confirm payment</span>
+              <span style="width: 32px; height: 32px; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 32px; text-align: center; cursor: pointer;">✕</span>
+            </div>
+            <div style="padding: 16px; border-radius: 10px; background: #F7F9FC; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 13px; color: #5B6779;">August 2026 · BILL-24081</span>
+                <span style="font: 800 26px/1 Manrope, sans-serif;">₹4,250</span>
+              </div>
+              <span style="font-size: 12px; color: #8A94A3;">Includes ₹150 late penalty. Payment is simulated for this build.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Payment method</span>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #1265C8; border-radius: 10px; background: #F2F7FD; cursor: pointer;">
+                <span style="width: 20px; height: 20px; border-radius: 50%; border: 6px solid #1265C8; background: #FFFFFF; flex-shrink: 0;"></span>
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px;">
+                  <span style="font-size: 15px; font-weight: 600;">Card · HDFC •••• 4471</span>
+                  <span style="font-size: 12px; color: #5B6779;">Instant · receipt in 2 minutes</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #E2E6EC; border-radius: 10px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px;">
+                  <span style="font-size: 15px; font-weight: 600;">Bank transfer · NEFT</span>
+                  <span style="font-size: 12px; color: #5B6779;">Reflects in up to 24 hours</span>
+                </div>
+              </div>
+            </div>
+            <button style="height: 52px; border: 0; border-radius: 10px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Confirm Payment · ₹4,250</button>
+            <span style="font-size: 12px; line-height: 1.5; color: #8A94A3; text-align: center;">Simulated gateway. No real money moves in this prototype.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile success -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">PAY · SUCCESS</span>
+        <div style="width: 375px; height: 760px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; opacity: 0.5;">
+            <span style="font: 700 16px/1 Manrope, sans-serif;">Maintenance Bills</span>
+          </div>
+          <div style="flex: 1; background: rgba(14,20,32,0.45); display: flex; align-items: center; justify-content: center; padding: 20px;">
+            <div style="width: 100%; background: #FFFFFF; border-radius: 16px; padding: 28px 22px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; box-shadow: 0 18px 44px rgba(16,28,48,0.28);">
+              <div style="width: 72px; height: 72px; border-radius: 50%; background: #E6F5EC; display: flex; align-items: center; justify-content: center;">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 17.5l5.5 5.5L25 12.5" stroke="#0F8B54" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 700 22px/1.25 Manrope, sans-serif; letter-spacing: -0.02em;">Payment successful</span>
+                <span style="font-size: 14px; line-height: 1.55; color: #5B6779;">₹4,250 received for August 2026. Your bill is now marked paid.</span>
+              </div>
+              <div style="width: 100%; padding: 14px; border-radius: 10px; background: #F7F9FC; display: flex; flex-direction: column; gap: 8px; text-align: left;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #5B6779;">Transaction</span><span style="font-family: 'IBM Plex Mono', monospace;">TXN-99417-A</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #5B6779;">Method</span><span style="font-weight: 600;">HDFC •••• 4471</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;"><span style="color: #5B6779;">Status</span><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span></div>
+              </div>
+              <button style="width: 100%; height: 48px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Download PDF Receipt</button>
+              <button style="width: 100%; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Back to bills</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== DESKTOP ============== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · DESKTOP</span>
+      <span style="font-size: 14px; color: #5B6779;">Hero bill beside the stat panel; history as a sortable table with an inline filter bar.</span>
+    </div>
+
+    <div style="width: 1280px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 24px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 17px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · TOWER B</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 360px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+          <span style="font-size: 14px; color: #8A94A3;">Search bills, receipts…</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="position: relative; width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4.5 7.5a4.5 4.5 0 0 1 9 0v3l1.5 2.5H3l1.5-2.5v-3Z" stroke="#5B6779" stroke-width="1.4" /><circle cx="9" cy="15" r="1.4" fill="#5B6779" /></svg>
+            <span style="position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #FFFFFF;"></span>
+          </div>
+          <div style="width: 1px; height: 28px; background: #E2E6EC;"></div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">AM</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; line-height: 1;">Aarav Mehta</span>
+              <span style="font-size: 11px; line-height: 1; color: #5B6779;">Resident · B-204</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 248px; flex-shrink: 0; background: #FFFFFF; border-right: 1px solid #E2E6EC; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #8A94A3;">My home</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="2" stroke="#5B6779" stroke-width="1.5" /><rect x="5.5" y="7" width="4" height="4" rx="0.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+            Visitor Pass
+          </div>
+          <div style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; background: #E4EEFA; color: #0B4FA0; font-size: 14px; font-weight: 600;">
+            <span style="position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: #1265C8;"></span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.5-3 1.5-3-1.5L4 15.5v-13Z" stroke="#0B4FA0" stroke-width="1.5" /><line x1="6.5" y1="6.5" x2="11.5" y2="6.5" stroke="#0B4FA0" stroke-width="1.3" /></svg>
+              Maintenance Bills
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">1</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 4.5A2 2 0 0 1 4.5 2.5h9a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7l-4.5 3.5v-10.5Z" stroke="#5B6779" stroke-width="1.5" /></svg>
+              Complaints
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">3</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="2.5" y1="7" x2="15.5" y2="7" stroke="#5B6779" stroke-width="1.5" /><rect x="5" y="9.5" width="3" height="3" rx="0.5" fill="#5B6779" /></svg>
+            Amenity Booking
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="5.5" y1="6.5" x2="12.5" y2="6.5" stroke="#5B6779" stroke-width="1.3" /><line x1="5.5" y1="9.5" x2="12.5" y2="9.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+            Notices
+          </div>
+          <div style="margin-top: 20px; padding: 14px; border-radius: 10px; background: #FCEAE8; display: flex; flex-direction: column; gap: 6px;">
+            <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #8E2119;">₹4,250 overdue</span>
+            <span style="font-size: 12px; line-height: 1.45; color: #8E2119;">Penalty grows ₹25/day after 15 days.</span>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 24px 32px 28px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 800 32px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Maintenance Bills</span>
+              <span style="font-size: 14px; color: #5B6779;">Block B, Flat 204 · billing cycle closes on the 8th</span>
+            </div>
+            <button style="height: 40px; padding: 0 16px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;" style-hover="border-color: #1265C8; color: #0B4FA0;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#2E3A4D" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#2E3A4D" stroke-width="1.5" stroke-linecap="round" /></svg>
+              Download statement
+            </button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; align-items: start;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid {{ accent }}; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Current bill · August 2026 · BILL-24081</span>
+                  <div style="display: flex; align-items: baseline; gap: 14px;">
+                    <span style="font: 800 44px/1 Manrope, sans-serif; letter-spacing: -0.03em;">₹4,250</span>
+                    <span style="{{ badge }}"><span style="{{ dot }}"></span>{{ statusLabel }}</span>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 600; color: {{ accent }};">{{ dueNote }}</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px; align-items: stretch; min-width: 200px;">
+                  <button style="height: 48px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Pay Now</button>
+                  <button style="height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;" style-hover="border-color: #1265C8; color: #0B4FA0;">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v7.5m0 0L5.5 7.5M8 10l2.5-2.5" stroke="#2E3A4D" stroke-width="1.5" stroke-linecap="round" /><path d="M3 12.5h10" stroke="#2E3A4D" stroke-width="1.5" stroke-linecap="round" /></svg>
+                    Download PDF Receipt
+                  </button>
+                </div>
+              </div>
+              <div style="border: 1px solid #E2E6EC; border-radius: 10px; overflow: hidden;">
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 10px 16px; background: #F1F3F7; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">
+                  <span>Charge</span><span style="text-align: right;">Amount</span>
+                </div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 12px 16px; border-top: 1px solid #E2E6EC; font-size: 14px;"><span>Water charges</span><span style="text-align: right; font-family: 'IBM Plex Mono', monospace;">₹520</span></div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 12px 16px; border-top: 1px solid #E2E6EC; font-size: 14px;"><span>Security</span><span style="text-align: right; font-family: 'IBM Plex Mono', monospace;">₹1,150</span></div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 12px 16px; border-top: 1px solid #E2E6EC; font-size: 14px;"><span>Repairs &amp; maintenance</span><span style="text-align: right; font-family: 'IBM Plex Mono', monospace;">₹1,780</span></div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 12px 16px; border-top: 1px solid #E2E6EC; font-size: 14px;"><span>Amenities</span><span style="text-align: right; font-family: 'IBM Plex Mono', monospace;">₹650</span></div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 12px 16px; border-top: 1px solid #E2E6EC; font-size: 14px; color: #C0392F; font-weight: 600;"><span>Late penalty · 6 days overdue</span><span style="text-align: right; font-family: 'IBM Plex Mono', monospace;">₹150</span></div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; padding: 14px 16px; border-top: 1px solid #E2E6EC; background: #F7F9FC; font-size: 15px; font-weight: 700;"><span>Total due</span><span style="text-align: right; font-family: 'IBM Plex Mono', monospace;">₹4,250</span></div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <span style="font: 600 16px/1.3 Manrope, sans-serif;">This year</span>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font: 600 11px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Total paid this year</span>
+                  <span style="font: 800 30px/1 Manrope, sans-serif; letter-spacing: -0.02em;">₹29,700</span>
+                  <span style="font-size: 12px; color: #0F8B54; font-weight: 600;">7 of 8 bills cleared on time</span>
+                </div>
+                <div style="height: 1px; background: #F1F3F7;"></div>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font: 600 11px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Outstanding balance</span>
+                  <span style="font: 800 30px/1 Manrope, sans-serif; letter-spacing: -0.02em; color: #C0392F;">₹4,250</span>
+                  <span style="font-size: 12px; color: #5B6779;">incl. ₹150 penalty accrued</span>
+                </div>
+                <div style="height: 1px; background: #F1F3F7;"></div>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <span style="font: 600 11px/1.3 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Average monthly</span>
+                  <span style="font: 800 30px/1 Manrope, sans-serif; letter-spacing: -0.02em;">₹4,163</span>
+                  <span style="font-size: 12px; color: #5B6779;">₹150 above tower average</span>
+                </div>
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <span style="font: 600 16px/1.3 Manrope, sans-serif;">Auto-pay</span>
+                <span style="font-size: 13px; line-height: 1.55; color: #5B6779;">Enable auto-debit on the 5th of each month and never pay a penalty again.</span>
+                <button style="height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Set up auto-pay</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; overflow: hidden;">
+            <div style="padding: 18px 20px; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+              <span style="font: 600 18px/1.3 Manrope, sans-serif;">Billing history</span>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 8px;">
+                  <span style="height: 32px; padding: 0 14px; border-radius: 6px; background: #FFFFFF; color: #0B4FA0; font-size: 13px; font-weight: 700; display: flex; align-items: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">All</span>
+                  <span style="height: 32px; padding: 0 14px; border-radius: 6px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; cursor: pointer;">Paid</span>
+                  <span style="height: 32px; padding: 0 14px; border-radius: 6px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; cursor: pointer;">Overdue</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; cursor: pointer;">
+                  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="2.5" y1="7" x2="15.5" y2="7" stroke="#5B6779" stroke-width="1.5" /></svg>
+                  <span style="font-size: 13px; font-weight: 600;">Jan 2026 – Aug 2026</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; width: 200px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+                  <span style="font-size: 13px; color: #8A94A3;">Search bill ID</span>
+                </div>
+              </div>
+            </div>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px;">
+                <thead>
+                  <tr style="background: #F1F3F7;">
+                    <th style="text-align: left; padding: 11px 20px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Month <span style="color: #1265C8;">↓</span></th>
+                    <th style="text-align: left; padding: 11px 16px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Bill ID</th>
+                    <th style="text-align: right; padding: 11px 16px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Amount ⇅</th>
+                    <th style="text-align: left; padding: 11px 16px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Due date ⇅</th>
+                    <th style="text-align: left; padding: 11px 16px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Status</th>
+                    <th style="text-align: right; padding: 11px 20px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Receipt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-top: 1px solid #E2E6EC; background: #FDFBFB;" style-hover="background: #F7F9FC;">
+                    <td style="padding: 13px 20px; font-weight: 700;">August 2026</td>
+                    <td style="padding: 13px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24081</td>
+                    <td style="padding: 13px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,250</td>
+                    <td style="padding: 13px 16px; color: #5B6779;">8 Aug 2026</td>
+                    <td style="padding: 13px 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #C0392F;"></span>Overdue</span></td>
+                    <td style="padding: 13px 20px; text-align: right; color: #8A94A3;">—</td>
+                  </tr>
+                  <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                    <td style="padding: 13px 20px; font-weight: 600;">July 2026</td>
+                    <td style="padding: 13px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24072</td>
+                    <td style="padding: 13px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</td>
+                    <td style="padding: 13px 16px; color: #5B6779;">8 Jul 2026</td>
+                    <td style="padding: 13px 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span></td>
+                    <td style="padding: 13px 20px; text-align: right;"><a href="#r1">Download</a></td>
+                  </tr>
+                  <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                    <td style="padding: 13px 20px; font-weight: 600;">June 2026</td>
+                    <td style="padding: 13px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24063</td>
+                    <td style="padding: 13px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</td>
+                    <td style="padding: 13px 16px; color: #5B6779;">8 Jun 2026</td>
+                    <td style="padding: 13px 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span></td>
+                    <td style="padding: 13px 20px; text-align: right;"><a href="#r2">Download</a></td>
+                  </tr>
+                  <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                    <td style="padding: 13px 20px; font-weight: 600;">May 2026</td>
+                    <td style="padding: 13px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24054</td>
+                    <td style="padding: 13px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,240</td>
+                    <td style="padding: 13px 16px; color: #5B6779;">8 May 2026</td>
+                    <td style="padding: 13px 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B26A00;"></span>Paid late</span></td>
+                    <td style="padding: 13px 20px; text-align: right;"><a href="#r3">Download</a></td>
+                  </tr>
+                  <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                    <td style="padding: 13px 20px; font-weight: 600;">April 2026</td>
+                    <td style="padding: 13px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24045</td>
+                    <td style="padding: 13px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹4,100</td>
+                    <td style="padding: 13px 16px; color: #5B6779;">8 Apr 2026</td>
+                    <td style="padding: 13px 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span></td>
+                    <td style="padding: 13px 20px; text-align: right;"><a href="#r4">Download</a></td>
+                  </tr>
+                  <tr style="border-top: 1px solid #E2E6EC;" style-hover="background: #F7F9FC;">
+                    <td style="padding: 13px 20px; font-weight: 600;">March 2026</td>
+                    <td style="padding: 13px 16px; font: 500 13px/1 'IBM Plex Mono', monospace;">BILL-24036</td>
+                    <td style="padding: 13px 16px; text-align: right; font: 500 13px/1 'IBM Plex Mono', monospace;">₹3,980</td>
+                    <td style="padding: 13px 16px; color: #5B6779;">8 Mar 2026</td>
+                    <td style="padding: 13px 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span></td>
+                    <td style="padding: 13px 20px; text-align: right;"><a href="#r5">Download</a></td>
+                  </tr>
+                  <tr style="border-top: 1px solid #E2E6EC; background: #F7F9FC;">
+                    <td colspan="3" style="padding: 12px 20px; font-size: 13px; color: #5B6779;">Showing 6 of 14 bills · sorted newest first</td>
+                    <td colspan="3" style="padding: 12px 20px; text-align: right; font-size: 13px;"><a href="#more">Load older bills</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 14px 32px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; gap: 24px; align-items: center;">
+          <span style="font-size: 13px; color: #8A94A3;">© 2026 Green Valley RWA</span>
+          <a href="#directory" style="font-size: 13px;">Emergency Contact Directory</a>
+          <a href="#guidelines" style="font-size: 13px;">Society Guidelines</a>
+        </div>
+        <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px;" style-hover="background: #A31A12;">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF;"></span>Emergency Siren
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== DESKTOP PAYMENT MODAL ============== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">DESKTOP · PAYMENT MODAL</span>
+      <span style="font-size: 14px; color: #5B6779;">Two steps over a dimmed page: confirm, then success with the status already updated.</span>
+    </div>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap;">
+      <div style="width: 620px; padding: 40px; border-radius: 16px; background: rgba(14,20,32,0.45); display: flex; justify-content: center;">
+        <div style="width: 460px; background: #FFFFFF; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 44px rgba(16,28,48,0.28);">
+          <div style="padding: 22px 24px 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <span style="font: 600 18px/1.3 Manrope, sans-serif;">Confirm payment</span>
+              <span style="font-size: 13px; color: #5B6779;">August 2026 · BILL-24081</span>
+            </div>
+            <span style="width: 32px; height: 32px; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 32px; text-align: center; cursor: pointer; flex-shrink: 0;">✕</span>
+          </div>
+          <div style="padding: 18px 24px 22px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="padding: 16px; border-radius: 10px; background: #F7F9FC; display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+              <span style="font-size: 13px; color: #5B6779;">Amount payable</span>
+              <span style="font: 800 30px/1 Manrope, sans-serif; letter-spacing: -0.02em;">₹4,250</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Payment method</span>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #1265C8; border-radius: 10px; background: #F2F7FD; cursor: pointer;">
+                <span style="width: 20px; height: 20px; border-radius: 50%; border: 6px solid #1265C8; background: #FFFFFF; flex-shrink: 0;"></span>
+                <div style="min-width: 0; display: flex; flex-direction: column; gap: 3px;">
+                  <span style="font-size: 15px; font-weight: 600;">Card · HDFC •••• 4471</span>
+                  <span style="font-size: 12px; color: #5B6779;">Instant · receipt generated immediately</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #E2E6EC; border-radius: 10px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                <div style="min-width: 0; display: flex; flex-direction: column; gap: 3px;">
+                  <span style="font-size: 15px; font-weight: 600;">Bank transfer · NEFT</span>
+                  <span style="font-size: 12px; color: #5B6779;">Reflects in up to 24 hours</span>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px; padding: 12px; border-radius: 8px; background: #FDF2DE;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #B26A00; margin-top: 6px; flex-shrink: 0;"></span>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A4A00;">Payment is simulated in this build — no gateway is called and no money moves.</span>
+            </div>
+          </div>
+          <div style="padding: 16px 24px; border-top: 1px solid #E2E6EC; background: #F7F9FC; display: flex; justify-content: flex-end; gap: 10px;">
+            <button style="height: 44px; padding: 0 18px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Cancel</button>
+            <button style="height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Confirm Payment</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 620px; padding: 40px; border-radius: 16px; background: rgba(14,20,32,0.45); display: flex; justify-content: center;">
+        <div style="width: 460px; background: #FFFFFF; border-radius: 14px; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; box-shadow: 0 18px 44px rgba(16,28,48,0.28);">
+          <div style="width: 76px; height: 76px; border-radius: 50%; background: #E6F5EC; display: flex; align-items: center; justify-content: center;">
+            <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 17.5l5.5 5.5L25 12.5" stroke="#0F8B54" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 700 24px/1.25 Manrope, sans-serif; letter-spacing: -0.02em;">Payment successful</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #5B6779; max-width: 34ch;">₹4,250 received for August 2026. The bill status is now Paid and the penalty has stopped accruing.</span>
+          </div>
+          <div style="width: 100%; padding: 16px; border-radius: 10px; background: #F7F9FC; display: flex; flex-direction: column; gap: 10px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; font-size: 14px;"><span style="color: #5B6779;">Transaction ID</span><span style="font-family: 'IBM Plex Mono', monospace;">TXN-99417-A</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;"><span style="color: #5B6779;">Paid on</span><span style="font-weight: 600;">14 Aug 2026, 11:04 AM</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;"><span style="color: #5B6779;">Bill status</span><span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0F8B54;"></span>Paid</span></div>
+          </div>
+          <div style="display: flex; gap: 10px; width: 100%;">
+            <button style="flex: 1; height: 48px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Download PDF Receipt</button>
+            <button style="flex: 1; height: 48px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 15px; font-weight: 600; cursor: pointer;">Back to bills</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;billStatus&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Overdue&quot;,&quot;Pending&quot;,&quot;Paid&quot;],&quot;default&quot;:&quot;Overdue&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Current bill&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const base = {
+      display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '5px 11px',
+      borderRadius: '999px', fontSize: '12px', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0
+    };
+    const map = {
+      Overdue: { fg: '#C0392F', bg: '#FCEAE8', label: 'Overdue', note: 'Due 8 Aug 2026 · 6 days late' },
+      Pending: { fg: '#B26A00', bg: '#FDF2DE', label: 'Pending', note: 'Due 8 Sep 2026 · 25 days left' },
+      Paid: { fg: '#0F8B54', bg: '#E6F5EC', label: 'Paid', note: 'Cleared 8 Aug 2026 · receipt ready' }
+    };
+    const s = map[this.props.billStatus] ?? map.Overdue;
+    return {
+      statusLabel: s.label,
+      dueNote: s.note,
+      accent: s.fg,
+      badge: { ...base, background: s.bg, color: s.fg },
+      dot: { width: '7px', height: '7px', borderRadius: '50%', background: s.fg, flexShrink: 0 }
+    };
+  }
+}
+</script>
+</body>
+</html>

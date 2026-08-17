@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #EEF1F6; }
+  * { box-sizing: border-box; }
+  a { color: #1265C8; text-decoration: none; font-weight: 600; }
+  a:hover { color: #0B4FA0; text-decoration: underline; }
+  input, select, button { font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+
+<div style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1B2434; background: #EEF1F6; padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 48px; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; flex-direction: column; gap: 12px; max-width: 1280px;">
+    <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SMARTSOCIETY · RESIDENT · NOTICE BOARD</span>
+    <h1 style="margin: 0; font: 800 36px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Notice Board &amp; Digital Polling</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5B6779; max-width: 78ch;">Four tabs on one shell: Announcements, Events, Polls, Guidelines. Emergency notices pin to the top with the same red-accent treatment used for Overdue bills — accent and badge, never a red fill.</p>
+  </header>
+
+  <!-- ==================== MOBILE ==================== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">375 · MOBILE-FIRST</span>
+      <span style="font-size: 14px; color: #5B6779;">Scrollable segmented control; stacked cards; poll options as 56px tappable rows; detail as a takeover.</span>
+    </div>
+
+    <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start;">
+
+      <!-- A: announcements -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">ANNOUNCEMENTS</span>
+        <div style="width: 375px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 40px; height: 40px; border-radius: 8px; background: #F1F3F7; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+                <span style="width: 16px; height: 2px; background: #2E3A4D; border-radius: 1px;"></span>
+              </div>
+              <span style="font: 700 16px/1 Manrope, sans-serif;">Notice Board</span>
+            </div>
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">AM</div>
+          </div>
+
+          <div style="padding: 14px 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC;">
+            <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px; overflow: hidden;">
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 13px; font-weight: 700; display: flex; align-items: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); flex-shrink: 0; cursor: pointer;">Announcements</span>
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; flex-shrink: 0; cursor: pointer;">Events</span>
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; flex-shrink: 0; cursor: pointer;">Polls <span style="min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font: 700 10px/18px 'Public Sans', sans-serif; text-align: center;">1</span></span>
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; flex-shrink: 0; cursor: pointer;">Guid…</span>
+            </div>
+          </div>
+
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-left: 3px solid #C0392F; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 11px; font-weight: 700;">
+                  <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l6.5 12H2.5L9 2.5Z" stroke="#C0392F" stroke-width="1.5" /><path d="M9 7v3.5" stroke="#C0392F" stroke-width="1.5" /><circle cx="9" cy="12.4" r="0.9" fill="#C0392F" /></svg>
+                  Emergency
+                </span>
+                <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">PINNED</span>
+              </div>
+              <span style="font: 700 17px/1.3 Manrope, sans-serif; letter-spacing: -0.01em;">Water supply shutdown — Tower B, 16 Aug</span>
+              <span style="font-size: 14px; line-height: 1.55; color: #5B6779;">Mains will be closed 10 AM–4 PM for riser replacement. Please store water for the day; tankers will be stationed near Gate 2…</span>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; border-top: 1px solid #F1F3F7;">
+                <span style="font-size: 12px; color: #8A94A3;">2 days ago · S. Krishnan, Society Admin</span>
+                <a href="#read" style="font-size: 13px;">Read</a>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #B26A00;"></span>Maintenance</span>
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #1265C8;"></span>
+              </div>
+              <span style="font: 700 17px/1.3 Manrope, sans-serif; letter-spacing: -0.01em;">Lift B annual servicing — 18 Aug, 9 AM–1 PM</span>
+              <span style="font-size: 14px; line-height: 1.55; color: #5B6779;">OTIS engineers will take Lift B offline. Lift A remains in service; please plan heavy moves outside this window.</span>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; border-top: 1px solid #F1F3F7;">
+                <span style="font-size: 12px; color: #8A94A3;">Yesterday · Facility Desk</span>
+                <a href="#read" style="font-size: 13px;">Read</a>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700; align-self: flex-start;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>General</span>
+              <span style="font: 700 17px/1.3 Manrope, sans-serif; letter-spacing: -0.01em;">Revised visitor parking rules</span>
+              <span style="font-size: 14px; line-height: 1.55; color: #5B6779;">Visitor vehicles are now limited to bays V1–V12 for a maximum of 4 hours. Overnight parking needs written approval.</span>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; border-top: 1px solid #F1F3F7;">
+                <span style="font-size: 12px; color: #8A94A3;">6 days ago · S. Krishnan, Society Admin</span>
+                <a href="#read" style="font-size: 13px;">Read</a>
+              </div>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;">
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700; align-self: flex-start;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>General</span>
+              <span style="font: 700 17px/1.3 Manrope, sans-serif; letter-spacing: -0.01em;">AGM minutes published</span>
+              <span style="font-size: 14px; line-height: 1.55; color: #5B6779;">Minutes of the 2026 annual general meeting, including the approved sinking-fund contribution, are attached.</span>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px; border-top: 1px solid #F1F3F7;">
+                <span style="font-size: 12px; color: #8A94A3;">11 days ago · Secretary</span>
+                <a href="#read" style="font-size: 13px;">Read</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="height: 68px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; padding: 0 4px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /></svg><span style="font-size: 10px;">Home</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="2" stroke="#5B6779" stroke-width="1.5" /><rect x="5.5" y="7" width="4" height="4" rx="0.5" stroke="#5B6779" stroke-width="1.3" /></svg><span style="font-size: 10px;">Passes</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.5-3 1.5-3-1.5L4 15.5v-13Z" stroke="#5B6779" stroke-width="1.5" /></svg><span style="font-size: 10px;">Bills</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #5B6779;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 4.5A2 2 0 0 1 4.5 2.5h9a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7l-4.5 3.5v-10.5Z" stroke="#5B6779" stroke-width="1.5" /></svg><span style="font-size: 10px;">Tickets</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; color: #0B4FA0;"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3" width="13" height="12" rx="2" stroke="#0B4FA0" stroke-width="1.5" /><line x1="5.5" y1="6.5" x2="12.5" y2="6.5" stroke="#0B4FA0" stroke-width="1.3" /><line x1="5.5" y1="9.5" x2="12.5" y2="9.5" stroke="#0B4FA0" stroke-width="1.3" /></svg><span style="font-size: 10px; font-weight: 700;">Notices</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B: polls -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">POLLS · VOTE + RESULTS</span>
+        <div style="width: 375px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font: 700 16px/1 Manrope, sans-serif;">Notice Board</span>
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 12px/1 Manrope, sans-serif;">AM</div>
+          </div>
+          <div style="padding: 14px 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC;">
+            <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px; overflow: hidden;">
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; flex-shrink: 0;">Announce…</span>
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; flex-shrink: 0;">Events</span>
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; box-shadow: 0 1px 2px rgba(16,28,48,0.08); flex-shrink: 0;">Polls <span style="min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: #E4EEFA; font: 700 10px/18px 'Public Sans', sans-serif; text-align: center;">1</span></span>
+              <span style="height: 36px; padding: 0 14px; border-radius: 7px; color: #5B6779; font-size: 13px; font-weight: 600; display: flex; align-items: center; flex-shrink: 0;">Guid…</span>
+            </div>
+          </div>
+
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid #1265C8; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #1265C8;"></span>Open poll</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #B26A00;">CLOSES IN 2D 4H</span>
+              </div>
+              <span style="font: 700 18px/1.35 Manrope, sans-serif; letter-spacing: -0.015em;">Which gym equipment should we add with the ₹3.5L budget?</span>
+              <span style="font-size: 13px; color: #5B6779;">One vote per flat · you haven't voted yet</span>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 14px; border: 1px solid #1265C8; border-radius: 10px; background: #F2F7FD; cursor: pointer;">
+                  <span style="width: 20px; height: 20px; border-radius: 50%; border: 6px solid #1265C8; background: #FFFFFF; flex-shrink: 0;"></span>
+                  <span style="font-size: 15px; font-weight: 600;">Treadmills ×2</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 14px; border: 1px solid #E2E6EC; border-radius: 10px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                  <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                  <span style="font-size: 15px; font-weight: 500;">Free-weight rack</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 14px; border: 1px solid #E2E6EC; border-radius: 10px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                  <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                  <span style="font-size: 15px; font-weight: 500;">Spin bikes ×4</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 14px; border: 1px solid #E2E6EC; border-radius: 10px; background: #FFFFFF; cursor: pointer;" style-hover="border-color: #C3CAD4;">
+                  <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                  <span style="font-size: 15px; font-weight: 500;">Air-conditioning upgrade</span>
+                </div>
+              </div>
+              <button style="height: 52px; border: 0; border-radius: 10px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Submit Vote</button>
+              <span style="font-size: 12px; color: #8A94A3; text-align: center;">184 of 412 flats have voted · results visible after you vote</span>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>You voted</span>
+                <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">CLOSES 20 AUG</span>
+              </div>
+              <span style="font: 700 17px/1.35 Manrope, sans-serif; letter-spacing: -0.015em;">Should quiet hours start at 10 PM instead of 11 PM?</span>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-size: 14px; font-weight: 700;">Yes, 10 PM <span style="font-size: 11px; font-weight: 600; color: #0B4FA0;">· your vote</span></span>
+                    <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">64%</span>
+                  </div>
+                  <div style="height: 10px; border-radius: 5px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 64%; height: 100%; background: #1265C8;"></span></div>
+                  <span style="font-size: 11px; color: #8A94A3;">158 flats</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-size: 14px; font-weight: 600;">No, keep 11 PM</span>
+                    <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">28%</span>
+                  </div>
+                  <div style="height: 10px; border-radius: 5px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 28%; height: 100%; background: #B9D3F2;"></span></div>
+                  <span style="font-size: 11px; color: #8A94A3;">69 flats</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-size: 14px; font-weight: 600;">No preference</span>
+                    <span style="font: 500 13px/1 'IBM Plex Mono', monospace;">8%</span>
+                  </div>
+                  <div style="height: 10px; border-radius: 5px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 8%; height: 100%; background: #C3CAD4;"></span></div>
+                  <span style="font-size: 11px; color: #8A94A3;">20 flats</span>
+                </div>
+              </div>
+              <span style="font-size: 12px; color: #8A94A3;">247 of 412 flats voted · you can change your vote until close</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Closed polls</span>
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <span style="font-size: 15px; font-weight: 600; line-height: 1.35;">Festival decoration vendor</span>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700; flex-shrink: 0;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>Closed</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <div style="display: flex; justify-content: space-between;"><span style="font-size: 13px; font-weight: 700;">Shubh Events · winner</span><span style="font: 500 12px/1 'IBM Plex Mono', monospace;">71%</span></div>
+                    <div style="height: 8px; border-radius: 4px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 71%; height: 100%; background: #0F8B54;"></span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <div style="display: flex; justify-content: space-between;"><span style="font-size: 13px; color: #5B6779;">Decor Studio</span><span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #5B6779;">29%</span></div>
+                    <div style="height: 8px; border-radius: 4px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 29%; height: 100%; background: #C3CAD4;"></span></div>
+                  </div>
+                </div>
+                <span style="font-size: 11px; color: #8A94A3;">Closed 30 Jul · 302 of 412 flats voted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C: notice detail -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">NOTICE DETAIL · TAKEOVER</span>
+        <div style="width: 375px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="height: 56px; padding: 0 16px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 8px; background: #F1F3F7; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M9.5 3.5L5 8l4.5 4.5" stroke="#2E3A4D" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </div>
+            <span style="font: 700 16px/1 Manrope, sans-serif;">Notice</span>
+          </div>
+          <div style="padding: 18px 16px 22px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-left: 3px solid #C0392F; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 11px; font-weight: 700;">
+                  <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l6.5 12H2.5L9 2.5Z" stroke="#C0392F" stroke-width="1.5" /><path d="M9 7v3.5" stroke="#C0392F" stroke-width="1.5" /><circle cx="9" cy="12.4" r="0.9" fill="#C0392F" /></svg>
+                  Emergency
+                </span>
+                <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">NTC-1188</span>
+              </div>
+              <span style="font: 700 21px/1.3 Manrope, sans-serif; letter-spacing: -0.02em;">Water supply shutdown — Tower B, 16 August</span>
+              <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 10px; background: #F7F9FC;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #5B6779;">Posted</span><span style="font-weight: 600;">12 Aug 2026, 18:40</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #5B6779;">Author</span><span style="font-weight: 600;">S. Krishnan · Society Admin</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px;"><span style="color: #5B6779;">Applies to</span><span style="font-weight: 600;">Tower B · all flats</span></div>
+              </div>
+              <div style="height: 168px; border-radius: 10px; border: 1px dashed #C3CAD4; background: repeating-linear-gradient(135deg, #FFFFFF 0 8px, #F1F3F7 8px 16px); display: flex; align-items: center; justify-content: center;">
+                <span style="font: 400 10px/1.4 'IBM Plex Mono', monospace; color: #8A94A3; text-align: center; max-width: 140px;">NOTICE ATTACHMENT · RISER PLAN · DROP IMAGE HERE</span>
+              </div>
+              <span style="font-size: 15px; line-height: 1.65; color: #2E3A4D;">The main riser feeding flats 101–1204 in Tower B will be replaced on Saturday, 16 August. Supply will be closed from 10:00 AM to 4:00 PM.</span>
+              <span style="font-size: 15px; line-height: 1.65; color: #2E3A4D;">Please store drinking and utility water the night before. Two tankers will be stationed near Gate 2 from noon; security will manage queueing per floor. Lifts stay operational throughout.</span>
+              <span style="font-size: 15px; line-height: 1.65; color: #2E3A4D;">If supply hasn't returned by 5 PM, raise a Plumbing complaint from the app and the on-duty supervisor will be paged.</span>
+              <div style="display: flex; gap: 10px; padding-top: 4px;">
+                <button style="flex: 1; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Add to calendar</button>
+                <button style="flex: 1; height: 44px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Download PDF</button>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px; padding: 14px; border-radius: 10px; background: #FCEAE8;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #C0392F; margin-top: 6px; flex-shrink: 0;"></span>
+              <span style="font-size: 13px; line-height: 1.5; color: #8E2119;">Emergency notices are delivered to every resident regardless of notification preferences and are recorded in the society audit log.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DESKTOP ==================== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · DESKTOP · ANNOUNCEMENTS + EVENTS</span>
+      <span style="font-size: 14px; color: #5B6779;">Segmented control inline; notices in a wide column with the events rail alongside.</span>
+    </div>
+
+    <div style="width: 1280px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="height: 64px; padding: 0 24px; background: #FFFFFF; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(140deg, #1265C8, #0E9A94); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 17px/1 Manrope, sans-serif;">SmartSociety</span>
+          <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779; padding: 5px 8px; border-radius: 999px; background: #F1F3F7;">GREEN VALLEY · TOWER B</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1; max-width: 360px; height: 40px; padding: 0 12px; border: 1px solid #E2E6EC; border-radius: 8px; background: #F7F9FC;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="#8A94A3" stroke-width="1.5" /><line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#8A94A3" stroke-width="1.5" /></svg>
+          <span style="font-size: 14px; color: #8A94A3;">Search notices, polls…</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="position: relative; width: 40px; height: 40px; border: 1px solid #E2E6EC; border-radius: 8px; background: #FFFFFF; display: flex; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4.5 7.5a4.5 4.5 0 0 1 9 0v3l1.5 2.5H3l1.5-2.5v-3Z" stroke="#5B6779" stroke-width="1.4" /><circle cx="9" cy="15" r="1.4" fill="#5B6779" /></svg>
+            <span style="position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: #C0392F; border: 2px solid #FFFFFF;"></span>
+          </div>
+          <div style="width: 1px; height: 28px; background: #E2E6EC;"></div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: #E4EEFA; color: #0B4FA0; display: flex; align-items: center; justify-content: center; font: 700 13px/1 Manrope, sans-serif;">AM</div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; line-height: 1;">Aarav Mehta</span>
+              <span style="font-size: 11px; line-height: 1; color: #5B6779;">Resident · B-204</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: stretch;">
+        <div style="width: 248px; flex-shrink: 0; background: #FFFFFF; border-right: 1px solid #E2E6EC; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 6px 10px 12px; font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #8A94A3;">My home</div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="2" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="2" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /><rect x="10" y="10" width="6" height="6" rx="1.5" stroke="#5B6779" stroke-width="1.5" /></svg>
+            Dashboard
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="13" height="10" rx="2" stroke="#5B6779" stroke-width="1.5" /><rect x="5.5" y="7" width="4" height="4" rx="0.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+            Visitor Pass
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.5-3 1.5-3-1.5L4 15.5v-13Z" stroke="#5B6779" stroke-width="1.5" /><line x1="6.5" y1="6.5" x2="11.5" y2="6.5" stroke="#5B6779" stroke-width="1.3" /></svg>
+              Maintenance Bills
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">1</span>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2.5 4.5A2 2 0 0 1 4.5 2.5h9a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H7l-4.5 3.5v-10.5Z" stroke="#5B6779" stroke-width="1.5" /></svg>
+              Complaints
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">3</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 12px; border-radius: 8px; color: #2E3A4D; font-size: 14px; cursor: pointer;" style-hover="background: #F7F9FC;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="2" stroke="#5B6779" stroke-width="1.5" /><line x1="2.5" y1="7" x2="15.5" y2="7" stroke="#5B6779" stroke-width="1.5" /><rect x="5" y="9.5" width="3" height="3" rx="0.5" fill="#5B6779" /></svg>
+            Amenity Booking
+          </div>
+          <div style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 8px; background: #E4EEFA; color: #0B4FA0; font-size: 14px; font-weight: 600;">
+            <span style="position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 0 3px 3px 0; background: #1265C8;"></span>
+            <span style="display: flex; align-items: center; gap: 12px;">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2.5" y="3" width="13" height="12" rx="2" stroke="#0B4FA0" stroke-width="1.5" /><line x1="5.5" y1="6.5" x2="12.5" y2="6.5" stroke="#0B4FA0" stroke-width="1.3" /><line x1="5.5" y1="9.5" x2="12.5" y2="9.5" stroke="#0B4FA0" stroke-width="1.3" /></svg>
+              Notices
+            </span>
+            <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #FFFFFF; color: #0B4FA0; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">4</span>
+          </div>
+          <div style="margin-top: 20px; padding: 14px; border-radius: 10px; background: #FCEAE8; display: flex; flex-direction: column; gap: 6px;">
+            <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #8E2119;">1 emergency notice</span>
+            <span style="font-size: 12px; line-height: 1.45; color: #8E2119;">Water shutdown, Tower B · 16 Aug.</span>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 0; padding: 24px 32px 28px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 800 32px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Notice Board</span>
+              <span style="font-size: 14px; color: #5B6779;">Green Valley RWA · 4 new since your last visit</span>
+            </div>
+            <div style="display: flex; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px;">
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 14px; font-weight: 700; display: flex; align-items: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">Announcements</span>
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; cursor: pointer;">Events</span>
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 7px; cursor: pointer;">Polls <span style="min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font: 700 11px/20px 'Public Sans', sans-serif; text-align: center;">1</span></span>
+              <span style="height: 38px; padding: 0 18px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; cursor: pointer;">Guidelines</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 20px; align-items: start;">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-left: 3px solid #C0392F; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #F0C4C0;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 11px; font-weight: 700;">
+                      <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l6.5 12H2.5L9 2.5Z" stroke="#C0392F" stroke-width="1.5" /><path d="M9 7v3.5" stroke="#C0392F" stroke-width="1.5" /><circle cx="9" cy="12.4" r="0.9" fill="#C0392F" /></svg>
+                      Emergency
+                    </span>
+                    <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">PINNED · NTC-1188</span>
+                  </div>
+                  <span style="font-size: 12px; color: #8A94A3;">12 Aug 2026 · S. Krishnan, Society Admin</span>
+                </div>
+                <span style="font: 700 22px/1.3 Manrope, sans-serif; letter-spacing: -0.02em;">Water supply shutdown — Tower B, 16 August</span>
+                <span style="font-size: 15px; line-height: 1.6; color: #5B6779;">Mains will be closed 10 AM–4 PM for riser replacement across flats 101–1204. Store water the night before; two tankers will be stationed near Gate 2 from noon with security managing per-floor queueing.</span>
+                <div style="display: flex; align-items: center; gap: 16px; padding-top: 6px;">
+                  <a href="#read" style="font-size: 14px;">Read full notice</a>
+                  <span style="font-size: 13px; color: #8A94A3;">1 attachment · riser plan</span>
+                </div>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FDF2DE; color: #B26A00; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #B26A00;"></span>Maintenance</span>
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #1265C8;"></span>
+                    <span style="font-size: 12px; color: #1265C8; font-weight: 600;">New</span>
+                  </div>
+                  <span style="font-size: 12px; color: #8A94A3;">13 Aug 2026 · Facility Desk</span>
+                </div>
+                <span style="font: 700 20px/1.3 Manrope, sans-serif; letter-spacing: -0.015em;">Lift B annual servicing — 18 Aug, 9 AM–1 PM</span>
+                <span style="font-size: 15px; line-height: 1.6; color: #5B6779;">OTIS engineers will take Lift B offline for its statutory annual inspection. Lift A stays in service; please plan furniture moves outside this window.</span>
+                <a href="#read" style="font-size: 14px; padding-top: 6px;">Read full notice</a>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>General</span>
+                  <span style="font-size: 12px; color: #8A94A3;">8 Aug 2026 · S. Krishnan, Society Admin</span>
+                </div>
+                <span style="font: 700 20px/1.3 Manrope, sans-serif; letter-spacing: -0.015em;">Revised visitor parking rules</span>
+                <span style="font-size: 15px; line-height: 1.6; color: #5B6779;">Visitor vehicles are limited to bays V1–V12 for a maximum of 4 hours. Overnight visitor parking now needs written approval from the managing committee.</span>
+                <a href="#read" style="font-size: 14px; padding-top: 6px;">Read full notice</a>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(16,28,48,0.06); cursor: pointer;" style-hover="border-color: #B9D3F2;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #F1F3F7; color: #5B6779; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #8A94A3;"></span>General</span>
+                  <span style="font-size: 12px; color: #8A94A3;">3 Aug 2026 · Secretary</span>
+                </div>
+                <span style="font: 700 20px/1.3 Manrope, sans-serif; letter-spacing: -0.015em;">AGM minutes published</span>
+                <span style="font-size: 15px; line-height: 1.6; color: #5B6779;">Minutes of the 2026 annual general meeting, including the approved sinking-fund contribution and the revised amenity deposit schedule, are attached.</span>
+                <a href="#read" style="font-size: 14px; padding-top: 6px;">Read full notice</a>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; overflow: hidden;">
+                <div style="padding: 18px 22px; border-bottom: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font: 600 18px/1.3 Manrope, sans-serif;">Society guidelines</span>
+                  <a href="#all" style="font-size: 13px;">Open full rulebook</a>
+                </div>
+                <div style="padding: 18px 22px; border-bottom: 1px solid #F1F3F7; display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer;">
+                    <span style="font-size: 16px; font-weight: 700;">Parking Rules</span>
+                    <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 7l3-3 3 3" stroke="#5B6779" stroke-width="1.5" /></svg>
+                  </div>
+                  <span style="font-size: 14px; line-height: 1.6; color: #5B6779;">One allotted bay per flat; second vehicles are waitlisted. Visitor bays V1–V12 for up to 4 hours. Two-wheelers use the basement ramp only. Wheel-clamping applies after two written warnings.</span>
+                </div>
+                <div style="padding: 16px 22px; border-bottom: 1px solid #F1F3F7; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer;" style-hover="background: #F7F9FC;">
+                  <span style="font-size: 16px; font-weight: 600;">Pet Policy</span>
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+                </div>
+                <div style="padding: 16px 22px; border-bottom: 1px solid #F1F3F7; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer;" style-hover="background: #F7F9FC;">
+                  <span style="font-size: 16px; font-weight: 600;">Noise Timings</span>
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+                </div>
+                <div style="padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer;" style-hover="background: #F7F9FC;">
+                  <span style="font-size: 16px; font-weight: 600;">Renovation &amp; Contractor Access</span>
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="#5B6779" stroke-width="1.5" /></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-top: 3px solid #1265C8; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #E4EEFA; color: #0B4FA0; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #1265C8;"></span>Open poll</span>
+                  <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #B26A00;">CLOSES IN 2D 4H</span>
+                </div>
+                <span style="font: 700 19px/1.35 Manrope, sans-serif; letter-spacing: -0.015em;">Which gym equipment should we add with the ₹3.5L budget?</span>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 1px solid #1265C8; border-radius: 10px; background: #F2F7FD; cursor: pointer;">
+                    <span style="width: 20px; height: 20px; border-radius: 50%; border: 6px solid #1265C8; background: #FFFFFF; flex-shrink: 0;"></span>
+                    <span style="font-size: 15px; font-weight: 600;">Treadmills ×2</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 1px solid #E2E6EC; border-radius: 10px; cursor: pointer;" style-hover="border-color: #C3CAD4; background: #F7F9FC;">
+                    <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                    <span style="font-size: 15px; font-weight: 500;">Free-weight rack</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 1px solid #E2E6EC; border-radius: 10px; cursor: pointer;" style-hover="border-color: #C3CAD4; background: #F7F9FC;">
+                    <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                    <span style="font-size: 15px; font-weight: 500;">Spin bikes ×4</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 1px solid #E2E6EC; border-radius: 10px; cursor: pointer;" style-hover="border-color: #C3CAD4; background: #F7F9FC;">
+                    <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #C3CAD4; background: #FFFFFF; flex-shrink: 0;"></span>
+                    <span style="font-size: 15px; font-weight: 500;">AC upgrade</span>
+                  </div>
+                </div>
+                <button style="height: 48px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Submit Vote</button>
+                <span style="font-size: 12px; color: #8A94A3;">184 of 412 flats voted · one vote per flat, results after you vote</span>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 11px; font-weight: 700;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F8B54;"></span>You voted</span>
+                  <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #5B6779;">CLOSES 20 AUG</span>
+                </div>
+                <span style="font: 700 17px/1.35 Manrope, sans-serif;">Should quiet hours start at 10 PM?</span>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-size: 14px; font-weight: 700;">Yes, 10 PM <span style="font-size: 11px; color: #0B4FA0;">· your vote</span></span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">64%</span></div>
+                    <div style="height: 10px; border-radius: 5px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 64%; height: 100%; background: #1265C8;"></span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-size: 14px; font-weight: 600;">No, keep 11 PM</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">28%</span></div>
+                    <div style="height: 10px; border-radius: 5px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 28%; height: 100%; background: #B9D3F2;"></span></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-size: 14px; font-weight: 600;">No preference</span><span style="font: 500 13px/1 'IBM Plex Mono', monospace;">8%</span></div>
+                    <div style="height: 10px; border-radius: 5px; background: #F1F3F7; overflow: hidden;"><span style="display: block; width: 8%; height: 100%; background: #C3CAD4;"></span></div>
+                  </div>
+                </div>
+                <span style="font-size: 12px; color: #8A94A3;">247 of 412 flats voted · change your vote until close</span>
+              </div>
+
+              <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <span style="font: 600 18px/1.3 Manrope, sans-serif;">Upcoming events</span>
+                  <a href="#calendar" style="font-size: 13px;">Calendar</a>
+                </div>
+                <div style="display: flex; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid #F1F3F7;">
+                  <div style="width: 52px; height: 52px; border-radius: 10px; background: #E4EEFA; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #0B4FA0;">AUG</span>
+                    <span style="font: 800 18px/1.1 Manrope, sans-serif; color: #0A3D7A;">15</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px;">
+                    <span style="font-size: 15px; font-weight: 700;">Independence Day flag hoisting</span>
+                    <span style="font-size: 13px; color: #5B6779;">8:00 AM · Central lawn · sweets for children after the anthem</span>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 999px; background: #E6F5EC; color: #0F8B54; font-size: 12px; font-weight: 700; align-self: flex-start; cursor: pointer;">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#0F8B54" stroke-width="1.8" stroke-linecap="round" /></svg>
+                      Interested
+                    </span>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid #F1F3F7;">
+                  <div style="width: 52px; height: 52px; border-radius: 10px; background: #F1F3F7; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">AUG</span>
+                    <span style="font: 800 18px/1.1 Manrope, sans-serif; color: #5B6779;">23</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px;">
+                    <span style="font-size: 15px; font-weight: 700;">Monsoon plantation drive</span>
+                    <span style="font-size: 13px; color: #5B6779;">7:30 AM · Podium garden · saplings provided</span>
+                    <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid #C3CAD4; color: #2E3A4D; font-size: 12px; font-weight: 600; align-self: flex-start; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">RSVP</span>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 14px;">
+                  <div style="width: 52px; height: 52px; border-radius: 10px; background: #F1F3F7; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="font: 500 10px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SEP</span>
+                    <span style="font: 800 18px/1.1 Manrope, sans-serif; color: #5B6779;">06</span>
+                  </div>
+                  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px;">
+                    <span style="font-size: 15px; font-weight: 700;">Ganesh Chaturthi cultural evening</span>
+                    <span style="font-size: 13px; color: #5B6779;">6:00 PM · Clubhouse · potluck sign-up opens 25 Aug</span>
+                    <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid #C3CAD4; color: #2E3A4D; font-size: 12px; font-weight: 600; align-self: flex-start; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">RSVP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 14px 32px; background: #FFFFFF; border-top: 1px solid #E2E6EC; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; gap: 24px; align-items: center;">
+          <span style="font-size: 13px; color: #8A94A3;">© 2026 Green Valley RWA</span>
+          <a href="#directory" style="font-size: 13px;">Emergency Contact Directory</a>
+          <a href="#guidelines" style="font-size: 13px;">Society Guidelines</a>
+        </div>
+        <button style="height: 44px; padding: 0 20px; border: 0; border-radius: 8px; background: #D92D20; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px;" style-hover="background: #A31A12;">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF;"></span>Emergency Siren
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DESKTOP DETAIL MODAL ==================== -->
+  <section style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">DESKTOP · NOTICE DETAIL MODAL</span>
+      <span style="font-size: 14px; color: #5B6779;">Full text and attachment beside metadata; the red left accent carries through from the card.</span>
+    </div>
+    <div style="width: 1280px; padding: 40px; border-radius: 16px; background: rgba(14,20,32,0.45); display: flex; justify-content: center;">
+      <div style="width: 880px; background: #FFFFFF; border-radius: 14px; overflow: hidden; border-left: 3px solid #C0392F; box-shadow: 0 18px 44px rgba(16,28,48,0.28);">
+        <div style="padding: 24px 26px; border-bottom: 1px solid #E2E6EC; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FCEAE8; color: #C0392F; font-size: 11px; font-weight: 700;">
+                <svg width="12" height="12" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l6.5 12H2.5L9 2.5Z" stroke="#C0392F" stroke-width="1.5" /><path d="M9 7v3.5" stroke="#C0392F" stroke-width="1.5" /><circle cx="9" cy="12.4" r="0.9" fill="#C0392F" /></svg>
+                Emergency
+              </span>
+              <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">NTC-1188 · PINNED</span>
+            </div>
+            <span style="font: 700 26px/1.25 Manrope, sans-serif; letter-spacing: -0.02em;">Water supply shutdown — Tower B, 16 August</span>
+          </div>
+          <span style="width: 32px; height: 32px; border-radius: 6px; background: #F1F3F7; color: #5B6779; font-size: 16px; line-height: 32px; text-align: center; cursor: pointer; flex-shrink: 0;">✕</span>
+        </div>
+        <div style="display: grid; grid-template-columns: minmax(0, 1.5fr) 280px;">
+          <div style="padding: 24px 26px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="height: 220px; border-radius: 10px; border: 1px dashed #C3CAD4; background: repeating-linear-gradient(135deg, #FFFFFF 0 9px, #F1F3F7 9px 18px); display: flex; align-items: center; justify-content: center;">
+              <span style="font: 400 11px/1.4 'IBM Plex Mono', monospace; color: #8A94A3; text-align: center; max-width: 200px;">NOTICE ATTACHMENT · TOWER B RISER PLAN · DROP IMAGE HERE</span>
+            </div>
+            <span style="font-size: 15px; line-height: 1.7; color: #2E3A4D;">The main riser feeding flats 101–1204 in Tower B will be replaced on Saturday, 16 August. Water supply will be closed from 10:00 AM to 4:00 PM.</span>
+            <span style="font-size: 15px; line-height: 1.7; color: #2E3A4D;">Please store drinking and utility water the night before. Two tankers will be stationed near Gate 2 from noon; security will manage per-floor queueing so corridors stay clear. Lifts remain operational throughout, and the plumbing team will be on site for the full window.</span>
+            <span style="font-size: 15px; line-height: 1.7; color: #2E3A4D;">If supply hasn't returned by 5 PM, raise a Plumbing complaint from the app — those tickets are routed straight to the on-duty supervisor rather than the standard queue.</span>
+            <div style="display: flex; gap: 12px; padding-top: 4px;">
+              <button style="height: 44px; padding: 0 18px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Add to calendar</button>
+              <button style="height: 44px; padding: 0 18px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Download PDF</button>
+              <button style="height: 44px; padding: 0 18px; border: 1px solid #C3CAD4; border-radius: 8px; background: #FFFFFF; font-size: 14px; font-weight: 600; cursor: pointer;" style-hover="border-color: #1265C8; color: #0B4FA0;">Share with family</button>
+            </div>
+          </div>
+          <div style="padding: 24px; background: #F7F9FC; display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <span style="font: 600 11px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Details</span>
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 12px; color: #8A94A3;">Posted</span><span style="font-size: 14px; font-weight: 600;">12 Aug 2026, 18:40</span></div>
+                <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 12px; color: #8A94A3;">Category</span><span style="font-size: 14px; font-weight: 600; color: #C0392F;">Emergency</span></div>
+                <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 12px; color: #8A94A3;">Author</span><span style="font-size: 14px; font-weight: 600;">S. Krishnan</span><span style="font-size: 12px; color: #5B6779;">Society Admin</span></div>
+                <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 12px; color: #8A94A3;">Applies to</span><span style="font-size: 14px; font-weight: 600;">Tower B · all flats</span></div>
+                <div style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 12px; color: #8A94A3;">Acknowledged</span><span style="font-size: 14px; font-weight: 600;">318 of 412 flats</span></div>
+              </div>
+            </div>
+            <div style="padding: 14px; border-radius: 10px; background: #FCEAE8; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font: 600 13px/1.3 Manrope, sans-serif; color: #8E2119;">Emergency delivery</span>
+              <span style="font-size: 12px; line-height: 1.5; color: #8E2119;">Sent to all residents regardless of notification preferences and recorded in the audit log.</span>
+            </div>
+            <button style="margin-top: auto; height: 44px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Acknowledge notice</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}"></script>
+</body>
+</html>

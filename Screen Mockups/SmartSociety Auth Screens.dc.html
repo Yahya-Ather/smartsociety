@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #EEF1F6; }
+  * { box-sizing: border-box; }
+  a { color: #1265C8; text-decoration: none; font-weight: 600; }
+  a:hover { color: #0B4FA0; text-decoration: underline; }
+  input, select, button { font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+</style>
+</helmet>
+
+<div style="font-family: 'Public Sans', Helvetica, Arial, sans-serif; color: #1B2434; background: #EEF1F6; padding: 56px 48px 96px; display: flex; flex-direction: column; gap: 56px; -webkit-font-smoothing: antialiased;">
+
+  <header style="display: flex; flex-direction: column; gap: 12px; max-width: 1280px;">
+    <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">SMARTSOCIETY · PRE-LOGIN SCREENS</span>
+    <h1 style="margin: 0; font: 800 36px/1.1 Manrope, sans-serif; letter-spacing: -0.025em;">Login &amp; Register</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #5B6779; max-width: 76ch;">Shared entry point for all three roles — the server resolves the role after authentication and routes to the matching dashboard. Register is Resident self-service only. Full-screen layouts: no navbar, no sidebar.</p>
+  </header>
+
+  <!-- ===== MOBILE 375 ===== -->
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">375 · MOBILE-FIRST</span>
+      <span style="font-size: 14px; color: #5B6779;">Branded panel compresses into a banner header; the form panel owns the rest of the viewport.</span>
+    </div>
+
+    <div style="display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start;">
+
+      <!-- mobile login -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">LOGIN</span>
+        <div style="width: 375px; height: 760px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="padding: 28px 24px 26px; background: linear-gradient(150deg, #0A3D7A 0%, #1265C8 58%, #0E9A94 100%); display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; font: 800 15px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+              <span style="font: 700 18px/1 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.01em;">SmartSociety</span>
+            </div>
+            <span style="font: 700 22px/1.25 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.02em; max-width: 22ch;">{{ tagline }}</span>
+            <span style="font: 500 11px/1 'IBM Plex Mono', monospace; color: rgba(255,255,255,0.75);">GREEN VALLEY · 412 FLATS · 3 GATES</span>
+          </div>
+          <div style="flex: 1; padding: 24px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <span style="font: 700 20px/1.25 Manrope, sans-serif; letter-spacing: -0.015em;">Log in</span>
+                <span style="font-size: 13px; color: #5B6779;">Residents, admins and guards — same door.</span>
+              </div>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Email or username</span>
+                <input value="aarav.mehta@gmail.com" style="height: 48px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; color: #1B2434; background: #FFFFFF; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Password</span>
+                <span style="position: relative; display: flex; align-items: center;">
+                  <input type="password" value="wrongpass" style="width: 100%; height: 48px; padding: 0 60px 0 12px; border: 1px solid #C0392F; border-radius: 8px; font-size: 15px; background: #FFFFFF; outline: none;" />
+                  <span style="position: absolute; right: 12px; font-size: 13px; font-weight: 600; color: #1265C8; cursor: pointer;">Show</span>
+                </span>
+                <span style="font-size: 12px; font-weight: 600; color: #C0392F;">Incorrect password. 2 attempts left before a 10-minute lock.</span>
+              </label>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #2E3A4D; cursor: pointer;">
+                  <span style="width: 20px; height: 20px; border-radius: 5px; background: #1265C8; display: flex; align-items: center; justify-content: center;">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" /></svg>
+                  </span>
+                  Remember me
+                </label>
+                <a href="#forgot" style="font-size: 13px;">Forgot password?</a>
+              </div>
+              <button style="height: 52px; border: 0; border-radius: 10px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Log In</button>
+              <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#0A7A76" stroke-width="1.5" /></svg>
+                <span style="font-size: 12px; font-weight: 600; color: #0A7A76;">Secure login · one-time code sent after this step</span>
+              </div>
+            </div>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+              <span style="font-size: 14px; color: #5B6779;">New resident? <a href="#register">Create an account</a></span>
+              <span style="font-size: 12px; line-height: 1.5; color: #8A94A3; text-align: center; max-width: 34ch;">Staff accounts (Admin, Security) are created by the Society Admin.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile OTP -->
+      <div style="display: flex; flex-direction: column; gap: 10px; opacity: 1;" style-hover="">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">LOGIN · STEP 2 · MFA</span>
+        <div style="width: 375px; height: 760px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="padding: 20px 24px; background: linear-gradient(150deg, #0A3D7A 0%, #1265C8 58%, #0E9A94 100%); display: flex; align-items: center; gap: 10px;">
+            <div style="width: 28px; height: 28px; border-radius: 7px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; font: 800 13px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+            <span style="font: 700 16px/1 Manrope, sans-serif; color: #FFFFFF;">SmartSociety</span>
+          </div>
+          <div style="flex: 1; padding: 24px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #DCF3F1; color: #0A7A76; font-size: 12px; font-weight: 700; align-self: flex-start;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #0A7A76;"></span>Step 2 of 2</span>
+                <span style="font: 700 20px/1.25 Manrope, sans-serif; letter-spacing: -0.015em;">Enter the 6-digit code</span>
+                <span style="font-size: 13px; line-height: 1.5; color: #5B6779;">Sent by SMS to <strong style="font-family: 'IBM Plex Mono', monospace; font-weight: 500;">+91 ••••• 41207</strong>. Valid for 5 minutes.</span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px;">
+                <input value="4" style="width: 100%; min-width: 0; padding: 0; height: 56px; border: 1px solid #1265C8; border-radius: 8px; text-align: center; font: 500 20px/1 'IBM Plex Mono', monospace; box-shadow: 0 0 0 3px #B9D3F2; outline: none;" />
+                <input value="8" style="width: 100%; min-width: 0; padding: 0; height: 56px; border: 1px solid #C3CAD4; border-radius: 8px; text-align: center; font: 500 20px/1 'IBM Plex Mono', monospace; outline: none;" />
+                <input value="1" style="width: 100%; min-width: 0; padding: 0; height: 56px; border: 1px solid #C3CAD4; border-radius: 8px; text-align: center; font: 500 20px/1 'IBM Plex Mono', monospace; outline: none;" />
+                <input value="" style="width: 100%; min-width: 0; padding: 0; height: 56px; border: 1px solid #C3CAD4; border-radius: 8px; text-align: center; font: 500 20px/1 'IBM Plex Mono', monospace; outline: none;" />
+                <input value="" style="width: 100%; min-width: 0; padding: 0; height: 56px; border: 1px solid #C3CAD4; border-radius: 8px; text-align: center; font: 500 20px/1 'IBM Plex Mono', monospace; outline: none;" />
+                <input value="" style="width: 100%; min-width: 0; padding: 0; height: 56px; border: 1px solid #C3CAD4; border-radius: 8px; text-align: center; font: 500 20px/1 'IBM Plex Mono', monospace; outline: none;" />
+              </div>
+              <button style="height: 52px; border: 0; border-radius: 10px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Verify &amp; continue</button>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font-size: 13px; color: #8A94A3;">Resend code in <span style="font-family: 'IBM Plex Mono', monospace;">0:24</span></span>
+                <a href="#back" style="font-size: 13px;">Use another method</a>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px; padding: 14px; border-radius: 10px; background: #E4EEFA;">
+              <span style="width: 8px; height: 8px; border-radius: 50%; background: #1265C8; margin-top: 6px; flex-shrink: 0;"></span>
+              <span style="font-size: 13px; line-height: 1.5; color: #0A3D7A;">Guards on gate terminals can opt for a 30-day trusted-device token so shift handovers don't stall on SMS.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile register -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 11px/1 'IBM Plex Mono', monospace; color: #8A94A3;">REGISTER · SCROLLS</span>
+        <div style="width: 375px; height: 1190px; border: 1px solid #C3CAD4; border-radius: 20px; overflow: hidden; background: #F7F9FC; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+          <div style="padding: 22px 24px; background: linear-gradient(150deg, #0A3D7A 0%, #1265C8 58%, #0E9A94 100%); display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 28px; height: 28px; border-radius: 7px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; font: 800 13px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+              <span style="font: 700 16px/1 Manrope, sans-serif; color: #FFFFFF;">SmartSociety</span>
+            </div>
+            <span style="font: 700 18px/1.3 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.015em;">Register your flat</span>
+          </div>
+          <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(16,28,48,0.06);">
+              <span style="font-size: 13px; line-height: 1.5; color: #5B6779;">Your details are verified against the society register before access is granted — usually within one working day.</span>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Full name</span>
+                <input value="Aarav Mehta" style="height: 48px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Email</span>
+                <input value="aarav.mehta@gmail.com" style="height: 48px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Phone</span>
+                <input value="+91 98204 41207" style="height: 48px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 15px/1 'IBM Plex Mono', monospace; outline: none;" />
+                <span style="font-size: 12px; color: #8A94A3;">Used for gate-pass alerts and login codes.</span>
+              </label>
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+                <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                  <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Block</span>
+                  <select style="height: 48px; padding: 0 10px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; background: #FFFFFF;">
+                    <option>Tower B</option>
+                    <option>Tower A</option>
+                    <option>Tower C</option>
+                  </select>
+                </label>
+                <label style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                  <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat / unit</span>
+                  <input value="1204" style="width: 100%; min-width: 0; height: 48px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 15px/1 'IBM Plex Mono', monospace; outline: none;" />
+                </label>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Occupancy type</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px;">
+                  <span style="height: 44px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">Owner</span>
+                  <span style="height: 44px; border-radius: 7px; color: #5B6779; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; cursor: pointer;">Tenant</span>
+                </div>
+              </div>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Password</span>
+                <input type="password" value="aarav123" style="height: 48px; padding: 0 12px; border: 1px solid #C0392F; border-radius: 8px; font-size: 15px; outline: none;" />
+                <span style="font-size: 12px; font-weight: 600; color: #C0392F;">Needs 8+ characters with one number and one symbol.</span>
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Confirm password</span>
+                <input type="password" value="" placeholder="Re-enter password" style="height: 48px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" />
+              </label>
+              <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: #2E3A4D; cursor: pointer;">
+                <span style="width: 20px; height: 20px; border: 1px solid #C3CAD4; border-radius: 5px; background: #FFFFFF; flex-shrink: 0; margin-top: 1px;"></span>
+                I agree to the <a href="#guidelines">Society Guidelines</a> and consent to my contact details being shared with gate security.
+              </label>
+              <button style="height: 52px; border: 0; border-radius: 10px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Create Account</button>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; padding-bottom: 4px;">
+              <span style="font-size: 14px; color: #5B6779;">Already registered? <a href="#login">Log in</a></span>
+              <span style="font-size: 12px; line-height: 1.5; color: #8A94A3; text-align: center; max-width: 36ch;">Staff accounts are created by the Society Admin — guards and admins do not self-register.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DESKTOP 1280 LOGIN ===== -->
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · DESKTOP LOGIN</span>
+      <span style="font-size: 14px; color: #5B6779;">True split-screen: branded panel 40% (512px), form panel 60% with a 420px card.</span>
+    </div>
+    <div style="width: 1280px; height: 800px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; display: flex; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="width: 512px; flex-shrink: 0; background: linear-gradient(155deg, #0A3D7A 0%, #1265C8 55%, #0E9A94 100%); padding: 44px 48px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+        <div style="position: absolute; width: 520px; height: 520px; border-radius: 50%; background: rgba(255,255,255,0.07); right: -190px; top: -140px;"></div>
+        <div style="position: absolute; width: 340px; height: 340px; border-radius: 50%; background: rgba(255,255,255,0.05); left: -120px; bottom: -110px;"></div>
+        <div style="display: flex; align-items: center; gap: 12px; position: relative;">
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; font: 800 17px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 21px/1 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.01em;">SmartSociety</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px; position: relative;">
+          <span style="font: 800 40px/1.12 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.025em; max-width: 16ch;">{{ tagline }}</span>
+          <span style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.82); max-width: 42ch;">One portal for maintenance dues, gate passes, complaints and amenity bookings — audited end to end.</span>
+          <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #6ECFC9;"></span><span style="font-size: 14px; color: rgba(255,255,255,0.88);">Gate pass verified in under 2 seconds</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #6ECFC9;"></span><span style="font-size: 14px; color: rgba(255,255,255,0.88);">Every entry, edit and payment logged immutably</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #6ECFC9;"></span><span style="font-size: 14px; color: rgba(255,255,255,0.88);">Role-based access for residents, admins and guards</span></div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 28px; position: relative; font: 500 11px/1.6 'IBM Plex Mono', monospace; color: rgba(255,255,255,0.7);">
+          <span>GREEN VALLEY<br />RESIDENTS' WELFARE ASSN.</span>
+          <span>412 FLATS<br />3 TOWERS · 3 GATES</span>
+        </div>
+      </div>
+      <div style="flex: 1; background: #F7F9FC; display: flex; align-items: center; justify-content: center; padding: 48px;">
+        <div style="width: 420px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 32px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 700 26px/1.2 Manrope, sans-serif; letter-spacing: -0.02em;">Log in to your account</span>
+              <span style="font-size: 14px; color: #5B6779;">You'll land on the dashboard for your role.</span>
+            </div>
+            <label style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Email or username</span>
+              <input value="aarav.mehta@gmail.com" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Password</span>
+              <span style="position: relative; display: flex; align-items: center;">
+                <input type="password" value="wrongpass" style="width: 100%; height: 44px; padding: 0 60px 0 12px; border: 1px solid #C0392F; border-radius: 8px; font-size: 15px; outline: none;" />
+                <span style="position: absolute; right: 12px; font-size: 13px; font-weight: 600; color: #1265C8; cursor: pointer;">Show</span>
+              </span>
+              <span style="font-size: 12px; font-weight: 600; color: #C0392F;">Incorrect password. 2 attempts left before a 10-minute lock.</span>
+            </label>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #2E3A4D; cursor: pointer;">
+                <span style="width: 20px; height: 20px; border-radius: 5px; background: #1265C8; display: flex; align-items: center; justify-content: center;">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.2 2.3 4.8-5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" /></svg>
+                </span>
+                Remember me for 30 days
+              </label>
+              <a href="#forgot" style="font-size: 13px;">Forgot password?</a>
+            </div>
+            <button style="height: 48px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Log In</button>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; background: #DCF3F1;">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#0A7A76" stroke-width="1.5" /></svg>
+              <span style="font-size: 13px; line-height: 1.45; color: #0A5C59;"><strong>Secure login.</strong> A one-time code is sent to your registered phone after this step.</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 4px;">
+            <span style="font-size: 14px; color: #5B6779;">New resident? <a href="#register">Create an account</a></span>
+            <span style="font-size: 12px; color: #8A94A3; text-align: right; max-width: 22ch;">Staff accounts are created by the Society Admin.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DESKTOP 1280 REGISTER ===== -->
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font: 500 12px/1 'IBM Plex Mono', monospace; color: #8A94A3;">1280 · DESKTOP REGISTER</span>
+      <span style="font-size: 14px; color: #5B6779;">Same split, same card style; fields pair into two columns so the form stays above the fold.</span>
+    </div>
+    <div style="width: 1280px; height: 860px; border: 1px solid #C3CAD4; border-radius: 16px; overflow: hidden; display: flex; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+      <div style="width: 512px; flex-shrink: 0; background: linear-gradient(155deg, #0A3D7A 0%, #1265C8 55%, #0E9A94 100%); padding: 44px 48px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+        <div style="position: absolute; width: 520px; height: 520px; border-radius: 50%; background: rgba(255,255,255,0.07); right: -190px; top: -140px;"></div>
+        <div style="position: absolute; width: 340px; height: 340px; border-radius: 50%; background: rgba(255,255,255,0.05); left: -120px; bottom: -110px;"></div>
+        <div style="display: flex; align-items: center; gap: 12px; position: relative;">
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; font: 800 17px/1 Manrope, sans-serif; color: #FFFFFF;">S</div>
+          <span style="font: 700 21px/1 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.01em;">SmartSociety</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; position: relative;">
+          <span style="font: 800 36px/1.15 Manrope, sans-serif; color: #FFFFFF; letter-spacing: -0.025em; max-width: 18ch;">Join your society's portal</span>
+          <span style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.82); max-width: 40ch;">Registration links your account to a flat in the society register. Access opens once the Society Admin confirms occupancy.</span>
+          <div style="display: flex; flex-direction: column; gap: 14px; padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); max-width: 380px;">
+            <span style="font: 600 11px/1 'IBM Plex Mono', monospace; color: rgba(255,255,255,0.7); letter-spacing: 0.06em;">WHAT HAPPENS NEXT</span>
+            <div style="display: flex; align-items: flex-start; gap: 10px;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.22); color: #FFFFFF; font: 700 12px/22px Manrope, sans-serif; text-align: center; flex-shrink: 0;">1</span><span style="font-size: 14px; line-height: 1.45; color: #FFFFFF;">Verify your phone with a one-time code</span></div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.22); color: #FFFFFF; font: 700 12px/22px Manrope, sans-serif; text-align: center; flex-shrink: 0;">2</span><span style="font-size: 14px; line-height: 1.45; color: #FFFFFF;">Admin matches your name to the flat record</span></div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.22); color: #FFFFFF; font: 700 12px/22px Manrope, sans-serif; text-align: center; flex-shrink: 0;">3</span><span style="font-size: 14px; line-height: 1.45; color: #FFFFFF;">Dashboard, bills and gate passes unlock</span></div>
+          </div>
+        </div>
+        <span style="position: relative; font: 500 11px/1.6 'IBM Plex Mono', monospace; color: rgba(255,255,255,0.7);">RESIDENT SELF-REGISTRATION ONLY</span>
+      </div>
+      <div style="flex: 1; background: #F7F9FC; display: flex; align-items: center; justify-content: center; padding: 40px 48px;">
+        <div style="width: 520px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="background: #FFFFFF; border: 1px solid #E2E6EC; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 4px 12px rgba(16,28,48,0.08);">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font: 700 26px/1.2 Manrope, sans-serif; letter-spacing: -0.02em;">Create your resident account</span>
+              <span style="font-size: 14px; color: #5B6779;">All fields are required. Verification usually takes one working day.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Full name</span>
+                <input value="Aarav Mehta" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Phone</span>
+                <input value="+91 98204 41207" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 15px/1 'IBM Plex Mono', monospace; outline: none;" />
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Email</span>
+                <input value="aarav.mehta@gmail.com" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" style-focus="border-color: #1265C8; box-shadow: 0 0 0 3px #B9D3F2;" />
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Block / tower</span>
+                <select style="height: 44px; padding: 0 10px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; background: #FFFFFF;">
+                  <option>Tower B</option>
+                  <option>Tower A</option>
+                  <option>Tower C</option>
+                  <option>Tower D</option>
+                </select>
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Flat / unit number</span>
+                <input value="1204" placeholder="e.g. 1204" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font: 400 15px/1 'IBM Plex Mono', monospace; outline: none;" />
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Occupancy type</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; background: #F1F3F7; border-radius: 10px; max-width: 260px;">
+                  <span style="height: 38px; border-radius: 7px; background: #FFFFFF; color: #0B4FA0; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(16,28,48,0.08); cursor: pointer;">Owner</span>
+                  <span style="height: 38px; border-radius: 7px; color: #5B6779; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; cursor: pointer;">Tenant</span>
+                </div>
+              </div>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Password</span>
+                <input type="password" value="aarav123" style="height: 44px; padding: 0 12px; border: 1px solid #C0392F; border-radius: 8px; font-size: 15px; outline: none;" />
+                <span style="font-size: 12px; font-weight: 600; color: #C0392F;">Needs 8+ characters with one number and one symbol.</span>
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font: 600 12px/1.4 'Public Sans', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: #5B6779;">Confirm password</span>
+                <input type="password" value="" placeholder="Re-enter password" style="height: 44px; padding: 0 12px; border: 1px solid #C3CAD4; border-radius: 8px; font-size: 15px; outline: none;" />
+                <span style="font-size: 12px; color: #8A94A3;">Must match the password above.</span>
+              </label>
+            </div>
+            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: #2E3A4D; cursor: pointer;">
+              <span style="width: 20px; height: 20px; border: 1px solid #C3CAD4; border-radius: 5px; background: #FFFFFF; flex-shrink: 0; margin-top: 1px;"></span>
+              I agree to the <a href="#guidelines">Society Guidelines</a> and consent to my contact details being shared with gate security for visitor verification.
+            </label>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <button style="height: 48px; padding: 0 24px; border: 0; border-radius: 8px; background: #1265C8; color: #FFFFFF; font-size: 16px; font-weight: 700; cursor: pointer;" style-hover="background: #0B4FA0;">Create Account</button>
+              <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #0A5C59;">
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.5l5 2v4.5c0 3-2.2 5.3-5 6.5-2.8-1.2-5-3.5-5-6.5V4.5l5-2Z" stroke="#0A7A76" stroke-width="1.5" /></svg>
+                Phone verified by one-time code next
+              </span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 4px;">
+            <span style="font-size: 14px; color: #5B6779;">Already registered? <a href="#login">Log in</a></span>
+            <span style="font-size: 12px; color: #8A94A3; text-align: right; max-width: 26ch;">Staff accounts are created by the Society Admin.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;tagline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Smarter living, safer community&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Branding&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { tagline: this.props.tagline ?? 'Smarter living, safer community' };
+  }
+}
+</script>
+</body>
+</html>
