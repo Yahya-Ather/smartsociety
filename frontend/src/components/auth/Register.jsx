@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FiUser, FiMail, FiPhone, FiHome, FiLock, FiArrowRight, FiCheck } from "react-icons/fi";
 import { FormField, TextInput } from "../ui/Input.jsx";
 import Button from "../ui/Button.jsx";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import api from "../../services/api.js";
 import communityGate from "../../assets/images/community-gated-entrance.png";
 import logo from "../../assets/images/logo.png";
@@ -36,6 +37,7 @@ function validate(values) {
 const FIELD_ICON = { name: FiUser, email: FiMail, phone: FiPhone, flat: FiHome, password: FiLock };
 
 export default function Register() {
+  const { theme } = useTheme();
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
@@ -61,7 +63,7 @@ export default function Register() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-6 transition-colors duration-300">
+      <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-6 transition-colors duration-300 ${theme === "dark" ? "dark" : ""}`}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,7 +92,7 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row transition-colors duration-300">
+    <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row transition-colors duration-300 ${theme === "dark" ? "dark" : ""}`}>
       <div
         className="md:w-[38%] md:flex-shrink-0 px-6 py-8 md:p-12 flex flex-col gap-3 text-white relative overflow-hidden"
         style={BRAND_GRADIENT}

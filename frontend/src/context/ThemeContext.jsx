@@ -13,8 +13,11 @@ function getInitialTheme() {
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
 
+  // Deliberately does NOT touch document.documentElement — dark mode is
+  // scoped to the public pages that opt into it (Home/Login/Register apply
+  // the `dark` class to their own root element), not applied globally, so
+  // authenticated dashboards always render light regardless of this setting.
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 

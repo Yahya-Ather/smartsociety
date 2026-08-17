@@ -17,6 +17,7 @@ import {
   IconArrowRight,
 } from "../components/common/icons.jsx";
 import ThemeToggle from "../components/common/ThemeToggle.jsx";
+import { useTheme } from "../context/ThemeContext.jsx";
 import communityCourtyard from "../assets/images/community-courtyard-day.png";
 import communityGuard from "../assets/images/community-security-guard.png";
 import communityPool from "../assets/images/community-evening-pool.png";
@@ -327,9 +328,10 @@ function LandingNav() {
 export default function Home() {
   const [activeRole, setActiveRole] = useState("resident");
   const role = ROLE_DATA[activeRole];
+  const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
+    <div className={`min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300 ${theme === "dark" ? "dark" : ""}`}>
       {/* Sticky nav lives at the page's top level, not nested inside the hero —
           position:sticky only stays stuck while scrolling within its own parent's
           box, so nesting it inside the (much shorter) hero made it stop sticking

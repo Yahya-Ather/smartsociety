@@ -9,7 +9,7 @@ export default function Loader({ show }) {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-[#F2F6FC] dark:bg-slate-950"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-[#F2F6FC]"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45, ease: "easeInOut" }}
@@ -27,8 +27,8 @@ export default function Loader({ show }) {
             />
           </motion.div>
           <div className="flex flex-col items-center gap-1.5">
-            <span className="font-heading font-bold text-lg text-brand-700 dark:text-slate-100">SmartSociety</span>
-            <span className="text-sm text-slate-500 dark:text-slate-400">Smarter living, safer community</span>
+            <span className="font-heading font-bold text-lg text-brand-700">SmartSociety</span>
+            <span className="text-sm text-slate-500">Smarter living, safer community</span>
           </div>
         </motion.div>
       )}

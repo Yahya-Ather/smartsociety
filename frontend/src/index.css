@@ -9,11 +9,6 @@ body {
   background: #f8fafc;
 }
 
-html.dark,
-html.dark body {
-  background: #0b1220;
-}
-
 html {
   transition: background-color 0.2s ease;
 }
@@ -38,7 +33,9 @@ body {
   transition: color 0.2s ease;
 }
 
-html.dark body {
+/* .dark is applied per-subtree (by Home/Login/Register), never on html/body
+   — dashboards render outside that scope and so are never affected. */
+.dark {
   color: #e2e8f0;
 }
 
@@ -52,11 +49,11 @@ a:hover {
   text-decoration: underline;
 }
 
-html.dark a {
+.dark a {
   color: #5eead4;
 }
 
-html.dark a:hover {
+.dark a:hover {
   color: #99f6e4;
 }
 

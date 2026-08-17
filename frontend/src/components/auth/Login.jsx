@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { FiUser, FiLock, FiEye, FiEyeOff, FiArrowRight } from "react-icons/fi";
 import { useAuth } from "../../context/AuthContext.jsx";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import { FormField, TextInput } from "../ui/Input.jsx";
 import Button from "../ui/Button.jsx";
 import communityPool from "../../assets/images/community-evening-pool.png";
@@ -28,6 +29,7 @@ function validateCredentials(values) {
 
 export default function Login() {
   const { login } = useAuth();
+  const { theme } = useTheme();
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +47,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row transition-colors duration-300">
+    <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row transition-colors duration-300 ${theme === "dark" ? "dark" : ""}`}>
       <div
         className="md:w-[42%] md:flex-shrink-0 px-6 py-8 md:p-12 flex flex-col justify-between gap-8 text-white relative overflow-hidden"
         style={BRAND_GRADIENT}
